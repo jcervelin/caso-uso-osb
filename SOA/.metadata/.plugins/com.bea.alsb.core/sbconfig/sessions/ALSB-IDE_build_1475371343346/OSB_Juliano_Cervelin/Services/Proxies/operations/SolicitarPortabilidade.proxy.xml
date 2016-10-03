@@ -48,7 +48,7 @@
       </con:stage>
     </con:pipeline>
     <con:pipeline type="response" name="PipelineDefault_response" xmlns:con="http://www.bea.com/wli/sb/pipeline/config"/>
-    <con:pipeline type="request" name="PipelineObterDadosConta_request" xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
+    <con:pipeline type="request" name="PipelineSolicitarPortabilidade_request" xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
       <con:stage name="Validar">
         <con:context>
           <con2:varNsDecl namespace="http://acme.com.br/SN/YUMService/JulianoCervelin" prefix="jul" xmlns:con2="http://www.bea.com/wli/sb/stages/config"/>
@@ -262,7 +262,7 @@
         </con:actions>
       </con:stage>
     </con:pipeline>
-    <con:pipeline type="response" name="PipelineObterDadosConta_response" xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
+    <con:pipeline type="response" name="PipelineSolicitarPortabilidade_response" xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
       <con:stage name="Validar">
         <con:context>
           <con2:varNsDecl namespace="http://acme.com.br/SN/YUMService/JulianoCervelin" prefix="jul" xmlns:con2="http://www.bea.com/wli/sb/stages/config"/>
@@ -344,16 +344,16 @@
       </con2:stage>
     </con2:pipeline>
     <con:flow xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
-      <con:branch-node type="operation" name="BranchOperationObterStatusFinanceiroCliente">
+      <con:branch-node type="operation" name="BranchOperationSolicitarPortabilidade">
         <con:context/>
         <con:branch-table>
           <con:branch name="solicitarPortabilidade">
             <con:operator>equals</con:operator>
             <con:value/>
             <con:flow>
-              <con:pipeline-node name="PipelineObterDadosConta">
-                <con:request>PipelineObterDadosConta_request</con:request>
-                <con:response>PipelineObterDadosConta_response</con:response>
+              <con:pipeline-node name="PipelineSolicitarPortabilidade">
+                <con:request>PipelineSolicitarPortabilidade_request</con:request>
+                <con:response>PipelineSolicitarPortabilidade_response</con:response>
               </con:pipeline-node>
               <con:route-node name="Route_To_SolicitarPortabilidade">
                 <con:context>
