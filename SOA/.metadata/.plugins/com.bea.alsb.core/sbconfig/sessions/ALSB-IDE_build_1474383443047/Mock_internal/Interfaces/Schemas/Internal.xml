@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:xmlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:xml-content>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;tns:ParametrosInternal xmlns:tns="http://internal.com.br/SN/Internal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://internal.com.br/SN/Internal Internal.xsd ">
+  &lt;tns:num_documento>tns:num_documento&lt;/tns:num_documento>
+&lt;/tns:ParametrosInternal></con:xml-content>
+</con:xmlEntry>

@@ -1,0 +1,29 @@
+<schema targetNamespace="http://acme.com.br/SN/INOVIXService/JulianoCervelin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acme.com.br/SN/INOVIXService/JulianoCervelin" xmlns:mc="http://acme.com.br/MC/JulianoCervelin">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Portability.xsd"/>
+
+	<element name="SolicitarPortabilidade">
+		<complexType>
+			<sequence>
+				<element name="cpf" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="SolicitarPortabilidadeResponse">
+		<complexType>
+			<choice>
+				<sequence>
+					<element name="portabilidade" type="mc:Portabilidade"/>
+				</sequence>
+			</choice>
+			<choice>
+				<sequence>
+					<element name="mensagem" type="mc:MensagemRetorno"/>
+				</sequence>
+			</choice>
+		</complexType>
+	</element>
+
+
+</schema>

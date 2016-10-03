@@ -1,0 +1,20 @@
+<definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterStatusFinanceiroCliente" name="obterStatusFinanceiroCliente-concrete" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterStatusFinanceiroCliente" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterStatusFinanceiroCliente" location="../../Adapters/AdapterDBCobol/obterStatusFinanceiroCliente.wsdl"/>
+  <binding name="obterStatusFinanceiroCliente_ptt-binding" type="tns:obterStatusFinanceiroCliente_ptt">
+    <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+    <operation name="obterStatusFinanceiroCliente">
+      <soap:operation soapAction="obterStatusFinanceiroCliente"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="obterStatusFinanceiroCliente-service">
+    <port name="obterStatusFinanceiroCliente-port" binding="tns:obterStatusFinanceiroCliente_ptt-binding">
+      <soap:address location="jca://eis/DB/INOVIX/Juliano"/>
+    </port>
+  </service>
+</definitions>

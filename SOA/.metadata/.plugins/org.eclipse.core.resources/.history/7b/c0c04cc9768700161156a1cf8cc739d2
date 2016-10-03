@@ -1,0 +1,14 @@
+<schema targetNamespace="http://acme.com.br/MC/JulianoCervelin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acme.com.br/MC/JulianoCervelin">
+
+	<include schemaLocation="Operadora.xsd"/>
+
+	<complexType name="Portabilidade">
+		<sequence>
+			<element name="bilhetePortabilidade" type="integer"/>
+			<element name="dataHoraJanela" type="dateTime"/>
+			<element name="operadoraOrigem" type="tns:Operadora"/>
+			<element name="operadoraDestino" type="tns:Operadora"/>	
+		</sequence>
+	</complexType>	
+
+</schema>

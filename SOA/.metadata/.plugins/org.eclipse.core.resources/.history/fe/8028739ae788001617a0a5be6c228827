@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://acme.com.br/SN/INOVIXService/JulianoCervelin" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:mc="http://acme.com.br/MC/JulianoCervelin" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="INOVIXService" targetNamespace="http://acme.com.br/SN/INOVIXService/JulianoCervelin">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://acme.com.br/SN/INOVIXService/JulianoCervelin">
+			<xsd:include schemaLocation="../xsd/ParametrosINOVIX.xsd" />
+			<xsd:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/AcmeFault.xsd" />
+			<xsd:element name="acmeFault" type="mc:AcmeFault" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="acmeFault">
+		<wsdl:part element="tns:acmeFault" name="fault" />
+	</wsdl:message>
+
+	<wsdl:message name="solicitarBilhetePortabilidade">
+		<wsdl:part element="tns:SolicitarBilhetePortabilidade" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="solicitarBilhetePortabilidadeResponse">
+		<wsdl:part element="tns:SolicitarBilhetePortabilidadeResponse" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:portType name="INOVIXService">
+		<wsdl:operation name="solicitarBilhetePortabilidade">
+			<wsdl:input message="tns:solicitarBilhetePortabilidade" />
+			<wsdl:output message="tns:solicitarBilhetePortabilidadeResponse"/>
+			<wsdl:fault name="acmeFault" message="tns:acmeFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- <wsdl:portType name="INOVIXServiceCallback">
+		<wsdl:operation name="solicitarBilhetePortabilidadeResponse">
+			<wsdl:input message="tns:solicitarBilhetePortabilidadeResponse" />
+		</wsdl:operation>
+	</wsdl:portType> -->
+
+	<wsdl:binding name="INOVIXServiceSOAP" type="tns:INOVIXService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="solicitarBilhetePortabilidade">
+			<soap:operation soapAction="http://acme.com.br/SN/INOVIXService/SolicitarBilhetePortabilidade" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="acmeFault">
+				<soap:fault name="acmeFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<!-- <wsdl:binding name="INOVIXServiceCallbackSOAP" type="tns:INOVIXServiceCallback">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="solicitarBilhetePortabilidadeResponse">
+			<soap:operation soapAction="http://acme.com.br/SN/INOVIXService/SolicitarBilhetePortabilidadeCallback" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding> -->
+
+	<wsdl:service name="INOVIXService">
+		<wsdl:port binding="tns:INOVIXServiceSOAP" name="INOVIXServiceSOAP">
+			<soap:address location="?????" />
+		</wsdl:port>
+		<!-- <wsdl:port binding="tns:INOVIXServiceCallbackSOAP" name="INOVIXServiceCallbackSOAP">
+			<soap:address location="?????" />
+		</wsdl:port> -->
+	</wsdl:service>
+	<!-- <wsdl:service name="INOVIXServiceCallback">
+		<wsdl:port binding="tns:INOVIXServiceCallbackSOAP" name="INOVIXServiceCallbackSOAP">
+			<soap:address location="?????" />
+		</wsdl:port>
+	</wsdl:service> -->
+	
+	
+</wsdl:definitions>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/pipeline/config" xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
+  <ser:coreEntry isProxy="true" isEnabled="true" isAutoPublish="false" isTracingEnabled="false">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="OSB_BHK/BHK/Resources/EBS/wsdl/PessoaService"/>
+      <con:binding>
+        <con:name>PessoaServiceSOAP</con:name>
+        <con:namespace>http://sysmap.com.br/SN/PessoaService/Cabelo</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+      <con:WSI-compliant>false</con:WSI-compliant>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/OSB_BHK/Services/Proxies/Operations/PessoaService</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-930358144743594750--60234d66.157587b94a0.-7f3e">
+    <con3:pipeline type="request" name="PipelinePairNode1_request">
+      <con3:stage name="stage1">
+        <con3:context/>
+        <con3:actions>
+          <con2:Error>
+            <con:id>_ActionId-930358144743594750--60234d66.157587b94a0.-7f3f</con:id>
+            <con2:errCode>008</con2:errCode>
+            <con2:message>Erro qualquer</con2:message>
+          </con2:Error>
+        </con3:actions>
+      </con3:stage>
+    </con3:pipeline>
+    <con3:pipeline type="response" name="PipelinePairNode1_response"/>
+    <con3:pipeline type="error" name="_onErrorHandler-930358144743594750--60234d66.157587b94a0.-7f3e">
+      <con3:stage name="stageError">
+        <con3:context/>
+        <con3:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con:id>_ActionId-930358144743594750--60234d66.157587b94a0.-7f21</con:id>
+            <con2:location>
+              <con:xpathText>.</con:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con:xqueryText><![CDATA[<tns:sysMapFault xmlns:tns="http://sysmap.com.br/MC/CursoSOA/Cabelo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sysmap.com.br/MC/CursoSOA/Cabelo SysMapFault.xsd ">
+  <tns:codigo>12121</tns:codigo>
+  <tns:descricao>1212121</tns:descricao>
+</tns:sysMapFault>]]></con:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con:reply isError="true">
+            <con:id>_ActionId-930358144743594750--60234d66.157587b94a0.-7f0e</con:id>
+          </con:reply>
+        </con3:actions>
+      </con3:stage>
+    </con3:pipeline>
+    <con:flow xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
+      <con:branch-node type="operation" name="BranchNodePessoaService">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="cadastraPessoa">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:route-node name="RouteNodeCadastraPessoa">
+                <con:context>
+                  <con3:userNsDecl namespace="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" prefix="quer" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                  <con3:userNsDecl namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/SPI_PESSOA" prefix="spi" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                  <con3:varNsDecl namespace="http://sysmap.com.br/SN/Pessoa" prefix="pes" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                  <con1:route>
+                    <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-7aaf</con3:id>
+                    <con1:service ref="OSB_BHK/Services/Proxies/SPIPessoaService" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con1:operation>SPI_PESSOA</con1:operation>
+                    <con1:outboundTransform>
+                      <con2:assign varName="parametrosCadastraPessoa">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-7a17</con3:id>
+                        <con2:expr>
+                          <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">$body/pes:parametrosCadastraPessoa</con3:xqueryText>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:replace varName="body" contents-only="true">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-7a6b</con3:id>
+                        <con2:location>
+                          <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con3:xqueryTransform xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                            <con3:resource ref="OSB_BHK/BHK/Resources/Transformations/cadastraPessoaToSPIPessoa"/>
+                            <con3:param name="parametrosCadastraPessoa">
+                              <con3:path>$body/pes:parametrosCadastraPessoa</con3:path>
+                            </con3:param>
+                          </con3:xqueryTransform>
+                        </con2:expr>
+                      </con2:replace>
+                    </con1:outboundTransform>
+                    <con1:responseTransform>
+                      <con2:replace varName="body" contents-only="true">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-79ee</con3:id>
+                        <con2:location>
+                          <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con3:xqueryTransform xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                            <con3:resource ref="OSB_BHK/BHK/Resources/Transformations/SPIPessoToCadastraPessoaResponse"/>
+                            <con3:param name="outputParameters">
+                              <con3:path>$body/spi:OutputParameters</con3:path>
+                            </con3:param>
+                            <con3:param name="parametrosCadastraPessoa">
+                              <con3:path>$parametrosCadastraPessoa</con3:path>
+                            </con3:param>
+                          </con3:xqueryTransform>
+                        </con2:expr>
+                      </con2:replace>
+                    </con1:responseTransform>
+                  </con1:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:branch name="buscaPessoa">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:route-node name="RouteNodeBuscaPessoa">
+                <con:context>
+                  <con3:userNsDecl namespace="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" prefix="quer" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                  <con3:varNsDecl namespace="http://sysmap.com.br/SN/Pessoa" prefix="pes" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                  <con3:varNsDecl namespace="http://sysmap.com.br/MC/CursoSOA/Cabelo" prefix="cab" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                  <con1:route>
+                    <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-7a9e</con3:id>
+                    <con1:service ref="OSB_BHK/Services/Proxies/QueryTPessoaService" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con1:operation>QUERY_T_PESSOA</con1:operation>
+                    <con1:outboundTransform>
+                      <con2:assign varName="idPessoa">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-7a42</con3:id>
+                        <con2:expr>
+                          <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">$body/pes:parametrosBuscaPessoa/pes:pessoa/cab:id/text()</con3:xqueryText>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:replace varName="body" contents-only="true">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-7a4f</con3:id>
+                        <con2:location>
+                          <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config">&lt;p:QUERY_T_PESSOAInput xmlns:p="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA QUERY_T_PESSOA.xsd ">
+  &lt;p:CD_PESSOA>{$idPessoa}&lt;/p:CD_PESSOA>
+&lt;/p:QUERY_T_PESSOAInput></con3:xqueryText>
+                        </con2:expr>
+                      </con2:replace>
+                    </con1:outboundTransform>
+                    <con1:responseTransform>
+                      <con2:replace varName="body" contents-only="true">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-5919570447899172270--597891c1.15749c5482d.-79e3</con3:id>
+                        <con2:location>
+                          <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con3:xqueryTransform xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                            <con3:resource ref="OSB_BHK/BHK/Resources/Transformations/QueryTPessoa_To_ConsultaPessoa"/>
+                            <con3:param name="qUERY_T_PESSOAOutputCollection">
+                              <con3:path>$body/quer:QUERY_T_PESSOAOutputCollection</con3:path>
+                            </con3:param>
+                          </con3:xqueryTransform>
+                        </con2:expr>
+                      </con2:replace>
+                    </con1:responseTransform>
+                  </con1:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:branch name="desastivaPessoa">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNode1">
+                <con:request>PipelinePairNode1_request</con:request>
+                <con:response>PipelinePairNode1_response</con:response>
+              </con:pipeline-node>
+              <con:route-node name="RouteNodeDesativaPessoa">
+                <con:context>
+                  <con5:varNsDecl namespace="http://sysmap.com.br/SN/Pessoa" prefix="pes" xmlns:con5="http://www.bea.com/wli/sb/stages/config"/>
+                  <con5:varNsDecl namespace="http://sysmap.com.br/MC/CursoSOA/Cabelo" prefix="cab" xmlns:con5="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                  <con1:route>
+                    <con5:id xmlns:con5="http://www.bea.com/wli/sb/stages/config">_ActionId-930358144743594750--60234d66.157587b94a0.-7f83</con5:id>
+                    <con1:service ref="OSB_BHK/Services/Proxies/Queue-CursoSOAService" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con1:operation>desastivaPessoa</con1:operation>
+                    <con1:outboundTransform/>
+                    <con1:responseTransform/>
+                  </con1:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

@@ -1,0 +1,14 @@
+package br.com.acme.inovix.geraticket.converter;
+
+import br.com.acme.inovix.geraticket.bean.Portabilidade;
+
+
+public class PortabilidadeConverter {
+
+
+	   public static Portabilidade convert(String customerList) {
+
+		    return custArray;
+		  }
+	
+}

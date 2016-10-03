@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:reference[@name='getCustomerByCpf']</loc>
+      <line>16</line>
+      <col>78</col>
+      <file>C:\Users\Juliano\Documents\Curso SOA\OSB-Curso-SOA\SOA\OSB_Juliano_Cervelin\Resources\Adapters\AdapterDBCobol\composite.xml</file>
+      <name>C:\Users\Juliano\Documents\Curso SOA\OSB-Curso-SOA\SOA\OSB_Juliano_Cervelin\Resources\Adapters\AdapterDBCobol\composite.xml</name>
+      <fix/>
+      <msg>Reference getCustomerByCpf does not exist as wire target</msg>
+   </Fault>
+</Faults>

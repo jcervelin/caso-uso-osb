@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<wsdl:definitions name="ClienteService" targetNamespace="http://inovix.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://inovix.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mdc="http://inovix.org/MC">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://inovix.org">
+			<xsd:include schemaLocation="../Schemas/ParametrosBuscarClientePorCPF.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ResultadoBuscarClientePorCPF.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ParametrosObterStatusFinanceiroCliente.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ResultadoObterStatusFinanceiroCliente.xsd"/>			
+			<xsd:include schemaLocation="../Schemas/ParametrosAtualizarCliente.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ResultadoAtualizarCliente.xsd"/>			
+			<xsd:import namespace="http://inovix.org/MC" schemaLocation="../ModeloCanonico/INOVIXFault.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="INOVIXFault">
+		<wsdl:part element="mdc:INOVIXFault" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="BuscarClientePorCPFRequest">
+		<wsdl:part element="tns:ParametrosBuscarClientePorCPF" name="ParametrosBuscarClientePorCPF"/>
+	</wsdl:message>
+
+	<wsdl:message name="BuscarClientePorCPFResponse">
+		<wsdl:part element="tns:ResultadoBuscarClientePorCPF" name="ResultadoBuscarClientePorCPF"/>
+	</wsdl:message>
+
+	<wsdl:message name="ObterStatusFinanceiroClienteRequest">
+		<wsdl:part element="tns:ParametrosObterStatusFinanceiroCliente" name="ParametrosObterStatusFinanceiroCliente"/>
+	</wsdl:message>
+
+	<wsdl:message name="ObterStatusFinanceiroClienteResponse">
+		<wsdl:part element="tns:ResultadoObterStatusFinanceiroCliente" name="ResultadoObterStatusFinanceiroCliente"/>
+	</wsdl:message>
+
+	<wsdl:message name="AtualizarClienteRequest">
+		<wsdl:part element="tns:ParametrosAtualizarCliente" name="ParametrosAtualizarCliente"/>
+	</wsdl:message>
+
+	<wsdl:message name="AtualizarClienteResponse">
+		<wsdl:part element="tns:ResultadoAtualizarCliente" name="ResultadoAtualizarCliente"/>
+	</wsdl:message>
+
+	
+	<wsdl:portType name="ClienteService">
+	
+		<wsdl:operation name="BuscarClientePorCPF">
+			<wsdl:input message="tns:BuscarClientePorCPFRequest"/>
+			<wsdl:output message="tns:BuscarClientePorCPFResponse"/>
+			<wsdl:fault name="INOVIXFault" message="tns:INOVIXFault"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="ObterStatusFinanceiroCliente">
+			<wsdl:input message="tns:ObterStatusFinanceiroClienteRequest"/>
+			<wsdl:output message="tns:ObterStatusFinanceiroClienteResponse"/>
+			<wsdl:fault name="INOVIXFault" message="tns:INOVIXFault"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="AtualizarCliente">
+			<wsdl:input message="tns:AtualizarClienteRequest"/>
+			<wsdl:output message="tns:AtualizarClienteResponse"/>
+			<wsdl:fault name="INOVIXFault" message="tns:INOVIXFault"/>
+		</wsdl:operation>
+
+
+	</wsdl:portType>
+
+	<wsdl:binding name="ClienteServiceSOAP" type="tns:ClienteService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<wsdl:operation name="BuscarClientePorCPF">
+			<soap:operation soapAction="http://inovix.org/ClienteService/BuscarClientePorCPF"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="INOVIXFault">
+				<soap:fault name="INOVIXFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="ObterStatusFinanceiroCliente">
+			<soap:operation soapAction="http://inovix.org/ClienteService/ObterStatusFinanceiroCliente"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="INOVIXFault">
+				<soap:fault name="INOVIXFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>		
+
+		<wsdl:operation name="AtualizarCliente">
+			<soap:operation soapAction="http://inovix.org/ClienteService/AtualizarCliente"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="INOVIXFault">
+				<soap:fault name="INOVIXFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+
+	</wsdl:binding>
+
+	<wsdl:service name="ClienteService">
+		<wsdl:port binding="tns:ClienteServiceSOAP" name="ClienteServiceSOAP">
+			<soap:address location="??"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="../ModeloCanonico/INOVIXFault.xsd" namespace="http://inovix.org/MC" ref="OSB_Inoix_Cabelo/Resources/ModeloCanonico/INOVIXFault"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ResultadoObterStatusFinanceiroCliente.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ResultadoObterStatusFinanceiroCliente"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ParametrosAtualizarCliente.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ParametrosAtualizarCliente"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ResultadoBuscarClientePorCPF.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ResultadoBuscarClientePorCPF"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ParametrosObterStatusFinanceiroCliente.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ParametrosObterStatusFinanceiroCliente"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ResultadoAtualizarCliente.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ResultadoAtualizarCliente"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ParametrosBuscarClientePorCPF.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ParametrosBuscarClientePorCPF"/>
+    </con:dependencies>
+    <con:targetNamespace>http://inovix.org</con:targetNamespace>
+</con:wsdlEntry>

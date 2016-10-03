@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://acme.com.br/SN/APTService/JulianoCervelin" 
+xmlns:tns="http://acme.com.br/SN/APTService/JulianoCervelin" 
+xmlns:mc="http://acme.com.br/MC/JulianoCervelin" 
+elementFormDefault="qualified">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/MensagemRetorno.xsd"/>
+
+	<element name="SolicitarBilhetePortabilidade">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+				<element name="account" type="mc:Account"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="SolicitarBilhetePortabilidadeResponse">
+		<complexType>
+			<sequence>
+				<element name="mensagem" type="mc:MensagemRetorno"/>
+			</sequence>
+		</complexType>
+	</element>
+
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/Customer"/>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/Account"/>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/MensagemRetorno.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/MensagemRetorno"/>
+    </con:dependencies>
+    <con:targetNamespace>http://acme.com.br/SN/APTService/JulianoCervelin</con:targetNamespace>
+</con:schemaEntry>

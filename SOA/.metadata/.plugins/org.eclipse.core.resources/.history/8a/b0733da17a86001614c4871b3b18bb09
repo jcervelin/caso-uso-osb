@@ -1,0 +1,24 @@
+<schema targetNamespace="http://sysmap.com.br/SN/Pessoa" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sysmap.com.br/SN/Pessoa" xmlns:mc="http://sysmap.com.br/MC/CursoSOA/Juliano">
+
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+
+
+	<element name="GetCustomerByCPF">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="mc:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoBuscaPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="mc:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+
+</schema>

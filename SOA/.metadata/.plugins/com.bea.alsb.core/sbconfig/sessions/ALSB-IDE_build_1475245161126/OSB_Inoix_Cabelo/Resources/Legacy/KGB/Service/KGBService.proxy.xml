@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Contracts/KGBService"/>
+      <con:port>
+        <con:name>KGBServiceSOAP</con:name>
+        <con:namespace>http://kgb.org</con:namespace>
+      </con:port>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/OSB_Inoix_Cabelo/Resources/Legacy/KGB/Service/KGBService</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router>
+    <con:pipeline type="request" name="PipelinePairNodeGetCustomerByCPF_request"/>
+    <con:pipeline type="response" name="PipelinePairNodeGetCustomerByCPF_response">
+      <con:stage name="stageGetCustomerByCPFMock">
+        <con:context>
+          <con1:varNsDecl namespace="http://kgb.org" prefix="kgb"/>
+        </con:context>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7ffb</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<tns:ResultadoGetCustomerByCPF xmlns:tns="http://kgb.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kgb.org GetCustomerByCPF.xsd ">
+  <tns:customer>
+    <tns:cpf>{$body/kgb:ParametrosGetCustomerByCPF/kgb:cpf/text()}</tns:cpf>
+    <tns:name>Nome Mocado</tns:name>
+  </tns:customer>
+</tns:ResultadoGetCustomerByCPF>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="stageValidacao">
+        <con:context>
+          <con1:varNsDecl namespace="http://kgb.org" prefix="kgb"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7ff9</con1:id>
+            <con2:schema ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/GetCustomerByCPF"/>
+            <con2:schemaElement xmlns:kgb="http://kgb.org">kgb:ResultadoGetCustomerByCPF</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./kgb:ResultadoGetCustomerByCPF</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="request" name="PipelinePairNodeObterStatusFinancialCliente_request"/>
+    <con:pipeline type="response" name="PipelinePairNodeObterStatusFinancialCliente_response">
+      <con:stage name="stageObterStatusFinancialCliente">
+        <con:context>
+          <con1:varNsDecl namespace="http://kgb.org" prefix="kgb"/>
+        </con:context>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7ff7</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<tns:ResultadoObterStatusFinanceiroCliente xmlns:tns="http://kgb.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kgb.org ObterStatusFinanceiroCliente.xsd ">
+  <tns:customer>
+    <tns:statusFinanceiro>
+      <tns:debitoAtivo>true</tns:debitoAtivo>
+    </tns:statusFinanceiro>
+  </tns:customer>
+</tns:ResultadoObterStatusFinanceiroCliente>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="stageValidacao">
+        <con:context>
+          <con1:varNsDecl namespace="http://kgb.org" prefix="kgb"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7ff5</con1:id>
+            <con2:schema ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/ObterStatusFinanceiroCliente"/>
+            <con2:schemaElement xmlns:kgb="http://kgb.org">kgb:ResultadoObterStatusFinanceiroCliente</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./kgb:ResultadoObterStatusFinanceiroCliente</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="request" name="PipelinePairNodeObterDadosConta_request"/>
+    <con:pipeline type="response" name="PipelinePairNodeObterDadosConta_response">
+      <con:stage name="stageObterDadosConta">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7ff3</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<tns:ResultadoObterDadosConta xmlns:tns="http://kgb.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kgb.org ObterDadosConta.xsd ">
+  <tns:account>
+    <tns:id>555</tns:id>
+    <tns:diaCiclo>30</tns:diaCiclo>
+  </tns:account>
+</tns:ResultadoObterDadosConta>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="stageValidacao">
+        <con:context>
+          <con1:varNsDecl namespace="http://kgb.org" prefix="kgb"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7ff1</con1:id>
+            <con2:schema ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/ObterDadosConta"/>
+            <con2:schemaElement xmlns:kgb="http://kgb.org">kgb:ResultadoObterDadosConta</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./kgb:ResultadoObterDadosConta</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:branch-node type="operation" name="BranchNode1">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="GetCustomerByCPF">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNodeGetCustomerByCPF">
+                <con:request>PipelinePairNodeGetCustomerByCPF_request</con:request>
+                <con:response>PipelinePairNodeGetCustomerByCPF_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:branch name="ObterStatusFinanceiroCliente">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNodeObterStatusFinancialCliente">
+                <con:request>PipelinePairNodeObterStatusFinancialCliente_request</con:request>
+                <con:response>PipelinePairNodeObterStatusFinancialCliente_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:branch name="ObterDadosConta">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNodeObterDadosConta">
+                <con:request>PipelinePairNodeObterDadosConta_request</con:request>
+                <con:response>PipelinePairNodeObterDadosConta_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

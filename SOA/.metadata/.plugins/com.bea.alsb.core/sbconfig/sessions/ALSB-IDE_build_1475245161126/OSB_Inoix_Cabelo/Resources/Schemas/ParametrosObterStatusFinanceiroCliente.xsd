@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://inovix.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inovix.org">
+
+	<complexType name="ParametrosObterStatusFinanceiroCliente">
+		<sequence>
+			<element name="cpf">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="11"/>
+						<maxLength value="11"/>
+					</restriction>					
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>	
+	
+	<element name="ParametrosObterStatusFinanceiroCliente" type="tns:ParametrosObterStatusFinanceiroCliente"/>
+
+</schema>]]></con:schema>
+    <con:targetNamespace>http://inovix.org</con:targetNamespace>
+</con:schemaEntry>

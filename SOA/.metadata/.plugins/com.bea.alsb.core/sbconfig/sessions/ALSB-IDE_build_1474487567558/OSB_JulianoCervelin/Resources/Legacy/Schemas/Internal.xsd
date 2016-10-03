@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://internal.com.br/SN/Internal"
+	xmlns:tns="http://internal.com.br/SN/Internal" elementFormDefault="qualified">
+	
+	
+	<element name="ParametrosInternal" type="tns:ParametrosInternal"/>
+	<element name="ResultadoInternal" type="tns:ResultadoInternal"/>
+	
+	<element name="ParametrosSubInternal" type="tns:ParametrosSubInternal"/>
+	<element name="ResultadoSubInternal" type="tns:ResultadoSubInternal"/>
+	
+	<complexType name="ParametrosInternal">
+		<sequence>
+			<element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ResultadoInternal">
+		<sequence>
+			<element name="indicaWhiteList" type="boolean" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ParametrosSubInternal">
+		<sequence>
+			<element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="dt_solicitacao" type="date" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ResultadoSubInternal">
+		<sequence>
+			<element name="indicaWhiteList" type="boolean" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+</schema>]]></con:schema>
+    <con:targetNamespace>http://internal.com.br/SN/Internal</con:targetNamespace>
+</con:schemaEntry>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:mensagemRetorno xmlns:tns="http://acme.com.br/MC/JulianoCervelin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://acme.com.br/MC/JulianoCervelin MensagemRetorno.xsd ">
+  <tns:codigo>0</tns:codigo>
+  <tns:descricao>tns:descricao</tns:descricao>
+  <tns:isAtivo>true</tns:isAtivo>
+</tns:mensagemRetorno>

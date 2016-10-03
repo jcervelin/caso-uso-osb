@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<WL5G3N0:definitions name="JwsServiceDefinitions" targetNamespace="br.com.acme.geraticket" xmlns="" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="br.com.acme.geraticket" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="br.com.acme.geraticket" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="br.com.acme.geraticket" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="java:br.com.acme.inovix.geraticket.bean"/>
+      <xs:element name="gerarTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="numeroConta" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="gerarTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="portabilidade" type="java:Portabilidade" xmlns:java="java:br.com.acme.inovix.geraticket.bean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="java:br.com.acme.inovix.geraticket.bean" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="br.com.acme.geraticket" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Portabilidade">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="BilhetePortabilidade" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="DataHoraJanela" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="1" name="OperadoraOrigem" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="OperadoraDestino" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="gerarTicket">
+    <WL5G3N0:part element="WL5G3N1:gerarTicket" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="gerarTicketResponse">
+    <WL5G3N0:part element="WL5G3N1:gerarTicketResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="Jws">
+    <WL5G3N0:operation name="gerarTicket" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:gerarTicket"/>
+      <WL5G3N0:output message="WL5G3N1:gerarTicketResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="JwsServiceSoapBinding" type="WL5G3N1:Jws">
+    <WL5G3N2:binding style="document" transport="http://www.bea.com/soap/transport/local"/>
+    <WL5G3N0:operation name="gerarTicket">
+      <WL5G3N2:operation soapAction="br.com.acme.geraticket/gerarTicket" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body parts="parameters" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body parts="parameters" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+</WL5G3N0:definitions>

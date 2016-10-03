@@ -1,0 +1,5 @@
+1475290113809	Delete resource 'GeraTicketPortabilidade'
+1475332863547	Delete resource 'OSB_Juliano_Cervelin/Resources/Legacy/Jars/GeraTicketPortabilidade.jar'
+1475338227086	Delete resource 'OSB_Juliano_Cervelin/Resources/Legacy/Jars/GeraTicketPortabilidadeClient.jar'
+1475338241748	Delete resource 'OSB_Juliano_Cervelin/Resources/Legacy/Services/Business/gerarTicketEJB.wsdl'
+1475338250109	Delete resource 'OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/GerarTicket.proxy'

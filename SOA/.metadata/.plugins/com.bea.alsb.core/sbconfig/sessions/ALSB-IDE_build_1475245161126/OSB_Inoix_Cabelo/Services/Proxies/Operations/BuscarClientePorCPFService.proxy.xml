@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="OSB_Inoix_Cabelo/Resources/Contracts/ClienteService"/>
+      <con:binding>
+        <con:name>ClienteServiceSOAP</con:name>
+        <con:namespace>http://inovix.org</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/OSB_Inoix_Cabelo/Services/Proxies/Operations/BuscarClientePorCPFService</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-4749030623140304134-61e77759.1576d8e6d19.-7f7a">
+    <con:pipeline type="request" name="PipelinePairNodeOperacaoInexistente_request">
+      <con:stage name="stageOperacaoInexistente">
+        <con:context/>
+        <con:actions>
+          <con1:Error>
+            <con2:id>_ActionId-4749030623140304134-61e77759.1576d8e6d19.-7f7b</con2:id>
+            <con1:errCode>999</con1:errCode>
+            <con1:message>Operação não implementada</con1:message>
+          </con1:Error>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairNodeOperacaoInexistente_response"/>
+    <con:pipeline type="error" name="_onErrorHandler-4749030623140304134-61e77759.1576d8e6d19.-7f7a">
+      <con:stage name="stageTratamentoErro">
+        <con:context/>
+        <con:actions>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-4749030623140304134-61e77759.1576d8e6d19.-7f5d</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText><![CDATA[<tns:INOVIXFault xmlns:tns="http://inovix.org/MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inovix.org/MC INOVIXFault.xsd ">
+  <tns:code>{$fault/ctx:errorCode/text()}</tns:code>
+  <tns:description>{$fault/ctx:reason/text()}</tns:description>
+</tns:INOVIXFault>]]></con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+          <con2:reply isError="true">
+            <con2:id>_ActionId-4749030623140304134-61e77759.1576d8e6d19.-7f45</con2:id>
+          </con2:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:branch-node type="operation" name="BranchNodeBuscarClientePorCPF">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="BuscarClientePorCPF">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:route-node name="RouteNodeKGB">
+                <con:context>
+                  <con2:userNsDecl namespace="http://inovix.org/MC" prefix="mc"/>
+                  <con2:varNsDecl namespace="http://inovix.org" prefix="inov"/>
+                  <con2:varNsDecl namespace="http://kgb.org" prefix="kgb"/>
+                </con:context>
+                <con:actions>
+                  <con3:route>
+                    <con2:id>_ActionId-4749030623140304134-61e77759.1576d8e6d19.-7f0e</con2:id>
+                    <con3:service ref="OSB_Inoix_Cabelo/Services/Business/KGBServiceBusiness" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con3:operation>GetCustomerByCPF</con3:operation>
+                    <con3:outboundTransform>
+                      <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-4749030623140304134-61e77759.1576d8e6d19.-7ee5</con2:id>
+                        <con1:location>
+                          <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                          <con2:xqueryTransform>
+                            <con2:resource ref="OSB_Inoix_Cabelo/Transformations/ParametrosBuscarClientePorCPF_To_GetCustomerByCPF"/>
+                            <con2:param name="parametrosBuscarClientePorCPF1">
+                              <con2:path>$body/inov:ParametrosBuscarClientePorCPF</con2:path>
+                            </con2:param>
+                          </con2:xqueryTransform>
+                        </con1:expr>
+                      </con1:replace>
+                    </con3:outboundTransform>
+                    <con3:responseTransform>
+                      <con1:assign varName="varCliente">
+                        <con2:id>_ActionId-2043260088019420796-bc22e3f.15770d17efd.-7eba</con2:id>
+                        <con1:expr>
+                          <con2:xqueryTransform>
+                            <con2:resource ref="OSB_Inoix_Cabelo/Transformations/Customer_Kgb_To_Customer_MC"/>
+                            <con2:param name="customerKGB1">
+                              <con2:path>$body/kgb:ResultadoGetCustomerByCPF/kgb:customer</con2:path>
+                            </con2:param>
+                          </con2:xqueryTransform>
+                        </con1:expr>
+                      </con1:assign>
+                      <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-2043260088019420796-bc22e3f.15770d17efd.-7edd</con2:id>
+                        <con1:location>
+                          <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                          <con2:xqueryText>&lt;tns:ResultadoBuscarClientePorCPF xmlns:tns="http://inovix.org" xmlns:tns1="http://inovix.org/MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inovix.org ResultadoBuscarClientePorCPF.xsd ">
+  &lt;tns:cliente>  	
+  	{$varCliente/node()}
+  &lt;/tns:cliente>
+&lt;/tns:ResultadoBuscarClientePorCPF></con2:xqueryText>
+                        </con1:expr>
+                      </con1:replace>
+                      <con1:validate>
+                        <con2:id>_ActionId-2043260088019420796-bc22e3f.15770d17efd.-7f05</con2:id>
+                        <con1:schema ref="OSB_Inoix_Cabelo/Resources/Schemas/ResultadoBuscarClientePorCPF"/>
+                        <con1:schemaElement xmlns:inov="http://inovix.org">inov:ResultadoBuscarClientePorCPF</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                          <con2:xpathText>./inov:ResultadoBuscarClientePorCPF</con2:xpathText>
+                        </con1:location>
+                      </con1:validate>
+                    </con3:responseTransform>
+                  </con3:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNodeOperacaoInexistente">
+                <con:request>PipelinePairNodeOperacaoInexistente_request</con:request>
+                <con:response>PipelinePairNodeOperacaoInexistente_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

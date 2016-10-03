@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move 1 resources to &apos;EBS&apos;" description="Move 1 resources to &apos;EBS&apos;" destination="Resources/EBS" element1="Resources/EBS/EBS/wsdl" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1474486671738" updateReferences="true"/>&#x0A;<refactoring comment="Move 1 resources to &apos;EBS&apos;" description="Move 1 resources to &apos;EBS&apos;" destination="Resources/EBS" element1="Resources/EBS/EBS/xsd" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1474486675825" updateReferences="true"/>
+</session>

@@ -1,0 +1,13 @@
+<adapter-config name="updateStatusPortabilidade" adapter="Database Adapter" wsdlLocation="updateStatusPortabilidade.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/INOVIX/Juliano" UIConnectionName="INOVIX" adapterRef=""/>
+  <endpoint-interaction portType="updateStatusPortabilidade_ptt" operation="updateStatusPortabilidade">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="ACME_USER"/>
+      <property name="PackageName" value="INOVIX"/>
+      <property name="ProcedureName" value="UPDATE_STATUS_PORTABILIDADE"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

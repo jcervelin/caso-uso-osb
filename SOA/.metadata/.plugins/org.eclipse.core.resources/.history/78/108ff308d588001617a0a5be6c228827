@@ -1,0 +1,16 @@
+<schema targetNamespace="http://acme.com.br/SN/APTService/JulianoCervelin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acme.com.br/SN/APTService/JulianoCervelin" xmlns:mc="http://acme.com.br/MC/JulianoCervelin">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Portability.xsd"/>
+
+	<element name="portabilidadeNumerica">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+				<element name="account" type="mc:Account"/>
+				<element name="portabilidade" type="mc:Portabilidade"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

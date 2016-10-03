@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<wsdl:definitions name="PortabilidadeService" targetNamespace="http://inovix.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://inovix.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mdc="http://inovix.org/MC">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://inovix.org">
+			<xsd:include schemaLocation="../Schemas/ParametrosSolicitarPortabilidade.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ResultadoSolicitarPortabilidade.xsd"/>
+			<xsd:import namespace="http://inovix.org/MC" schemaLocation="../ModeloCanonico/INOVIXFault.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="INOVIXFault">
+		<wsdl:part element="mdc:INOVIXFault" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="SolicitarPortabilidadeRequest">
+		<wsdl:part element="tns:ParametrosSolicitarPortabilidade" name="ParametrosSolicitarPortabilidade"/>
+	</wsdl:message>
+
+	<wsdl:message name="SolicitarPortabilidadeResponse">
+		<wsdl:part element="tns:ResultadoSolicitarPortabilidade" name="ResultadoSolicitarPortabilidade"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="PortabilidadeService">
+	
+		<wsdl:operation name="SolicitarPortabilidade">
+			<wsdl:input message="tns:SolicitarPortabilidadeRequest"/>
+			<wsdl:output message="tns:SolicitarPortabilidadeResponse"/>
+			<wsdl:fault name="INOVIXFault" message="tns:INOVIXFault"/>
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding name="PortabilidadeServiceSOAP" type="tns:PortabilidadeService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<wsdl:operation name="SolicitarPortabilidade">
+			<soap:operation soapAction="http://inovix.org/PortabilidadeService/SolicitarPortabilidade"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="INOVIXFault">
+				<soap:fault name="INOVIXFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="PortabilidadeService">
+		<wsdl:port binding="tns:PortabilidadeServiceSOAP" name="PortabilidadeServiceSOAP">
+			<soap:address location="??"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="../ModeloCanonico/INOVIXFault.xsd" namespace="http://inovix.org/MC" ref="OSB_Inoix_Cabelo/Resources/ModeloCanonico/INOVIXFault"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ResultadoSolicitarPortabilidade.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ResultadoSolicitarPortabilidade"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ParametrosSolicitarPortabilidade.xsd" namespace="http://inovix.org" ref="OSB_Inoix_Cabelo/Resources/Schemas/ParametrosSolicitarPortabilidade"/>
+    </con:dependencies>
+    <con:targetNamespace>http://inovix.org</con:targetNamespace>
+</con:wsdlEntry>

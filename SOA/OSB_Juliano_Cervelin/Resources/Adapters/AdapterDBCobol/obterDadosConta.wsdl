@@ -1,0 +1,25 @@
+<?binding.jca obterDadosConta_db.jca?>
+<wsdl:definitions name="obterDadosConta" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterDadosConta" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/obterDadosConta" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterDadosConta" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="obterDadosConta_plt">
+        <plt:role name="obterDadosConta_role">
+            <plt:portType name="tns:obterDadosConta_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/obterDadosConta" schemaLocation="xsd/obterDadosConta.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="obterDadosContaInput_msg">
+        <wsdl:part name="obterDadosContaInput_msg" element="db:obterDadosContaInput"/>
+    </wsdl:message>
+    <wsdl:message name="obterDadosContaOutputCollection_msg">
+        <wsdl:part name="obterDadosContaOutputCollection" element="db:obterDadosContaOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="obterDadosConta_ptt">
+        <wsdl:operation name="obterDadosConta">
+            <wsdl:input message="tns:obterDadosContaInput_msg"/>
+            <wsdl:output message="tns:obterDadosContaOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

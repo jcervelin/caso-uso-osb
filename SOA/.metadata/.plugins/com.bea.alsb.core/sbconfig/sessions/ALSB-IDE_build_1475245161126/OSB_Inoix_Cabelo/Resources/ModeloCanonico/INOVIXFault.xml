@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:xmlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:xml-content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<tns:INOVIXFault xmlns:tns="http://inovix.org/MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inovix.org/MC INOVIXFault.xsd ">
+  <tns:code>0</tns:code>
+  <tns:description>tns:description</tns:description>
+  <tns:detail>tns:detail</tns:detail>
+</tns:INOVIXFault>]]></con:xml-content>
+</con:xmlEntry>

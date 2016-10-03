@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://acme.com.br/SN/KGBService/JulianoCervelin" 
+xmlns:tns="http://acme.com.br/SN/KGBService/JulianoCervelin" 
+xmlns:mc="http://acme.com.br/MC/JulianoCervelin" 
+elementFormDefault="qualified">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+
+	<element name="GetCustomerByCPF">
+		<complexType>
+			<sequence>
+				<element name="cpf" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="GetCustomerByCPFResponse">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ObterStatusFinanceiroCliente">
+		<complexType>
+			<sequence>
+				<element name="cpf" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ObterStatusFinanceiroClienteResponse">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="ObterDadosConta">
+		<complexType>
+			<sequence>
+				<element name="numeroConta" type="int"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ObterDadosContaResponse">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	
+
+
+
+</schema>

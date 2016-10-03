@@ -1,0 +1,29 @@
+(:: pragma bea:global-element-parameter parameter="$getCustomerByCpfOutputCollection1" element="ns0:getCustomerByCpfOutputCollection" location="../Adapters/AdapterDBCobol/xsd/getCustomerByCpf.xsd" ::)
+(:: pragma bea:global-element-return element="ns2:GetCustomerByCPFResponse" location="../Legacy/Schemas/ParametrosYUM.xsd" ::)
+
+declare namespace ns2 = "http://acme.com.br/SN/YUMService/JulianoCervelin";
+declare namespace ns1 = "http://acme.com.br/MC/JulianoCervelin";
+declare namespace ns0 = "http://xmlns.oracle.com/pcbpel/adapter/db/getCustomerByCpf";
+declare namespace xf = "http://tempuri.org/OSB_Juliano_Cervelin/Resources/Transformations/AdapterDBCobol_GetCustomerByCpfResponse/";
+
+declare function xf:AdapterDBCobol_GetCustomerByCpfResponse($getCustomerByCpfOutputCollection1 as element(ns0:getCustomerByCpfOutputCollection))
+    as element(ns2:GetCustomerByCPFResponse) {
+        <ns2:GetCustomerByCPFResponse>
+            <ns2:customer>
+                <ns1:id>{ xs:integer($getCustomerByCpfOutputCollection1/ns0:getCustomerByCpfOutput[1]/ns0:TB_ID) }</ns1:id>
+                <ns1:nome>{ data($getCustomerByCpfOutputCollection1/ns0:getCustomerByCpfOutput[1]/ns0:TB_NOME) }</ns1:nome>
+                <ns1:dataNascimento>{
+                if (data($getCustomerByCpfOutputCollection1/ns0:getCustomerByCpfOutput[1]/ns0:TB_DATA_NASCIMENTO)) then else()
+                xs:date(substring-before(data($getCustomerByCpfOutputCollection1/ns0:getCustomerByCpfOutput[1]/ns0:TB_DATA_NASCIMENTO),'T'))
+                
+                
+                }</ns1:dataNascimento>
+                <ns1:cpf>{ data($getCustomerByCpfOutputCollection1/ns0:getCustomerByCpfOutput[1]/ns0:TB_CPF) }</ns1:cpf>
+                <ns1:telefone>{ xs:integer($getCustomerByCpfOutputCollection1/ns0:getCustomerByCpfOutput[1]/ns0:TB_TELEFONE_PRINCIPAL) }</ns1:telefone>
+            </ns2:customer>
+        </ns2:GetCustomerByCPFResponse>
+};
+
+declare variable $getCustomerByCpfOutputCollection1 as element(ns0:getCustomerByCpfOutputCollection) external;
+
+xf:AdapterDBCobol_GetCustomerByCpfResponse($getCustomerByCpfOutputCollection1)

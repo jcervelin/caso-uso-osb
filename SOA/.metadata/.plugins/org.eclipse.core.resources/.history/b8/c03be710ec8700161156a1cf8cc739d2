@@ -1,0 +1,32 @@
+package br.com.acme.inovix.geraticket;
+
+import java.util.Date;
+import java.util.UUID;
+
+import javax.ejb.Stateless;
+
+import br.com.acme.inovix.geraticket.bean.Portabilidade;
+
+/**
+ * Session Bean implementation class GeraTicket
+ */
+@Stateless(mappedName = "geraTicket")
+public class GeraTicket implements GeraTicketRemote, GeraTicketLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public GeraTicket() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public String gerarTicket(String numeroConta) {
+    	
+    	Portabilidade p = new Portabilidade();
+    	p.setBilhetePortabilidade(UUID.randomUUID().toString());
+    	p.setDataHoraJanela(new Date() + 1);
+    	
+    	return UUID.randomUUID().toString();
+    }
+
+}

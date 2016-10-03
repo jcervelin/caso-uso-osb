@@ -1,0 +1,17 @@
+xquery version "1.0" encoding "Cp1252";
+(:: pragma bea:global-element-parameter parameter="$obterDadosConta1" element="ns2:ObterDadosConta" location="../Legacy/Schemas/ParametrosKGB.xsd" ::)
+(:: pragma bea:global-element-return element="ns0:obterDadosContaInput" location="../Adapters/AdapterDBCobol/xsd/obterDadosConta.xsd" ::)
+
+declare namespace xf = "http://tempuri.org/OSB_Juliano_Cervelin/Resources/Transformations/ObterDadosConta_To_Adapter_ObterDadosConta/";
+declare namespace ns2 = "http://acme.com.br/SN/KGBService/JulianoCervelin";
+declare namespace ns1 = "http://acme.com.br/MC/JulianoCervelin";
+declare namespace ns0 = "http://xmlns.oracle.com/pcbpel/adapter/db/obterDadosConta";
+
+declare function xf:ObterDadosConta_To_Adapter_ObterDadosConta($obterDadosConta1 as element(ns2:ObterDadosConta))
+    as element(ns0:obterDadosContaInput) {
+        <ns0:obterDadosContaInput/>
+};
+
+declare variable $obterDadosConta1 as element(ns2:ObterDadosConta) external;
+
+xf:ObterDadosConta_To_Adapter_ObterDadosConta($obterDadosConta1)

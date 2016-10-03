@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:jcaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:jca><![CDATA[<adapter-config name="QUERY_T_PESSOA" adapter="Database Adapter" wsdlLocation="QUERY_T_PESSOA.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/soa_sample3" UIConnectionName="soa_sample3" adapterRef=""/>
+  <endpoint-interaction portType="QUERY_T_PESSOA_ptt" operation="QUERY_T_PESSOA">
+    <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
+      <property name="SqlString" value="SELECT * FROM T_PESSOA WHERE CD_PESSOA = #CD_PESSOA"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+    <input/>
+    <output/>
+  </endpoint-interaction>
+
+</adapter-config>]]></con:jca>
+    <con:jcaDependency>
+        <con:wsdlRef wsdlLocation="QUERY_T_PESSOA.wsdl" ref="OSB_BHK/BHK/Resources/Adapter/AdapterSGBD/QUERY_T_PESSOA"/>
+    </con:jcaDependency>
+</con:jcaEntry>

@@ -1,0 +1,15 @@
+xquery version "1.0" encoding "Cp1252";
+(:: pragma bea:global-element-return element="ns0:SolicitarBilhetePortabilidadeResponse" location="../Legacy/Schemas/ParametrosAPT.xsd" ::)
+
+declare namespace xf = "http://tempuri.org/OSB_Juliano_Cervelin/Resources/Transformations/GerarTicketEBJ_To_SolicitarBilhetePortabilidade/";
+declare namespace ns1 = "http://acme.com.br/MC/JulianoCervelin";
+declare namespace ns0 = "http://acme.com.br/SN/APTService/JulianoCervelin";
+
+declare function xf:GerarTicketEBJ_To_SolicitarBilhetePortabilidade($ticket as xs:string)
+    as element(ns0:SolicitarBilhetePortabilidadeResponse) {
+        <ns0:SolicitarBilhetePortabilidadeResponse/>
+};
+
+declare variable $ticket as xs:string external;
+
+xf:GerarTicketEBJ_To_SolicitarBilhetePortabilidade($ticket)

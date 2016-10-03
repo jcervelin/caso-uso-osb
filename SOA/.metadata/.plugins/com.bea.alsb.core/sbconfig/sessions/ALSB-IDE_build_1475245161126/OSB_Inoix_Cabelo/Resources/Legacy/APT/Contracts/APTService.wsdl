@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<wsdl:definitions name="APTService" targetNamespace="http://apt.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://apt.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://apt.org">
+			<xsd:include schemaLocation="../Schemas/SolicitarBilhetePortabilidade.xsd"/>
+			<xsd:include schemaLocation="../Schemas/APTFault.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="APTFault">
+		<wsdl:part element="tns:APTFault" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="SolicitarBilhetePortabilidadeRequest">
+		<wsdl:part element="tns:ParametrosSolicitarBilhetePortabilidade" name="ParametrosSolicitarBilhetePortabilidade"/>
+	</wsdl:message>
+
+	<wsdl:message name="SolicitarBilhetePortabilidadeResponse">
+		<wsdl:part element="tns:ResultadoBilhetePortabilidade" name="ResultadoBilhetePortabilidade"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="APTService">
+	
+		<wsdl:operation name="SolicitarBilhetePortabilidade">
+			<wsdl:input message="tns:SolicitarBilhetePortabilidadeRequest"/>
+			<wsdl:output message="tns:SolicitarBilhetePortabilidadeResponse"/>
+			<wsdl:fault name="APTFault" message="tns:APTFault"/>
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding name="APTServiceSOAP" type="tns:APTService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<wsdl:operation name="SolicitarBilhetePortabilidade">
+			<soap:operation soapAction="http://apt.org/APTService/SolicitarBilhetePortabilidade"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="APTFault">
+				<soap:fault name="APTFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="APTService">
+		<wsdl:port binding="tns:APTServiceSOAP" name="APTServiceSOAP">
+			<soap:address location="??"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/SolicitarBilhetePortabilidade.xsd" namespace="http://apt.org" ref="OSB_Inoix_Cabelo/Resources/Legacy/APT/Schemas/SolicitarBilhetePortabilidade"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/APTFault.xsd" namespace="http://apt.org" ref="OSB_Inoix_Cabelo/Resources/Legacy/APT/Schemas/APTFault"/>
+    </con:dependencies>
+    <con:targetNamespace>http://apt.org</con:targetNamespace>
+</con:wsdlEntry>

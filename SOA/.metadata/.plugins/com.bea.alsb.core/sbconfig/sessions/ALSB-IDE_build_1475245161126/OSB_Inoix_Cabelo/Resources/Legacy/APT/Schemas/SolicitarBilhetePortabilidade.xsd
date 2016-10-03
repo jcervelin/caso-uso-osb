@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://apt.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://apt.org">
+	
+	<include schemaLocation="CustomerAPT.xsd"/>
+	<include schemaLocation="AccountAPT.xsd"/>
+	<include schemaLocation="PortabilidadeAPT.xsd"/>
+	
+	<complexType name="ParametrosSolicitarBilhetePortabilidade">
+		<sequence>
+			<element name="customer" type="tns:CustomerAPT"/>
+			<element name="account" type="tns:AccountAPT"/>
+		</sequence>
+	</complexType>
+	
+	<element name="ParametrosSolicitarBilhetePortabilidade" type="tns:ParametrosSolicitarBilhetePortabilidade"/>
+	
+	<complexType name="ResultadoBilhetePortabilidade">
+		<sequence>
+			<element name="portabilidade" type="tns:PortabilidadeAPT"/>
+		</sequence>
+	</complexType>
+	
+	<element name="ResultadoBilhetePortabilidade" type="tns:ResultadoBilhetePortabilidade"/>	
+	
+	
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="PortabilidadeAPT.xsd" ref="OSB_Inoix_Cabelo/Resources/Legacy/APT/Schemas/PortabilidadeAPT"/>
+        <con:include schemaLocation="AccountAPT.xsd" ref="OSB_Inoix_Cabelo/Resources/Legacy/APT/Schemas/AccountAPT"/>
+        <con:include schemaLocation="CustomerAPT.xsd" ref="OSB_Inoix_Cabelo/Resources/Legacy/APT/Schemas/CustomerAPT"/>
+    </con:dependencies>
+    <con:targetNamespace>http://apt.org</con:targetNamespace>
+</con:schemaEntry>

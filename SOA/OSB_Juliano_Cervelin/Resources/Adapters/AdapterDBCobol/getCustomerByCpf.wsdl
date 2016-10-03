@@ -1,0 +1,25 @@
+<?binding.jca getCustomerByCpf_db.jca?>
+<wsdl:definitions name="getCustomerByCpf" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/getCustomerByCpf" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="getCustomerByCpf_plt">
+        <plt:role name="getCustomerByCpf_role">
+            <plt:portType name="tns:getCustomerByCpf_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/getCustomerByCpf" schemaLocation="xsd/getCustomerByCpf.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="getCustomerByCpfInput_msg">
+        <wsdl:part name="getCustomerByCpfInput_msg" element="db:getCustomerByCpfInput"/>
+    </wsdl:message>
+    <wsdl:message name="getCustomerByCpfOutputCollection_msg">
+        <wsdl:part name="getCustomerByCpfOutputCollection" element="db:getCustomerByCpfOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="getCustomerByCpf_ptt">
+        <wsdl:operation name="getCustomerByCpf">
+            <wsdl:input message="tns:getCustomerByCpfInput_msg"/>
+            <wsdl:output message="tns:getCustomerByCpfOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

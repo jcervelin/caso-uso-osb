@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://kgb.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kgb.org">
+
+	<include schemaLocation="FinancialStatusKGB.xsd"/>
+
+	<complexType name="CustomerKGB">
+		<sequence>
+			<element name="cpf" type="string" minOccurs="0"/>
+			<element name="name" type="string" minOccurs="0"/>			
+			<element name="statusFinanceiro" type="tns:FinancialStatusKGB" minOccurs="0"/>					
+		</sequence>
+	</complexType>	
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="FinancialStatusKGB.xsd" ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/FinancialStatusKGB"/>
+    </con:dependencies>
+    <con:targetNamespace>http://kgb.org</con:targetNamespace>
+</con:schemaEntry>

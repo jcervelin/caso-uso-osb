@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:providerUrl>t3://localhost:7001</con:providerUrl>
+    <con:UserPassword>
+        <con:username>{AES}KMUKxqTumP/vew601zuyrpo66nkRdxU47ei7EXtsmAk=</con:username>
+        <con:password>{AES}qvXgpftFJID+q3qFynbW+jksN+fDP+GGXv4p+Zr9reE=</con:password>
+    </con:UserPassword>
+    <con:cacheValues>false</con:cacheValues>
+</xml-fragment>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://acme.com.br/SN/YUMService/JulianoCervelin" 
+xmlns:tns="http://acme.com.br/SN/YUMService/JulianoCervelin" 
+xmlns:mc="http://acme.com.br/MC/JulianoCervelin" 
+elementFormDefault="qualified">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+
+	<element name="GetCustomerByCPF">
+		<complexType>
+			<sequence>
+				<element name="cpf" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="GetCustomerByCPFResponse">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="UpdateCustomer">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="UpdateCustomerResponse">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	
+	
+	
+
+
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/Customer"/>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/Account"/>
+    </con:dependencies>
+    <con:targetNamespace>http://acme.com.br/SN/YUMService/JulianoCervelin</con:targetNamespace>
+</con:schemaEntry>

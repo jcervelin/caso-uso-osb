@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sysmap.com.br/MC/CursoSOA/Juliano" xmlns:tns="http://sysmap.com.br/MC/CursoSOA/Juliano" elementFormDefault="qualified"
+		xmlns:pes="http://sysmap.com.br/MC/CursoSOA/Juliano">
+	
+	<include schemaLocation="Pessoa.xsd"/>
+	
+	<complexType name="LotePessoa">
+		<sequence>
+			<element name="id" type="integer"/>
+			<element name="pessoa" type="pes:Pessoa" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>	
+	</complexType>
+	
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="Pessoa.xsd" ref="OSB_JulianoCervelin/ModeloCanonico/Pessoa"/>
+    </con:dependencies>
+    <con:targetNamespace>http://sysmap.com.br/MC/CursoSOA/Juliano</con:targetNamespace>
+</con:schemaEntry>

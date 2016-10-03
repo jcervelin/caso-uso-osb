@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://acme.com.br/MC/JulianoCervelin" xmlns:tns="http://acme.com.br/MC/JulianoCervelin" elementFormDefault="qualified">
+	
+	<complexType name="MensagemRetorno">
+		<sequence>
+			<element name="codigo" type="integer" minOccurs="0"/>
+			<element name="descricao" type="string" minOccurs="0"/>
+			<element name="isAtivo" type="boolean" minOccurs="0"/>
+		</sequence>	
+	</complexType>
+	
+	<element name="mensagemRetorno" type="tns:MensagemRetorno"/>
+	
+</schema>

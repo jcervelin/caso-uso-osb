@@ -1,0 +1,2445 @@
+!SESSION 2016-10-02 20:03:06.249 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+This is a continuation of log file C:\Users\Juliano\Documents\Curso SOA\OSB-Curso-SOA\SOA\.metadata\.bak_0.log
+Created Time: 2016-10-02 20:03:55.247
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:03:55.247
+!MESSAGE Started WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:03:55.997
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY org.python.pydev.core 4 4 2016-10-02 20:04:01.594
+!MESSAGE sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.SSLSocketImpl.fatal(SSLSocketImpl.java:1904)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:279)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:273)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1446)
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:209)
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:913)
+	at sun.security.ssl.Handshaker.process_record(Handshaker.java:849)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1023)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1359)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1343)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1092)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:250)
+	at org.python.pydev.logging.ping.LogPingSender.sendPing(LogPingSender.java:62)
+	at org.python.pydev.logging.ping.SynchedLogPing.send(SynchedLogPing.java:164)
+	at org.python.pydev.logging.ping.AsyncLogPing.consumeAllCommands(AsyncLogPing.java:131)
+	at org.python.pydev.logging.ping.AsyncLogPing.access$0(AsyncLogPing.java:100)
+	at org.python.pydev.logging.ping.AsyncLogPing$1.run(AsyncLogPing.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:350)
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:249)
+	at sun.security.validator.Validator.validate(Validator.java:260)
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:326)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:126)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1428)
+	... 17 more
+Caused by: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(PKIXMasterCertPathValidator.java:159)
+	at sun.security.provider.certpath.PKIXCertPathValidator.doValidate(PKIXCertPathValidator.java:347)
+	at sun.security.provider.certpath.PKIXCertPathValidator.engineValidate(PKIXCertPathValidator.java:191)
+	at java.security.cert.CertPathValidator.validate(CertPathValidator.java:279)
+	at sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:345)
+	... 23 more
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Wed Sep 25 18:29:33 BRT 2013
+	at sun.security.x509.CertificateValidity.valid(CertificateValidity.java:273)
+	at sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:575)
+	at sun.security.provider.certpath.BasicChecker.verifyTimestamp(BasicChecker.java:184)
+	at sun.security.provider.certpath.BasicChecker.check(BasicChecker.java:136)
+	at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(PKIXMasterCertPathValidator.java:133)
+	... 27 more
+
+!ENTRY oracle.eclipse.tools.weblogic 4 4 2016-10-02 20:04:07.610
+!MESSAGE 
+!STACK 0
+java.io.IOException
+	at weblogic.management.remote.common.ClientProviderBase.makeConnection(ClientProviderBase.java:196)
+	at weblogic.management.remote.common.ClientProviderBase.newJMXConnector(ClientProviderBase.java:84)
+	at javax.management.remote.JMXConnectorFactory.newJMXConnector(JMXConnectorFactory.java:369)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:267)
+	at oracle.eclipse.tools.weblogic.server.internal.WlsJMXHelper.createConnector(WlsJMXHelper.java:346)
+	at oracle.eclipse.tools.weblogic.server.internal.WlsJMXHelper.connectToJMX(WlsJMXHelper.java:84)
+	at oracle.eclipse.tools.weblogic.server.internal.WlsJMXHelper.getDomainAttribute(WlsJMXHelper.java:155)
+	at oracle.eclipse.tools.weblogic.server.internal.WlsJ2EEDeploymentHelper.validateRemote(WlsJ2EEDeploymentHelper.java:1389)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.validateRemote(WeblogicServerBehaviour.java:2698)
+	at oracle.eclipse.tools.weblogic.server.internal.ServerWatcher.runOnce(ServerWatcher.java:588)
+	at oracle.eclipse.tools.weblogic.server.internal.ServerWatcher.run(ServerWatcher.java:490)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://localhost:7001: Destination unreachable; nested exception is: 
+	java.net.ConnectException: Connection refused: connect; No available router to destination]
+	at weblogic.jndi.internal.ExceptionTranslator.toNamingException(ExceptionTranslator.java:40)
+	at weblogic.jndi.WLInitialContextFactoryDelegate.toNamingException(WLInitialContextFactoryDelegate.java:792)
+	at weblogic.jndi.WLInitialContextFactoryDelegate.getInitialContext(WLInitialContextFactoryDelegate.java:366)
+	at weblogic.jndi.Environment.getContext(Environment.java:315)
+	at weblogic.jndi.Environment.getContext(Environment.java:285)
+	at weblogic.jndi.WLInitialContextFactory.getInitialContext(WLInitialContextFactory.java:117)
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:684)
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:307)
+	at javax.naming.InitialContext.init(InitialContext.java:242)
+	at javax.naming.InitialContext.<init>(InitialContext.java:216)
+	at weblogic.management.remote.common.ClientProviderBase.makeConnection(ClientProviderBase.java:178)
+	... 11 more
+Caused by: java.net.ConnectException: t3://localhost:7001: Destination unreachable; nested exception is: 
+	java.net.ConnectException: Connection refused: connect; No available router to destination
+	at weblogic.rjvm.RJVMFinder.findOrCreateInternal(RJVMFinder.java:216)
+	at weblogic.rjvm.RJVMFinder.findOrCreate(RJVMFinder.java:170)
+	at weblogic.rjvm.ServerURL.findOrCreateRJVM(ServerURL.java:165)
+	at weblogic.jndi.WLInitialContextFactoryDelegate$1.run(WLInitialContextFactoryDelegate.java:345)
+	at weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:363)
+	at weblogic.security.service.SecurityManager.runAs(SecurityManager.java:146)
+	at weblogic.jndi.WLInitialContextFactoryDelegate.getInitialContext(WLInitialContextFactoryDelegate.java:340)
+	... 19 more
+Caused by: java.rmi.ConnectException: Destination unreachable; nested exception is: 
+	java.net.ConnectException: Connection refused: connect; No available router to destination
+	at weblogic.rjvm.ConnectionManager.bootstrap(ConnectionManager.java:470)
+	at weblogic.rjvm.ConnectionManager.bootstrap(ConnectionManager.java:321)
+	at weblogic.rjvm.RJVMManager.findOrCreateRemoteInternal(RJVMManager.java:260)
+	at weblogic.rjvm.RJVMManager.findOrCreate(RJVMManager.java:197)
+	at weblogic.rjvm.RJVMFinder.findOrCreateRemoteServer(RJVMFinder.java:238)
+	at weblogic.rjvm.RJVMFinder.findOrCreateRemoteCluster(RJVMFinder.java:356)
+	at weblogic.rjvm.RJVMFinder.findOrCreateInternal(RJVMFinder.java:205)
+	... 25 more
+
+!ENTRY oracle.eclipse.tools.weblogic 2 2 2016-10-02 20:04:07.610
+!MESSAGE Unable to validate WebLogic domain.
+Please make sure the running WebLogic instance is an Administration Server
+
+!ENTRY org.eclipse.jface 2 0 2016-10-02 20:04:33.340
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:763)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:541)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:353)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:510)
+	at org.eclipse.ui.internal.navigator.resources.workbench.ResourceExtensionContentProvider$3.run(ResourceExtensionContentProvider.java:294)
+	at org.eclipse.ui.internal.navigator.resources.workbench.ResourceExtensionContentProvider.runUpdates(ResourceExtensionContentProvider.java:306)
+	at org.eclipse.ui.internal.navigator.resources.workbench.ResourceExtensionContentProvider.processDelta(ResourceExtensionContentProvider.java:116)
+	at org.eclipse.ui.model.WorkbenchContentProvider.resourceChanged(WorkbenchContentProvider.java:106)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2353)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeAllContainers(JavaModelManager.java:2809)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:1872)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:2798)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:2674)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:2838)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:1943)
+	at org.eclipse.jdt.internal.core.JavaModelManager.determineIfOnClasspath(JavaModelManager.java:1010)
+	at org.eclipse.jdt.internal.core.JavaModelManager.create(JavaModelManager.java:907)
+	at org.eclipse.jdt.internal.core.JavaModelManager.create(JavaModelManager.java:837)
+	at org.eclipse.jdt.core.JavaCore.create(JavaCore.java:2683)
+	at org.eclipse.jdt.ui.StandardJavaElementContentProvider.internalGetParent(StandardJavaElementContentProvider.java:469)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.internalGetParent(PackageExplorerContentProvider.java:403)
+	at org.eclipse.jdt.ui.StandardJavaElementContentProvider.getParent(StandardJavaElementContentProvider.java:251)
+	at org.eclipse.jdt.internal.ui.navigator.JavaNavigatorContentProvider.getParent(JavaNavigatorContentProvider.java:108)
+	at org.eclipse.jdt.internal.ui.navigator.JavaNavigatorContentProvider.getPipelinedParent(JavaNavigatorContentProvider.java:176)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.getPipelinedParent(SafeDelegateTreeContentProvider.java:205)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findParent(NavigatorContentServiceContentProvider.java:666)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.access$8(NavigatorContentServiceContentProvider.java:654)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$4.run(NavigatorContentServiceContentProvider.java:636)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findParents(NavigatorContentServiceContentProvider.java:612)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:583)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1689)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1626)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2507)
+	at org.eclipse.ui.navigator.CommonViewer.setSelectionToWidget(CommonViewer.java:446)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelectionToWidget(StructuredViewer.java:1767)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2947)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelection(StructuredViewer.java:1723)
+	at org.eclipse.jface.viewers.TreeViewer.setSelection(TreeViewer.java:1139)
+	at org.eclipse.ui.navigator.CommonViewer.setSelection(CommonViewer.java:377)
+	at org.eclipse.ui.navigator.CommonNavigator.selectReveal(CommonNavigator.java:383)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$4.run(LinkEditorAction.java:108)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$3.runInUIThread(LinkEditorAction.java:96)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:07:23.229
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:07:28.448
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:07:28.511
+!MESSAGE Elapsed time 3751ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:07:28.511
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@1151711123
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:13:54.990
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:13:55.084
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@1151711123
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:13:57.943
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:13:57.974
+!MESSAGE Elapsed time 2265ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:13:57.990
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@1125170159
+
+!ENTRY com.bea.alsb.core 4 0 2016-10-02 20:18:56.453
+!MESSAGE Error executing synchronization task.: Validation of Project OSB_BHK : Project OSB_BHK does not exist failed
+!STACK 0
+com.bea.wli.config.component.NotFoundException: Validation of Project OSB_BHK : Project OSB_BHK does not exist failed
+	at com.bea.wli.config.component.impl.ComponentTypeImpl.validateForCreate(ComponentTypeImpl.java:429)
+	at com.bea.wli.config.component.impl.ComponentTypeImpl.createBare(ComponentTypeImpl.java:877)
+	at com.bea.wli.config.component.impl.ComponentTypeImpl.create(ComponentTypeImpl.java:860)
+	at com.bea.wli.config.task.impl.CreateResourceTask._execute(CreateResourceTask.java:97)
+	at com.bea.wli.config.task.impl.SessionedTask.doExecute(SessionedTask.java:228)
+	at com.bea.wli.config.task.impl.SessionedTask.doExecute(SessionedTask.java:191)
+	at com.bea.wli.config.task.impl.CreateResourceTask.createResource(CreateResourceTask.java:82)
+	at com.bea.alsb.core.internal.config.synchronize.tasks.CreateResourceTask.execute0(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.tasks.AbstractSynchronizerTask._execute(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.tasks.ExecutionTask._execute(Unknown Source)
+	at com.bea.wli.config.task.impl.SessionedTask$1.execute(SessionedTask.java:233)
+	at com.bea.wli.config.transaction.TransactionalTask._doExecute(TransactionalTask.java:217)
+	at com.bea.wli.config.transaction.TransactionalTask._doExecuteWithRetry(TransactionalTask.java:162)
+	at com.bea.wli.config.transaction.TransactionalTask.doExecute(TransactionalTask.java:142)
+	at com.bea.wli.config.task.impl.SessionedTask.doExecute(SessionedTask.java:236)
+	at com.bea.wli.config.task.impl.SessionedTask.doExecute(SessionedTask.java:191)
+	at com.bea.alsb.core.internal.config.synchronize.AbstractSynchronizer.executeEx(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.AbstractSynchronizer.execute(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.DeltaSynchronizer.run(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.DeltaSynchronizer.run(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.SynchronizerService.run0(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.SynchronizerService.access$2(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.SynchronizerService$1.run(Unknown Source)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at com.bea.alsb.core.internal.config.synchronize.SynchronizerService.runInWorkspace(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.SynchronizerService.run(Unknown Source)
+	at com.bea.alsb.core.internal.config.synchronize.SynchronizerService$Synchronizer.resourceChanged(Unknown Source)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.064
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.173
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.204
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.220
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.235
+!MESSAGE Total deleted modules: 2
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.267
+!MESSAGE Found deleted module [OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.282
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.314
+!MESSAGE Found deleted module [OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:18.329
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:18.532
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:18.548
+!MESSAGE Added 2 modules out of 5
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:18.564
+!MESSAGE Removing ALSB configuration: OSB Configuration Juliano Cervelin
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:18.892
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:19.345
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:19.923
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:19.970
+!MESSAGE Module Status: 
+-GeraTicketPortabilidadeEAR
+--GeraTicketPortabilidade
+---GeraTicketPortabilidadeClient
+
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:20.001
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.533
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.564
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.580
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.580
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.580
+!MESSAGE Found new module:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.595
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.595
+!MESSAGE Found new module:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.611
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:28.611
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@1125170159
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:29.892
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:29.892
+!MESSAGE Elapsed time 1250ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:29.908
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@935636878
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:32.642
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:32.814
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:32.814
+!MESSAGE Added 2 modules out of 5
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:32.830
+!MESSAGE Publishing new ALSB configuration: OSB Configuration Juliano Cervelin
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:34.721
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:19:51.521
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.022
+!MESSAGE Module Status: 
+-GeraTicketPortabilidadeEAR
+--GeraTicketPortabilidade
+---GeraTicketPortabilidadeClient
+
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.053
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.240
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.272
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.272
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.287
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.287
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.287
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.303
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.303
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:19:52.568
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:21:28.461
+!MESSAGE canSupport() invoked!
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:21:28.524
+!MESSAGE Found ALSB server!
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:21:28.555
+!MESSAGE AlsbDebugger: Added ValueProvider: com.bea.alsb.debug.xml.XmlValueProvider
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:21:28.571
+!MESSAGE AlsbDebugger: Added ValueProvider: com.bea.wli.sb.pipeline.debug.value.PipelineValueProvider
+
+!ENTRY oracle.eclipse.tools.weblogic 4 0 2016-10-02 20:21:28.789
+!MESSAGE Cannot attach to remote server.
+Please make sure the server localhost is running and listening for transport dt_socket at address: 8453
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/Internal_Mock' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:150)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:584)
+	at com.bea.alsb.debug.core.internal.source.lookup.AlsbSourcePathComputerDelegate.computeSourceContainers(Unknown Source)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDeuggerWLSLaunchConfigurationDelegate.launch(Unknown Source)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.attach(WeblogicServerBehaviour.java:2516)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.attachToRemoteServer(WeblogicServerLaunchConfigurationDelegate.java:202)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.launch(WeblogicServerLaunchConfigurationDelegate.java:92)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:696)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.restart(WeblogicServerBehaviour.java:1878)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl2(Server.java:3198)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl(Server.java:3072)
+	at org.eclipse.wst.server.core.internal.Server$RestartJob.run(Server.java:378)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2016-10-02 20:21:28.789
+!MESSAGE Resource '/Internal_Mock' is not open.
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.254
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Control.redraw(Control.java:2327)
+	at workshop.xml.mapper.common.views.MappingPanel$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.332
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Control.redraw(Control.java:2327)
+	at workshop.xml.mapper.common.views.MappingPanel$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.348
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Control.redraw(Control.java:2327)
+	at workshop.xml.mapper.common.views.MappingPanel$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.363
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Control.redraw(Control.java:2327)
+	at workshop.xml.mapper.common.views.MappingPanel$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.363
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Scrollable.getVerticalBar(Scrollable.java:213)
+	at workshop.xml.mapper.util.swing.treemap.JTreeMap$1$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.363
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Scrollable.getVerticalBar(Scrollable.java:213)
+	at workshop.xml.mapper.util.swing.treemap.JTreeMap$1$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.379
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Scrollable.getVerticalBar(Scrollable.java:213)
+	at workshop.xml.mapper.util.swing.treemap.JTreeMap$1$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.379
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Scrollable.getVerticalBar(Scrollable.java:213)
+	at workshop.xml.mapper.util.swing.treemap.JTreeMap$1$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.379
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Scrollable.getVerticalBar(Scrollable.java:213)
+	at workshop.xml.mapper.util.swing.treemap.JTreeMap$1$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:24:03.394
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:340)
+	at org.eclipse.swt.widgets.Scrollable.getVerticalBar(Scrollable.java:213)
+	at workshop.xml.mapper.util.swing.treemap.JTreeMap$1$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 22 more
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.669
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.747
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.747
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.763
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.763
+!MESSAGE Total deleted modules: 2
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.763
+!MESSAGE Found deleted module [OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.778
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.778
+!MESSAGE Found deleted module [OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:42.778
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:25:42.825
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:25:42.825
+!MESSAGE Added 2 modules out of 5
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:25:42.841
+!MESSAGE Removing ALSB configuration: OSB Configuration Juliano Cervelin
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:25:42.935
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:25:46.513
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:46.841
+!MESSAGE Module Status: 
+-GeraTicketPortabilidadeEAR
+--GeraTicketPortabilidade
+---GeraTicketPortabilidadeClient
+
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:25:46.857
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 4 0 2016-10-02 20:29:06.255
+!MESSAGE Cannot attach to remote server.
+Please make sure the server localhost is running and listening for transport dt_socket at address: 8453
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to connect to remote VM. Connection refused.
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.abort(SocketAttachConnector.java:94)
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.connect(SocketAttachConnector.java:150)
+	at org.eclipse.jdt.internal.launching.JavaRemoteApplicationLaunchConfigurationDelegate.launch(JavaRemoteApplicationLaunchConfigurationDelegate.java:79)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDeuggerWLSLaunchConfigurationDelegate.launch(Unknown Source)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.attach(WeblogicServerBehaviour.java:2516)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.attachToRemoteServer(WeblogicServerLaunchConfigurationDelegate.java:202)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.launch(WeblogicServerLaunchConfigurationDelegate.java:92)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:696)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.restart(WeblogicServerBehaviour.java:1878)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl2(Server.java:3198)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl(Server.java:3072)
+	at org.eclipse.wst.server.core.internal.Server$RestartJob.run(Server.java:378)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at org.eclipse.jdi.internal.connect.SocketTransportService$2.run(SocketTransportService.java:136)
+	at java.lang.Thread.run(Thread.java:745)
+!SUBENTRY 1 org.eclipse.jdt.launching 4 113 2016-10-02 20:29:06.255
+!MESSAGE Failed to connect to remote VM. Connection refused.
+!STACK 0
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at org.eclipse.jdi.internal.connect.SocketTransportService$2.run(SocketTransportService.java:136)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:29:41.303
+!MESSAGE OSB Debugger EventDispatchJob terminated, shutting down the debugger.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:10.682
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:10.792
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:10.807
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:10.807
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:10.823
+!MESSAGE Total deleted modules: 0
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:11.104
+!MESSAGE Module Status: 
+-GeraTicketPortabilidadeEAR
+--GeraTicketPortabilidade
+---GeraTicketPortabilidadeClient
+
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:11.135
+!MESSAGE ***dm.redeploy (redeploy) GeraTicketPortabilidadeEAR
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:11.526
+!MESSAGE ***dm.getAvailableModules (initModuleNameCache)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:13.479
+!MESSAGE ***dm.redeploy (redeploy) GeraTicketPortabilidadeEAR
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:13.495
+!MESSAGE Deploy application to server with option:
+-target [{Target=AdminServer, WebLogicTargetType=server, Name=GeraTicketPortabilidadeEAR}]
+-source C:\Users\Juliano\Documents\Curso SOA\OSB-Curso-SOA\SOA\.metadata\.plugins\org.eclipse.core.resources\.projects\GeraTicketPortabilidadeEAR\beadep\remote_weblogic\GeraTicketPortabilidadeEAR\split_src.ear
+
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.057
+!MESSAGE Waiting on ProgressObject:@593392007
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.464
+!MESSAGE ProgressObject completed :@593392007
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.464
+!MESSAGE ***dm.start (startModule) GeraTicketPortabilidadeEAR
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.729
+!MESSAGE Waiting on ProgressObject:@1552506380
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.745
+!MESSAGE ProgressObject completed :@1552506380
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.745
+!MESSAGE Started GeraTicketPortabilidadeEAR
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.745
+!MESSAGE GeraTicketPortabilidadeEAR redeployed successfully on [{Target=AdminServer, WebLogicTargetType=server, Name=GeraTicketPortabilidadeEAR}]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:14.761
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:43.059
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:43.121
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:43.121
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:43.137
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:43.137
+!MESSAGE Total deleted modules: 0
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.591
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.622
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.637
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidade]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.637
+!MESSAGE Module not changed:[GeraTicketPortabilidadeEAR,GeraTicketPortabilidadeClient]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.637
+!MESSAGE Found new module:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.637
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.653
+!MESSAGE Found new module:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.653
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:53.653
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@935636878
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:54.606
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:54.622
+!MESSAGE Elapsed time 953ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:54.622
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@445643044
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:31:56.388
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:31:56.497
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:31:56.497
+!MESSAGE Added 2 modules out of 5
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:31:56.513
+!MESSAGE Publishing new ALSB configuration: OSB Configuration Juliano Cervelin
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:31:56.778
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 20:32:06.985
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:32:07.360
+!MESSAGE Module Status: 
+-GeraTicketPortabilidadeEAR
+--GeraTicketPortabilidade
+---GeraTicketPortabilidadeClient
+
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:32:07.375
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 4 0 2016-10-02 20:32:18.985
+!MESSAGE Cannot attach to remote server.
+Please make sure the server localhost is running and listening for transport dt_socket at address: 8453
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to connect to remote VM. Connection refused.
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.abort(SocketAttachConnector.java:94)
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.connect(SocketAttachConnector.java:150)
+	at org.eclipse.jdt.internal.launching.JavaRemoteApplicationLaunchConfigurationDelegate.launch(JavaRemoteApplicationLaunchConfigurationDelegate.java:79)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDeuggerWLSLaunchConfigurationDelegate.launch(Unknown Source)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.attach(WeblogicServerBehaviour.java:2516)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.attachToRemoteServer(WeblogicServerLaunchConfigurationDelegate.java:202)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.launch(WeblogicServerLaunchConfigurationDelegate.java:92)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:696)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.restart(WeblogicServerBehaviour.java:1878)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl2(Server.java:3198)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl(Server.java:3072)
+	at org.eclipse.wst.server.core.internal.Server$RestartJob.run(Server.java:378)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at org.eclipse.jdi.internal.connect.SocketTransportService$2.run(SocketTransportService.java:136)
+	at java.lang.Thread.run(Thread.java:745)
+!SUBENTRY 1 org.eclipse.jdt.launching 4 113 2016-10-02 20:32:18.985
+!MESSAGE Failed to connect to remote VM. Connection refused.
+!STACK 0
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at org.eclipse.jdi.internal.connect.SocketTransportService$2.run(SocketTransportService.java:136)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:33:15.113
+!MESSAGE OSB Debugger EventDispatchJob terminated, shutting down the debugger.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:36:35.101
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:36:35.976
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@445643044
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:36:39.656
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:36:39.688
+!MESSAGE Elapsed time 1375ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:36:39.703
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@748618884
+
+!ENTRY org.eclipse.debug.core 4 2 2016-10-02 20:37:44.238
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.launching.sourcelookup.containers.JavaSourceLookupParticipant.dispose(JavaSourceLookupParticipant.java:67)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.dispose(AbstractSourceLookupDirector.java:216)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchRemoved(AbstractSourceLookupDirector.java:619)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchNotifier.run(LaunchManager.java:443)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchNotifier.notify(LaunchManager.java:428)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:990)
+	at org.eclipse.debug.internal.core.LaunchManager.removeLaunches(LaunchManager.java:2226)
+	at org.eclipse.debug.internal.ui.actions.RemoveAllTerminatedAction.removeTerminatedLaunches(RemoveAllTerminatedAction.java:54)
+	at org.eclipse.debug.internal.ui.actions.RemoveAllTerminatedAction.run(RemoveAllTerminatedAction.java:109)
+	at org.eclipse.debug.internal.ui.actions.AbstractRemoveAllActionDelegate.runWithEvent(AbstractRemoveAllActionDelegate.java:70)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:241)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:452)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY org.eclipse.debug.core 4 120 2016-10-02 20:37:44.269
+!MESSAGE An exception occurred during launch change notification.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.launching.sourcelookup.containers.JavaSourceLookupParticipant.dispose(JavaSourceLookupParticipant.java:67)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.dispose(AbstractSourceLookupDirector.java:216)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchRemoved(AbstractSourceLookupDirector.java:619)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchNotifier.run(LaunchManager.java:443)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchNotifier.notify(LaunchManager.java:428)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:990)
+	at org.eclipse.debug.internal.core.LaunchManager.removeLaunches(LaunchManager.java:2226)
+	at org.eclipse.debug.internal.ui.actions.RemoveAllTerminatedAction.removeTerminatedLaunches(RemoveAllTerminatedAction.java:54)
+	at org.eclipse.debug.internal.ui.actions.RemoveAllTerminatedAction.run(RemoveAllTerminatedAction.java:109)
+	at org.eclipse.debug.internal.ui.actions.AbstractRemoveAllActionDelegate.runWithEvent(AbstractRemoveAllActionDelegate.java:70)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:241)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:452)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY oracle.eclipse.tools.weblogic 4 0 2016-10-02 20:37:58.441
+!MESSAGE Cannot attach to remote server.
+Please make sure the server localhost is running and listening for transport dt_socket at address: 8453
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/Internal_Mock' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:150)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:584)
+	at com.bea.alsb.debug.core.internal.source.lookup.AlsbSourcePathComputerDelegate.computeSourceContainers(Unknown Source)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDeuggerWLSLaunchConfigurationDelegate.launch(Unknown Source)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.attach(WeblogicServerBehaviour.java:2516)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.attachToRemoteServer(WeblogicServerLaunchConfigurationDelegate.java:202)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.launch(WeblogicServerLaunchConfigurationDelegate.java:92)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:696)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.restart(WeblogicServerBehaviour.java:1878)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl2(Server.java:3198)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl(Server.java:3072)
+	at org.eclipse.wst.server.core.internal.Server$RestartJob.run(Server.java:378)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2016-10-02 20:37:58.441
+!MESSAGE Resource '/Internal_Mock' is not open.
+
+!ENTRY com.bea.alsb.debug.core 4 0 2016-10-02 20:40:23.917
+!MESSAGE The Oracle Service Bus debugger cannot connect to the server.  Verify that the server is running and that the server's debug port is not in use by another debug client.
+!STACK 0
+com.bea.alsb.debug.ALSBDebuggerException: Connection reset
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:106)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.createDebugger(ALSBDebuggerManager.java:92)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.getDebugger(ALSBDebuggerManager.java:65)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.connect(Unknown Source)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.<init>(Unknown Source)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDebuggerLaunchConfigurationDelegate.launch(Unknown Source)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.handshake(SocketConnectionFactory.java:124)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.connect(SocketConnectionFactory.java:65)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:102)
+	... 10 more
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:42:51.163
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:42:51.194
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@748618884
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:42:52.647
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:42:52.647
+!MESSAGE Elapsed time 1343ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:42:52.663
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@1063866238
+
+!ENTRY com.bea.alsb.debug.core 4 0 2016-10-02 20:43:06.414
+!MESSAGE The Oracle Service Bus debugger cannot connect to the server.  Verify that the server is running and that the server's debug port is not in use by another debug client.
+!STACK 0
+com.bea.alsb.debug.ALSBDebuggerException: Connection reset
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:106)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.createDebugger(ALSBDebuggerManager.java:92)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.getDebugger(ALSBDebuggerManager.java:65)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.connect(Unknown Source)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.<init>(Unknown Source)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDebuggerLaunchConfigurationDelegate.launch(Unknown Source)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.handshake(SocketConnectionFactory.java:124)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.connect(SocketConnectionFactory.java:65)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:102)
+	... 10 more
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:43:23.018
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@1063866238
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:43:33.505
+!MESSAGE Stopped WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+!SESSION 2016-10-02 20:45:15.136 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2016-10-02 20:45:42.234
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-10-02 20:45:42.234
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(oracle.eclipse.tools.common.services.ui.refactor.rename.command,Rename,
+		Rename the selected text.,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		oracle.eclipse.tools.common.services.ui.refactor.internal.ArtifactRefactoringCommandHandler,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-10-02 20:45:42.234
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:45:43.140
+!MESSAGE Started WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+
+!ENTRY org.python.pydev.core 4 4 2016-10-02 20:45:51.766
+!MESSAGE sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.SSLSocketImpl.fatal(SSLSocketImpl.java:1904)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:279)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:273)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1446)
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:209)
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:913)
+	at sun.security.ssl.Handshaker.process_record(Handshaker.java:849)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1023)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1359)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1343)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1092)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:250)
+	at org.python.pydev.logging.ping.LogPingSender.sendPing(LogPingSender.java:62)
+	at org.python.pydev.logging.ping.SynchedLogPing.send(SynchedLogPing.java:164)
+	at org.python.pydev.logging.ping.AsyncLogPing.consumeAllCommands(AsyncLogPing.java:131)
+	at org.python.pydev.logging.ping.AsyncLogPing.access$0(AsyncLogPing.java:100)
+	at org.python.pydev.logging.ping.AsyncLogPing$1.run(AsyncLogPing.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:350)
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:249)
+	at sun.security.validator.Validator.validate(Validator.java:260)
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:326)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:126)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1428)
+	... 17 more
+Caused by: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(PKIXMasterCertPathValidator.java:159)
+	at sun.security.provider.certpath.PKIXCertPathValidator.doValidate(PKIXCertPathValidator.java:347)
+	at sun.security.provider.certpath.PKIXCertPathValidator.engineValidate(PKIXCertPathValidator.java:191)
+	at java.security.cert.CertPathValidator.validate(CertPathValidator.java:279)
+	at sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:345)
+	... 23 more
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Wed Sep 25 18:29:33 BRT 2013
+	at sun.security.x509.CertificateValidity.valid(CertificateValidity.java:273)
+	at sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:575)
+	at sun.security.provider.certpath.BasicChecker.verifyTimestamp(BasicChecker.java:184)
+	at sun.security.provider.certpath.BasicChecker.check(BasicChecker.java:136)
+	at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(PKIXMasterCertPathValidator.java:133)
+	... 27 more
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 20:46:16.673
+!MESSAGE Stopped WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:47:24.061
+!MESSAGE AlsbDebugger: Added ValueProvider: com.bea.alsb.debug.xml.XmlValueProvider
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 20:47:24.108
+!MESSAGE AlsbDebugger: Added ValueProvider: com.bea.wli.sb.pipeline.debug.value.PipelineValueProvider
+
+!ENTRY com.bea.alsb.debug.core 4 0 2016-10-02 20:47:27.593
+!MESSAGE The Oracle Service Bus debugger cannot connect to the server.  Verify that the server is running and that the server's debug port is not in use by another debug client.
+!STACK 0
+com.bea.alsb.debug.ALSBDebuggerException: Connection reset
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:106)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.createDebugger(ALSBDebuggerManager.java:92)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.getDebugger(ALSBDebuggerManager.java:65)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.connect(Unknown Source)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.<init>(Unknown Source)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDebuggerLaunchConfigurationDelegate.launch(Unknown Source)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.handshake(SocketConnectionFactory.java:124)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.connect(SocketConnectionFactory.java:65)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:102)
+	... 10 more
+
+!ENTRY com.bea.alsb.debug.core 4 0 2016-10-02 20:47:49.756
+!MESSAGE The Oracle Service Bus debugger cannot connect to the server.  Verify that the server is running and that the server's debug port is not in use by another debug client.
+!STACK 0
+com.bea.alsb.debug.ALSBDebuggerException: Connection refused: connect
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:106)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.createDebugger(ALSBDebuggerManager.java:92)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.getDebugger(ALSBDebuggerManager.java:65)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.connect(Unknown Source)
+	at com.bea.alsb.debug.core.internal.model.AlsbDebugTarget.<init>(Unknown Source)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDebuggerLaunchConfigurationDelegate.launch(Unknown Source)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at com.bea.alsb.debug.internal.channel.SocketConnectionFactory.connect(SocketConnectionFactory.java:51)
+	at com.bea.alsb.debug.client.ALSBDebuggerManager.connect(ALSBDebuggerManager.java:102)
+	... 10 more
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 20:58:49.529
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+!STACK 1
+org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:586)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:424)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:402)
+	at org.eclipse.ui.internal.WorkbenchPage.findEditor(WorkbenchPage.java:2178)
+	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.isOpenInEditor(EditorUtility.java:130)
+	at org.eclipse.jdt.internal.ui.navigator.JavaFileLinkHelper.activateEditor(JavaFileLinkHelper.java:38)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$2.run(LinkEditorAction.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$1.runInUIThread(LinkEditorAction.java:76)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:275)
+	at org.eclipse.ui.internal.progress.ProgressManager.run(ProgressManager.java:1162)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.ensureTypeSystemCapable(Unknown Source)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.init(Unknown Source)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:828)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:647)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2756)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:683)
+	at org.python.pydev.navigator.actions.PyOpenResourceAction.openFiles(PyOpenResourceAction.java:101)
+	at org.python.pydev.navigator.actions.PyOpenPythonFileAction.run(PyOpenPythonFileAction.java:85)
+	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:221)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 1 org.eclipse.ui 4 0 2016-10-02 20:58:49.529
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 21:05:10.178
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+!STACK 1
+org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:586)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:424)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:402)
+	at org.eclipse.ui.internal.WorkbenchPage.findEditor(WorkbenchPage.java:2178)
+	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.isOpenInEditor(EditorUtility.java:130)
+	at org.eclipse.jdt.internal.ui.navigator.JavaFileLinkHelper.activateEditor(JavaFileLinkHelper.java:38)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$2.run(LinkEditorAction.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$1.runInUIThread(LinkEditorAction.java:76)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:275)
+	at org.eclipse.ui.internal.progress.ProgressManager.run(ProgressManager.java:1162)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.ensureTypeSystemCapable(Unknown Source)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.init(Unknown Source)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:828)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:647)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2756)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:683)
+	at org.python.pydev.navigator.actions.PyOpenResourceAction.openFiles(PyOpenResourceAction.java:101)
+	at org.python.pydev.navigator.actions.PyOpenPythonFileAction.run(PyOpenPythonFileAction.java:85)
+	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:221)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 1 org.eclipse.ui 4 0 2016-10-02 21:05:10.178
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 21:23:07.662
+!MESSAGE Warning: Detected recursive attempt by part org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor to create itself (this is probably, but not necessarily, a bug)
+!STACK 1
+org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor to create itself (this is probably, but not necessarily, a bug)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:586)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:424)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:402)
+	at org.eclipse.ui.internal.WorkbenchPage.findEditor(WorkbenchPage.java:2178)
+	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.isOpenInEditor(EditorUtility.java:130)
+	at org.eclipse.jdt.internal.ui.navigator.JavaFileLinkHelper.activateEditor(JavaFileLinkHelper.java:38)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$2.run(LinkEditorAction.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$1.runInUIThread(LinkEditorAction.java:76)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:275)
+	at org.eclipse.ui.internal.progress.ProgressManager$5.run(ProgressManager.java:960)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.progress.ProgressManager.busyCursorWhile(ProgressManager.java:995)
+	at org.eclipse.ui.internal.progress.ProgressManager.busyCursorWhile(ProgressManager.java:970)
+	at org.eclipse.wst.xsd.ui.internal.text.XSDModelAdapter.createSchema(XSDModelAdapter.java:135)
+	at org.eclipse.wst.xsd.ui.internal.text.XSDModelAdapter.lookupOrCreateSchema(XSDModelAdapter.java:213)
+	at org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor.buildModel(InternalXSDMultiPageEditor.java:247)
+	at org.eclipse.wst.xsd.ui.internal.adt.editor.ADTMultiPageEditor.createPages(ADTMultiPageEditor.java:173)
+	at org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor.createPages(InternalXSDMultiPageEditor.java:568)
+	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:348)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:670)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2756)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:683)
+	at org.python.pydev.navigator.actions.PyOpenResourceAction.openFiles(PyOpenResourceAction.java:101)
+	at org.python.pydev.navigator.actions.PyOpenPythonFileAction.run(PyOpenPythonFileAction.java:85)
+	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:221)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 1 org.eclipse.ui 4 0 2016-10-02 21:23:07.662
+!MESSAGE Warning: Detected recursive attempt by part org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor to create itself (this is probably, but not necessarily, a bug)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:24:26.309
+!MESSAGE Started WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:24:26.325
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:24:30.282
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:24:30.282
+!MESSAGE Elapsed time 1531ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:24:30.298
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@418395019
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:39.366
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:39.413
+!MESSAGE Found new module:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:39.413
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:39.413
+!MESSAGE Found new module:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:39.429
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:39.429
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@418395019
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:40.507
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:40.507
+!MESSAGE Elapsed time 1047ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:40.522
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@751257017
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:42.710
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:28:42.726
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:28:42.741
+!MESSAGE Added 2 modules out of 2
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:28:42.741
+!MESSAGE Publishing new ALSB configuration: OSB Configuration Juliano Cervelin
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:28:43.069
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:28:52.304
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:52.320
+!MESSAGE No Weblogic J2EE module to publish
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:28:52.320
+!MESSAGE Publishing finished.
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 21:29:01.273
+!MESSAGE canSupport() invoked!
+
+!ENTRY com.bea.alsb.debug.core 1 0 2016-10-02 21:29:01.273
+!MESSAGE Found ALSB server!
+
+!ENTRY oracle.eclipse.tools.weblogic 4 0 2016-10-02 21:29:01.320
+!MESSAGE Cannot attach to remote server.
+Please make sure the server localhost is running and listening for transport dt_socket at address: 7453
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to connect to remote VM
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.abort(SocketAttachConnector.java:94)
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.connect(SocketAttachConnector.java:152)
+	at org.eclipse.jdt.internal.launching.JavaRemoteApplicationLaunchConfigurationDelegate.launch(JavaRemoteApplicationLaunchConfigurationDelegate.java:79)
+	at com.bea.alsb.debug.core.internal.launch.AlsbDeuggerWLSLaunchConfigurationDelegate.launch(Unknown Source)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.attach(WeblogicServerBehaviour.java:2516)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.attachToRemoteServer(WeblogicServerLaunchConfigurationDelegate.java:202)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerLaunchConfigurationDelegate.launch(WeblogicServerLaunchConfigurationDelegate.java:92)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:696)
+	at oracle.eclipse.tools.weblogic.server.internal.WeblogicServerBehaviour.restart(WeblogicServerBehaviour.java:1878)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl2(Server.java:3198)
+	at org.eclipse.wst.server.core.internal.Server.restartImpl(Server.java:3072)
+	at org.eclipse.wst.server.core.internal.Server$RestartJob.run(Server.java:378)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at java.io.DataInputStream.readFully(DataInputStream.java:195)
+	at java.io.DataInputStream.readFully(DataInputStream.java:169)
+	at org.eclipse.jdi.internal.connect.SocketTransportService.readHandshake(SocketTransportService.java:205)
+	at org.eclipse.jdi.internal.connect.SocketTransportService.access$7(SocketTransportService.java:201)
+	at org.eclipse.jdi.internal.connect.SocketTransportService$3.run(SocketTransportService.java:172)
+	at java.lang.Thread.run(Thread.java:745)
+!SUBENTRY 1 org.eclipse.jdt.launching 4 113 2016-10-02 21:29:01.320
+!MESSAGE Failed to connect to remote VM
+!STACK 0
+java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at java.io.DataInputStream.readFully(DataInputStream.java:195)
+	at java.io.DataInputStream.readFully(DataInputStream.java:169)
+	at org.eclipse.jdi.internal.connect.SocketTransportService.readHandshake(SocketTransportService.java:205)
+	at org.eclipse.jdi.internal.connect.SocketTransportService.access$7(SocketTransportService.java:201)
+	at org.eclipse.jdi.internal.connect.SocketTransportService$3.run(SocketTransportService.java:172)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:32.182
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:32.213
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:32.213
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:32.213
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:32.213
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:32.228
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.228
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.228
+!MESSAGE Added 2 modules out of 2
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.885
+!MESSAGE ALSB Publish Summary: Deleted Projects
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.885
+!MESSAGE No deleted projects to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.916
+!MESSAGE ALSB Publish Summary: Added/Removed/Changed
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.916
+!MESSAGE Will publish: INOVIXService.proxy
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:32.916
+!MESSAGE No removed resources to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:33.025
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:33.447
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:36:33.447
+!MESSAGE ALSB publish finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:33.463
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:33.463
+!MESSAGE No Weblogic J2EE module to publish
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:36:33.463
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:11.447
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:11.479
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:11.479
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:11.479
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:11.494
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:11.494
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:11.494
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:11.510
+!MESSAGE Added 2 modules out of 2
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.057
+!MESSAGE ALSB Publish Summary: Deleted Projects
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.057
+!MESSAGE No deleted projects to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.072
+!MESSAGE ALSB Publish Summary: Added/Removed/Changed
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.088
+!MESSAGE Will publish: INOVIXService.proxy
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.088
+!MESSAGE No removed resources to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.260
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.698
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 21:44:12.698
+!MESSAGE ALSB publish finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:12.713
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:12.713
+!MESSAGE No Weblogic J2EE module to publish
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 21:44:12.713
+!MESSAGE Publishing finished.
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 21:49:53.066
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+!STACK 1
+org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:586)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:424)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:402)
+	at org.eclipse.ui.internal.WorkbenchPage.findEditor(WorkbenchPage.java:2178)
+	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.isOpenInEditor(EditorUtility.java:130)
+	at org.eclipse.jdt.internal.ui.navigator.JavaFileLinkHelper.activateEditor(JavaFileLinkHelper.java:38)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$2.run(LinkEditorAction.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$1.runInUIThread(LinkEditorAction.java:76)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:275)
+	at org.eclipse.ui.internal.progress.ProgressManager.run(ProgressManager.java:1162)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.ensureTypeSystemCapable(Unknown Source)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.init(Unknown Source)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:828)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:647)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2756)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:683)
+	at org.python.pydev.navigator.actions.PyOpenResourceAction.openFiles(PyOpenResourceAction.java:101)
+	at org.python.pydev.navigator.actions.PyOpenPythonFileAction.run(PyOpenPythonFileAction.java:85)
+	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:221)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 1 org.eclipse.ui 4 0 2016-10-02 21:49:53.066
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+
+!ENTRY org.eclipse.osgi 2 1 2016-10-02 21:50:25.696
+!MESSAGE NLS unused message: primitives in: com.bea.wli.ide.typesystem.ui.messages
+
+!ENTRY org.eclipse.osgi 2 1 2016-10-02 21:50:25.696
+!MESSAGE NLS unused message: classes in: com.bea.wli.ide.typesystem.ui.messages
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 21:55:38.872
+!MESSAGE Warning: Detected recursive attempt by part org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor to create itself (this is probably, but not necessarily, a bug)
+!STACK 1
+org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor to create itself (this is probably, but not necessarily, a bug)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:586)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:424)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:402)
+	at org.eclipse.ui.internal.WorkbenchPage.findEditor(WorkbenchPage.java:2178)
+	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.isOpenInEditor(EditorUtility.java:130)
+	at org.eclipse.jdt.internal.ui.navigator.JavaFileLinkHelper.activateEditor(JavaFileLinkHelper.java:38)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$2.run(LinkEditorAction.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$1.runInUIThread(LinkEditorAction.java:76)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:275)
+	at org.eclipse.ui.internal.progress.ProgressManager$5.run(ProgressManager.java:960)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.progress.ProgressManager.busyCursorWhile(ProgressManager.java:995)
+	at org.eclipse.ui.internal.progress.ProgressManager.busyCursorWhile(ProgressManager.java:970)
+	at org.eclipse.wst.xsd.ui.internal.text.XSDModelAdapter.createSchema(XSDModelAdapter.java:135)
+	at org.eclipse.wst.xsd.ui.internal.text.XSDModelAdapter.lookupOrCreateSchema(XSDModelAdapter.java:213)
+	at org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor.buildModel(InternalXSDMultiPageEditor.java:247)
+	at org.eclipse.wst.xsd.ui.internal.adt.editor.ADTMultiPageEditor.createPages(ADTMultiPageEditor.java:173)
+	at org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor.createPages(InternalXSDMultiPageEditor.java:568)
+	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:348)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:670)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2756)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:683)
+	at org.python.pydev.navigator.actions.PyOpenResourceAction.openFiles(PyOpenResourceAction.java:101)
+	at org.python.pydev.navigator.actions.PyOpenPythonFileAction.run(PyOpenPythonFileAction.java:85)
+	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:221)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 1 org.eclipse.ui 4 0 2016-10-02 21:55:38.872
+!MESSAGE Warning: Detected recursive attempt by part org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor to create itself (this is probably, but not necessarily, a bug)
+
+!ENTRY org.eclipse.ui 4 0 2016-10-02 21:59:14.183
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+!STACK 1
+org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:586)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:424)
+	at org.eclipse.ui.internal.EditorManager.findEditor(EditorManager.java:402)
+	at org.eclipse.ui.internal.WorkbenchPage.findEditor(WorkbenchPage.java:2178)
+	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.isOpenInEditor(EditorUtility.java:130)
+	at org.eclipse.jdt.internal.ui.navigator.JavaFileLinkHelper.activateEditor(JavaFileLinkHelper.java:38)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$2.run(LinkEditorAction.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.actions.LinkEditorAction$1.runInUIThread(LinkEditorAction.java:76)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:275)
+	at org.eclipse.ui.internal.progress.ProgressManager.run(ProgressManager.java:1162)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.ensureTypeSystemCapable(Unknown Source)
+	at com.bea.wli.ide.mapper.editors.MapperEditor.init(Unknown Source)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:828)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:647)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2756)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:683)
+	at org.python.pydev.navigator.actions.PyOpenResourceAction.openFiles(PyOpenResourceAction.java:101)
+	at org.python.pydev.navigator.actions.PyOpenPythonFileAction.run(PyOpenPythonFileAction.java:85)
+	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:221)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 1 org.eclipse.ui 4 0 2016-10-02 21:59:14.183
+!MESSAGE Warning: Detected recursive attempt by part com.bea.alsb.common.mapper.editors.MapperEditor to create itself (this is probably, but not necessarily, a bug)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:03.504
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:03.519
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:03.535
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:03.535
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:03.550
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:03.550
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:03.566
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:03.566
+!MESSAGE Added 2 modules out of 2
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.285
+!MESSAGE ALSB Publish Summary: Deleted Projects
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.300
+!MESSAGE No deleted projects to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.316
+!MESSAGE ALSB Publish Summary: Added/Removed/Changed
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.316
+!MESSAGE Will publish: AdapterObterDadosContaResponse_To_ObterDadosContaResponse.xq
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.316
+!MESSAGE Will publish: Account.xsd
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.332
+!MESSAGE Will publish: ObterDadosConta_To_Adapter_ObterDadosConta.xq
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.332
+!MESSAGE Will publish: ObterDadosConta.proxy
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.332
+!MESSAGE No removed resources to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:04.472
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:07.676
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:01:07.676
+!MESSAGE ALSB publish finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:07.691
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:07.691
+!MESSAGE No Weblogic J2EE module to publish
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:01:07.691
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:39.436
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:39.483
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:39.483
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:39.483
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:39.483
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:39.499
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:39.499
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:39.499
+!MESSAGE Added 2 modules out of 2
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.093
+!MESSAGE ALSB Publish Summary: Deleted Projects
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.093
+!MESSAGE No deleted projects to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.108
+!MESSAGE ALSB Publish Summary: Added/Removed/Changed
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.124
+!MESSAGE Will publish: ObterDadosConta.proxy
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.124
+!MESSAGE No removed resources to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.264
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.749
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:03:40.764
+!MESSAGE ALSB publish finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:40.764
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:40.764
+!MESSAGE No Weblogic J2EE module to publish
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:03:40.764
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:28.651
+!MESSAGE Publishing beginning.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:28.682
+!MESSAGE Module not changed:[OSB Configuration Juliano Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:28.682
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:28.682
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:28.682
+!MESSAGE Found deployable module: com.bea.alsb.core.internal.deployables:OSB Configuration Juliano Cervelin : bea.alsb.container.module
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:28.698
+!MESSAGE Total deleted modules: 0
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:28.698
+!MESSAGE Starting ALSB publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:28.698
+!MESSAGE Added 2 modules out of 2
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.245
+!MESSAGE ALSB Publish Summary: Deleted Projects
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.245
+!MESSAGE No deleted projects to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.261
+!MESSAGE ALSB Publish Summary: Added/Removed/Changed
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.276
+!MESSAGE Will publish: SolicitarPortabilidadeResponse_To_InovixServiceResponse.xq
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.276
+!MESSAGE No removed resources to publish.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.386
+!MESSAGE Beginning import to ALSB server.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.854
+!MESSAGE Import to ALSB server completed.
+
+!ENTRY com.bea.alsb.server.publish 1 0 2016-10-02 22:11:29.854
+!MESSAGE ALSB publish finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:29.870
+!MESSAGE Module changed:[OSB Configuration Juliano Cervelin,OSB_Juliano_Cervelin]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:29.870
+!MESSAGE No Weblogic J2EE module to publish
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:11:29.870
+!MESSAGE Publishing finished.
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:48:54.317
+!MESSAGE Releasing deployment manager :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@751257017
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:48:54.360
+!MESSAGE Stopped WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]

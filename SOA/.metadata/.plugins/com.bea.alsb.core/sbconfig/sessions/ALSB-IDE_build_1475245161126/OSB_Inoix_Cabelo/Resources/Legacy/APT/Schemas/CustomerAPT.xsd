@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://apt.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://apt.org">
+
+	<complexType name="CustomerAPT">
+		<sequence>			
+			<element name="cpf" type="string"/>
+			<element name="name" type="string"/>
+			<element name="bilhetePortabilidade" type="integer"/>
+		</sequence>
+	</complexType>	
+
+</schema>]]></con:schema>
+    <con:targetNamespace>http://apt.org</con:targetNamespace>
+</con:schemaEntry>

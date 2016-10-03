@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://inovix.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inovix.org" xmlns:mdc="http://inovix.org/MC">
+
+	<import namespace="http://inovix.org/MC" schemaLocation="../ModeloCanonico/Cliente.xsd"/>
+
+	<complexType name="ResultadoBuscarClientePorCPF">
+		<sequence>
+			<element name="cliente" type="mdc:Cliente"/>
+		</sequence>
+	</complexType>	
+	
+	<element name="ResultadoBuscarClientePorCPF" type="tns:ResultadoBuscarClientePorCPF"/>
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:import namespace="http://inovix.org/MC" schemaLocation="../ModeloCanonico/Cliente.xsd" ref="OSB_Inoix_Cabelo/Resources/ModeloCanonico/Cliente"/>
+    </con:dependencies>
+    <con:targetNamespace>http://inovix.org</con:targetNamespace>
+</con:schemaEntry>

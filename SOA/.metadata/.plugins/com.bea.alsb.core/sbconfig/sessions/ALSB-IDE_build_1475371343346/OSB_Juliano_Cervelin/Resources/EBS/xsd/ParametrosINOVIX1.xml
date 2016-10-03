@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:xmlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:xml-content>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;tns:SolicitarPortabilidade xmlns:tns="http://acme.com.br/SN/INOVIXService/JulianoCervelin" xmlns:tns1="http://acme.com.br/MC/JulianoCervelin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://acme.com.br/SN/INOVIXService/JulianoCervelin ParametrosINOVIX.xsd ">
+  &lt;tns:cpf>tns:cpf&lt;/tns:cpf>
+&lt;/tns:SolicitarPortabilidade></con:xml-content>
+</con:xmlEntry>

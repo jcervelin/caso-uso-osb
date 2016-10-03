@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/updateStatusPortabilidade" name="updateStatusPortabilidade-concrete" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/updateStatusPortabilidade" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/updateStatusPortabilidade" location="../../Resources/Adapters/AdapterDBCobol/updateStatusPortabilidade.wsdl"/>
+  <binding name="updateStatusPortabilidade_ptt-binding" type="tns:updateStatusPortabilidade_ptt">
+    <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+    <operation name="updateStatusPortabilidade">
+      <soap:operation soapAction="updateStatusPortabilidade"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="updateStatusPortabilidade-service">
+    <port name="updateStatusPortabilidade-port" binding="tns:updateStatusPortabilidade_ptt-binding">
+      <soap:address location="jca://eis/DB/INOVIX"/>
+    </port>
+  </service>
+</definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:import location="../../Resources/Adapters/AdapterDBCobol/updateStatusPortabilidade.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/updateStatusPortabilidade">
+            <con:wsdl ref="OSB_Juliano_Cervelin/Resources/Adapters/AdapterDBCobol/updateStatusPortabilidade"/>
+        </con:import>
+    </con:dependencies>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/updateStatusPortabilidade</con:targetNamespace>
+</con:wsdlEntry>

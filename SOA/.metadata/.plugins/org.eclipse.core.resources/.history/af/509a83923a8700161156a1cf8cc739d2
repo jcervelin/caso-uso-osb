@@ -1,0 +1,18 @@
+(:: pragma  parameter="$anyType1" type="anyType" ::)
+(:: pragma bea:global-element-return element="ns0:acmeFault" location="../../ModeloCanonico/AcmeFault.xsd" ::)
+
+declare namespace ns0 = "http://acme.com.br/MC/JulianoCervelin";
+declare namespace xf = "http://tempuri.org/OSB_Juliano_Cervelin/Resources/Transformations/ErrorHandler/";
+
+declare function xf:ErrorHandler($fault as element(*))
+    as element(ns0:acmeFault) {
+        <ns0:acmeFault>
+            <ns0:codigo>{ $fault/ns0:errorCode }</ns0:codigo>
+            <ns0:descricao>{ $fault/ns0:reason }</ns0:descricao>
+            <ns0:detalhe>{ $fault/ns0:details }</ns0:detalhe>
+        </ns0:acmeFault>
+};
+
+declare variable $fault as element(*) external;
+
+xf:ErrorHandler($fault)

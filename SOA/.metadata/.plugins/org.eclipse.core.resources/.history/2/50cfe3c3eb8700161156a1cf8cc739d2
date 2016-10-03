@@ -1,0 +1,11 @@
+package br.com.acme.inovix.geraticket.bean;
+
+public class Portabilidade {
+
+	private int bilhetePortabilidade;
+	private Date dataHoraJanela;
+	private String operadoraOrigem;
+	private String operadoraDestino;
+	
+	
+}

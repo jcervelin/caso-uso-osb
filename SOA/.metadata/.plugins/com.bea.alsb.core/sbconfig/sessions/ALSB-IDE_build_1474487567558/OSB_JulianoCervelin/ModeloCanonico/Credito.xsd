@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sysmap.com.br/MC/CursoSOA/Juliano" xmlns:tns="http://sysmap.com.br/MC/CursoSOA/Juliano" elementFormDefault="qualified"
+		xmlns:pes="http://sysmap.com.br/MC/CursoSOA/Juliano">
+
+	<include schemaLocation="Pessoa.xsd"/>
+
+	<complexType name="Credito">
+		<sequence>
+			<element name="pessoa" type="pes:Pessoa"/>
+			<element name="indicaCreditoExterno" type="boolean"/>
+			<element name="indicaCreditoInterno" type="boolean"/>
+			<element name="indicaWhiteList" type="boolean"/>
+			<element name="situacao" type="integer"/>
+		</sequence>	
+	</complexType>
+	
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="Pessoa.xsd" ref="OSB_JulianoCervelin/ModeloCanonico/Pessoa"/>
+    </con:dependencies>
+    <con:targetNamespace>http://sysmap.com.br/MC/CursoSOA/Juliano</con:targetNamespace>
+</con:schemaEntry>

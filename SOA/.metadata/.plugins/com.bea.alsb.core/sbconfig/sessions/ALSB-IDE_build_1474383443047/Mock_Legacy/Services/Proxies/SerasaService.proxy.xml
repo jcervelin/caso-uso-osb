@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="Mock_Legacy/Interfaces/Contracts/SerasaService"/>
+      <con:binding>
+        <con:name>SerasaServiceSOAP</con:name>
+        <con:namespace>http://cursosoa.org/SerasaService/</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/Mock_Legacy/Services/Proxies/SerasaService</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>true</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router>
+    <con:pipeline type="request" name="PipelinePairNode1_request">
+      <con:stage name="stage1">
+        <con:context>
+          <con1:varNsDecl namespace="http://serasa.com.br/SN/Serasa" prefix="ser"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="num_doc">
+            <con1:id>_ActionId-480585687409543507--3a5dabfd.157481a8491.-7fa2</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body/ser:ParametrosSerasa/ser:num_documento/text()</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:ifThenElse>
+            <con1:id>_ActionId-480585687409543507--3a5dabfd.157481a8491.-7f3c</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>$num_doc = '000.000.000-00'</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="vl_restricao">
+                  <con1:id>_ActionId-480585687409543507--3a5dabfd.157481a8491.-7f25</con1:id>
+                  <con2:expr>
+                    <con1:xqueryText>0</con1:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:default>
+              <con2:assign varName="vl_restricao">
+                <con1:id>_ActionId-480585687409543507--3a5dabfd.157481a8491.-7f0b</con1:id>
+                <con2:expr>
+                  <con1:xqueryText>5000</con1:xqueryText>
+                </con2:expr>
+              </con2:assign>
+            </con2:default>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairNode1_response">
+      <con:stage name="stage1">
+        <con:context>
+          <con1:varNsDecl namespace="http://serasa.com.br/SN/Serasa" prefix="ser"/>
+        </con:context>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-480585687409543507--3a5dabfd.157481a8491.-7fd9</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<tns:ResultadoSerasa xmlns:tns="http://serasa.com.br/SN/Serasa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://serasa.com.br/SN/Serasa Serasa.xsd ">
+  <tns:num_documento>{$num_doc}</tns:num_documento>
+  <tns:valor_restricao>{$vl_restricao}</tns:valor_restricao>
+</tns:ResultadoSerasa>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con2:validate>
+            <con1:id>_ActionId-480585687409543507--3a5dabfd.157481a8491.-7fbf</con1:id>
+            <con2:schema ref="Mock_Legacy/Interfaces/Schemas/Serasa"/>
+            <con2:schemaElement xmlns:ser1="http://serasa.com.br/SN/Serasa">ser1:ResultadoSerasa</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./ser:ResultadoSerasa</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:branch-node type="operation" name="BranchNode1">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="ConsultarSerasa">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNode1">
+                <con:request>PipelinePairNode1_request</con:request>
+                <con:response>PipelinePairNode1_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

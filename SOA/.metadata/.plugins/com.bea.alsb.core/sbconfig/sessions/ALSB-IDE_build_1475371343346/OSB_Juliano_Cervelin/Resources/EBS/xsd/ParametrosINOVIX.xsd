@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://acme.com.br/SN/INOVIXService/JulianoCervelin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acme.com.br/SN/INOVIXService/JulianoCervelin" xmlns:mc="http://acme.com.br/MC/JulianoCervelin">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Portability.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/MensagemRetorno.xsd"/>
+
+	<element name="SolicitarPortabilidade">
+		<complexType>
+			<sequence>
+				<element name="cpf" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="SolicitarPortabilidadeResponse">
+		<complexType>
+			<choice>
+				<element name="portabilidade" type="mc:Portabilidade"/>
+				<element name="mensagem" type="mc:MensagemRetorno"/>
+			</choice>
+		</complexType>
+	</element>
+
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Portability.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/Portability"/>
+        <con:import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/MensagemRetorno.xsd" ref="OSB_Juliano_Cervelin/ModeloCanonico/MensagemRetorno"/>
+    </con:dependencies>
+    <con:targetNamespace>http://acme.com.br/SN/INOVIXService/JulianoCervelin</con:targetNamespace>
+</con:schemaEntry>

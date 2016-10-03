@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:jcaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:jca><![CDATA[<adapter-config name="SPI_PESSOA" adapter="Database Adapter" wsdlLocation="SPI_PESSOA.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/soa_sample3" UIConnectionName="soa_sample3" adapterRef=""/>
+  <endpoint-interaction portType="SPI_PESSOA_ptt" operation="SPI_PESSOA">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="SOA_SAMPLE3"/>
+      <property name="ProcedureName" value="SPI_PESSOA"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+    <output/>
+  </endpoint-interaction>
+
+</adapter-config>]]></con:jca>
+    <con:jcaDependency>
+        <con:wsdlRef wsdlLocation="SPI_PESSOA.wsdl" ref="OSB_BHK/BHK/Resources/Adapter/AdapterSGBD/SPI_PESSOA"/>
+    </con:jcaDependency>
+</con:jcaEntry>

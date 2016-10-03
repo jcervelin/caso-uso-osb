@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://kgb.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kgb.org">
+
+	<include schemaLocation="CustomerKGB.xsd"/>
+
+	<complexType name="ParametrosGetCustomerByCPF">
+		<sequence>
+			<element name="cpf">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="11"/>
+						<maxLength value="11"/>
+					</restriction>					
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	
+	<element name="ParametrosGetCustomerByCPF" type="tns:ParametrosGetCustomerByCPF"/>
+	
+	<complexType name="ResultadoGetCustomerByCPF">
+		<sequence>
+			<element name="customer" type="tns:CustomerKGB"/>
+		</sequence>
+	</complexType>
+	
+	<element name="ResultadoGetCustomerByCPF" type="tns:ResultadoGetCustomerByCPF"/>	
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="CustomerKGB.xsd" ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/CustomerKGB"/>
+    </con:dependencies>
+    <con:targetNamespace>http://kgb.org</con:targetNamespace>
+</con:schemaEntry>

@@ -1,0 +1,7 @@
+1475175181177	Delete resource 'OSB Configuration Juliano Cervelin Caso de Uso'
+1475176228260	Delete resource 'OSB_Juliano_Cervelin/Resources/Legacy/Contracts/KGBService.wsdl'
+1475178920083	Delete resource 'OSB_Juliano_Cervelin/Resources/Legacy/Schemas/Internal.xsd'
+1475184424830	Delete resource 'OSB_Juliano_Cervelin/Services/Business/AdapterYUMDBCobol.biz'
+1475262325736	Delete resource 'OSB_Juliano_Cervelin/Services/Proxies/Operations/ObterStatusFinanceiroCliente.proxy'
+1475265814626	Delete resource 'OSB_Juliano_Cervelin/Resources/Transformations/ObterStatusFinanceiro_To_AdapterObterStatusFinanceiro.xq'
+1475272532592	Delete resource 'OSB_Juliano_Cervelin/Resources/Transformations/ObterStatusFinanceiro_To_AdapterObterStatusFinanceiro.xq'

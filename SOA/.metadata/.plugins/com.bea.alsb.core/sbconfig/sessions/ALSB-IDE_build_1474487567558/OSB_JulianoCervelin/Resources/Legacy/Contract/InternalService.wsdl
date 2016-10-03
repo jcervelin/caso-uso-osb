@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<wsdl:definitions name="InternalService"
+	targetNamespace="http://cursosoa.org/InternalService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tn="http://cursosoa.org/InternalService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://internal.com.br/SN/Internal">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://internal.com.br/Internal">
+			<xsd:import namespace="http://internal.com.br/SN/Internal"
+				schemaLocation="../Schemas/Internal.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="Internalequest">
+		<wsdl:part element="ser:ParametrosInternal" name="ParametrosInternal" />
+	</wsdl:message>
+
+	<wsdl:message name="InternalResponse">
+		<wsdl:part element="ser:ResultadoInternal" name="ResultadoInternal" />
+	</wsdl:message>
+	
+	<wsdl:message name="SubInternalequest">
+		<wsdl:part element="ser:ParametrosSubInternal" name="ParametrosSubInternal" />
+	</wsdl:message>
+
+	<wsdl:message name="SubInternalResponse">
+		<wsdl:part element="ser:ResultadoSubInternal" name="ResultadoSubInternal" />
+	</wsdl:message>
+
+	<wsdl:portType name="InternalService">
+	
+		<wsdl:operation name="ConsultarInternal">
+			<wsdl:input message="tn:Internalequest" />
+			<wsdl:output message="tn:InternalResponse" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="ConsultaSubInternal">
+			<wsdl:input message="tn:SubInternalequest" />
+			<wsdl:output message="tn:SubInternalResponse" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+	<wsdl:binding name="InternalServiceSOAP" type="tn:InternalService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<wsdl:operation name="ConsultarInternal">
+			<soap:operation soapAction="http://cursosoa.org/InternalService/InternalService" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="ConsultaSubInternal">
+			<soap:operation soapAction="http://cursosoa.org/InternalService/ConsultaSubInternal" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+
+	<wsdl:service name="InternalService">
+		<wsdl:port binding="tn:InternalServiceSOAP" name="InternalServiceSOAP">
+			<soap:address location="http://cursosoa.org/" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="../Schemas/Internal.xsd" namespace="http://internal.com.br/SN/Internal" ref="OSB_JulianoCervelin/Resources/Legacy/Schemas/Internal"/>
+    </con:dependencies>
+    <con:targetNamespace>http://cursosoa.org/InternalService/</con:targetNamespace>
+</con:wsdlEntry>

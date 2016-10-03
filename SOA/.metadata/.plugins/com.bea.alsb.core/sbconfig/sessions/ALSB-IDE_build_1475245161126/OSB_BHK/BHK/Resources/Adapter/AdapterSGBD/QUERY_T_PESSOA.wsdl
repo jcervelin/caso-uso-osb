@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<?binding.jca QUERY_T_PESSOA_db.jca?><wsdl:definitions name="QUERY_T_PESSOA" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterSGBD/QUERY_T_PESSOA" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterSGBD/QUERY_T_PESSOA" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="QUERY_T_PESSOA_plt">
+        <plt:role name="QUERY_T_PESSOA_role">
+            <plt:portType name="tns:QUERY_T_PESSOA_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" schemaLocation="xsd/QUERY_T_PESSOA.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="QUERY_T_PESSOAInput_msg">
+        <wsdl:part name="QUERY_T_PESSOAInput_msg" element="db:QUERY_T_PESSOAInput"/>
+    </wsdl:message>
+    <wsdl:message name="QUERY_T_PESSOAOutputCollection_msg">
+        <wsdl:part name="QUERY_T_PESSOAOutputCollection" element="db:QUERY_T_PESSOAOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="QUERY_T_PESSOA_ptt">
+        <wsdl:operation name="QUERY_T_PESSOA">
+            <wsdl:input message="tns:QUERY_T_PESSOAInput_msg"/>
+            <wsdl:output message="tns:QUERY_T_PESSOAOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="xsd/QUERY_T_PESSOA.xsd" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" ref="OSB_BHK/BHK/Resources/Adapter/AdapterSGBD/xsd/QUERY_T_PESSOA"/>
+    </con:dependencies>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterSGBD/QUERY_T_PESSOA</con:targetNamespace>
+</con:wsdlEntry>

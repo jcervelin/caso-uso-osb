@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/obterDadosConta" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/obterDadosConta" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="obterDadosContaInput" type="obterDadosContaInput"/>
+   <xs:complexType name="obterDadosContaInput">
+      <xs:sequence>
+         <xs:element name="id_customer" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="obterDadosContaOutputCollection" type="obterDadosContaOutputCollection"/>
+   <xs:complexType name="obterDadosContaOutputCollection">
+      <xs:sequence>
+         <xs:element name="obterDadosContaOutput" type="obterDadosContaOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="obterDadosContaOutput">
+      <xs:sequence>
+         <xs:element name="TB_NU_CONTA" type="xs:decimal" nillable="true"/>
+         <xs:element name="TB_ID_CUSTOMER" type="xs:decimal" nillable="true"/>
+         <xs:element name="TB_PLANO" type="xs:string" nillable="true"/>
+         <xs:element name="TB_STATUS" type="xs:string" nillable="true"/>
+         <xs:element name="TB_TELEFONE" type="xs:decimal" nillable="true"/>
+         <xs:element name="TB_PORTABILIDADE_STATUS" type="xs:string" nillable="true"/>
+         <xs:element name="TB_PORTABILIDADE_DESC" type="xs:string" nillable="true"/>
+         <xs:element name="TB_POSSUI_DEBITOS" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>]]></con:schema>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/obterDadosConta</con:targetNamespace>
+</con:schemaEntry>

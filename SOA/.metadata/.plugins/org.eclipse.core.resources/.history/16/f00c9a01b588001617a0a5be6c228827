@@ -1,0 +1,14 @@
+package br.com.acme.inovix.geraticket.converter;
+
+
+public class PortabilidadeConverter {
+
+
+	   public static Portability convert(String customerList) {
+		    int listSize = customerList.size();
+		    Customer[] custArray =  new Customer[listSize];
+		    custArray = (Customer[])customerList.toArray(custArray);
+		    return custArray;
+		  }
+	
+}

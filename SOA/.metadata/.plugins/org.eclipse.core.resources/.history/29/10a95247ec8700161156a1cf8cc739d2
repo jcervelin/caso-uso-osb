@@ -1,0 +1,9 @@
+package br.com.acme.inovix.geraticket;
+import javax.ejb.Local;
+
+@Local
+public interface GeraTicketLocal {
+	
+	public String gerarTicket(String numeroConta);
+
+}

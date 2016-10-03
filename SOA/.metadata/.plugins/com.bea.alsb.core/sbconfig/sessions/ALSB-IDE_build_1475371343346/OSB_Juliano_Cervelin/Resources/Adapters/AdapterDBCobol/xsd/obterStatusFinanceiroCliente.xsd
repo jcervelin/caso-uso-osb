@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/obterStatusFinanceiroCliente" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/obterStatusFinanceiroCliente" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="obterStatusFinanceiroClienteInput" type="obterStatusFinanceiroClienteInput"/>
+   <xs:complexType name="obterStatusFinanceiroClienteInput">
+      <xs:sequence>
+         <xs:element name="cpf" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="obterStatusFinanceiroClienteOutputCollection" type="obterStatusFinanceiroClienteOutputCollection"/>
+   <xs:complexType name="obterStatusFinanceiroClienteOutputCollection">
+      <xs:sequence>
+         <xs:element name="obterStatusFinanceiroClienteOutput" type="obterStatusFinanceiroClienteOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="obterStatusFinanceiroClienteOutput">
+      <xs:sequence>
+         <xs:element name="tb_status_financeiro" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>]]></con:schema>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/obterStatusFinanceiroCliente</con:targetNamespace>
+</con:schemaEntry>

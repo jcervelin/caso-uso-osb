@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://acme.com.br/MC/JulianoCervelin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acme.com.br/MC/JulianoCervelin">
+
+	<complexType name="Operadora">
+		<sequence>
+			<element name="nome">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="VIVO"/>
+						<enumeration value="TIM"/>
+						<enumeration value="CLARO"/>
+						<enumeration value="OI"/>
+					</restriction>				
+				</simpleType>
+			</element>
+				
+		</sequence>
+	</complexType>	
+
+</schema>]]></con:schema>
+    <con:targetNamespace>http://acme.com.br/MC/JulianoCervelin</con:targetNamespace>
+</con:schemaEntry>

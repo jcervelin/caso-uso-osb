@@ -1,0 +1,47 @@
+<schema targetNamespace="http://sysmap.com.br/SN/Pessoa" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sysmap.com.br/SN/Pessoa" xmlns:cab="http://sysmap.com.br/MC/CursoSOA/Juliano">
+
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+
+
+	<element name="parametrosBuscaPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoBuscaPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="parametrosCadastraPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoCadastraPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="parametrosDesastivaPessoa ">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

@@ -1,0 +1,42 @@
+<schema targetNamespace="http://acme.com.br/SN/APTService/JulianoCervelin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acme.com.br/SN/APTService/JulianoCervelin" xmlns:mc="http://acme.com.br/MC/JulianoCervelin">
+
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Customer.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Account.xsd"/>
+	<import namespace="http://acme.com.br/MC/JulianoCervelin" schemaLocation="../../../ModeloCanonico/Portability.xsd"/>
+
+	<element name="portabilidadeNumerica">
+		<complexType>
+			<sequence>
+				<element name="customer" type="mc:Customer"/>
+				<element name="account" type="mc:Account"/>
+				<element name="portabilidade" type="mc:Portabilidade"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="gerarTicketResponse" type="tns:GerarTicketResponse" />
+	
+	<complexType name="GerarTicketResponse">
+		<sequence>
+			<element name="portabilidade" type="tns:PortabilidadeJava"/>
+		</sequence>
+	</complexType>
+	
+	<simpleType name="PortabilidadeJava">
+		<sequence>
+			<element />
+		</sequence>
+	</simpleType>
+	
+	
+	<m:gerarTicketResponse  	xmlns:m="br.com.acme.geraticket">
+	<m:portabilidade>
+	<java:BilhetePortabilidade  	xmlns:java="java:br.com.acme.inovix.geraticket.bean">ddb9f11f-c82b-40f6-b108-41a18610e75e</java:BilhetePortabilidade>
+	<java:DataHoraJanela  	xmlns:java="java:br.com.acme.inovix.geraticket.bean">2016-10-03T13:06:58.537-03:00</java:DataHoraJanela>
+	<java:OperadoraOrigem  	xmlns:java="java:br.com.acme.inovix.geraticket.bean">CLARO</java:OperadoraOrigem>
+	<java:OperadoraDestino  	xmlns:java="java:br.com.acme.inovix.geraticket.bean">VIVO</java:OperadoraDestino>
+	</m:portabilidade>
+	</m:gerarTicketResponse>
+	
+	
+</schema>

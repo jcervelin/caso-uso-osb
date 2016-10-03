@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<wsdl:definitions name="KGBService" targetNamespace="http://kgb.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kgb.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://kgb.org">
+			<xsd:include schemaLocation="../Schemas/GetCustomerByCPF.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ObterStatusFinanceiroCliente.xsd"/>
+			<xsd:include schemaLocation="../Schemas/ObterDadosConta.xsd"/>
+			<xsd:include schemaLocation="../Schemas/KGBFault.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="KGBFault">
+		<wsdl:part element="tns:KGBFault" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="GetCustomerByCPFRequest">
+		<wsdl:part element="tns:ParametrosGetCustomerByCPF" name="ParametrosGetCustomerByCPF"/>
+	</wsdl:message>
+
+	<wsdl:message name="GetCustomerByCPFResponse">
+		<wsdl:part element="tns:ResultadoGetCustomerByCPF" name="ResultadoGetCustomerByCPF"/>
+	</wsdl:message>
+	
+	<wsdl:message name="ObterStatusFinanceiroClienteRequest">
+		<wsdl:part element="tns:ParametrosObterStatusFinanceiroCliente" name="ParametrosObterStatusFinanceiroCliente"/>
+	</wsdl:message>
+
+	<wsdl:message name="ObterStatusFinanceiroClienteResponse">
+		<wsdl:part element="tns:ResultadoObterStatusFinanceiroCliente" name="ResultadoObterStatusFinanceiroCliente"/>
+	</wsdl:message>
+
+	<wsdl:message name="ObterDadosContaRequest">
+		<wsdl:part element="tns:ParametrosObterDadosConta" name="ParametrosObterDadosConta"/>
+	</wsdl:message>
+
+	<wsdl:message name="ObterDadosContaResponse">
+		<wsdl:part element="tns:ResultadoObterDadosConta" name="ResultadoObterDadosConta"/>
+	</wsdl:message>	
+
+	<wsdl:portType name="KGBService">
+	
+		<wsdl:operation name="GetCustomerByCPF">
+			<wsdl:input message="tns:GetCustomerByCPFRequest"/>
+			<wsdl:output message="tns:GetCustomerByCPFResponse"/>
+			<wsdl:fault name="KGBFault" message="tns:KGBFault"/>
+		</wsdl:operation>
+				
+		<wsdl:operation name="ObterStatusFinanceiroCliente">
+			<wsdl:input message="tns:ObterStatusFinanceiroClienteRequest"/>
+			<wsdl:output message="tns:ObterStatusFinanceiroClienteResponse"/>
+			<wsdl:fault name="KGBFault" message="tns:KGBFault"/>
+		</wsdl:operation>		
+
+		<wsdl:operation name="ObterDadosConta">
+			<wsdl:input message="tns:ObterDadosContaRequest"/>
+			<wsdl:output message="tns:ObterDadosContaResponse"/>
+			<wsdl:fault name="KGBFault" message="tns:KGBFault"/>
+		</wsdl:operation>		
+
+
+	</wsdl:portType>
+
+	<wsdl:binding name="KGBServiceSOAP" type="tns:KGBService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<wsdl:operation name="GetCustomerByCPF">
+			<soap:operation soapAction="http://kgb.org/KGBService/GetCustomerByCPF"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="KGBFault">
+				<soap:fault name="KGBFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="ObterStatusFinanceiroCliente">
+			<soap:operation soapAction="http://kgb.org/KGBService/ObterStatusFinanceiroCliente"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="KGBFault">
+				<soap:fault name="KGBFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="ObterDadosConta">
+			<soap:operation soapAction="http://kgb.org/KGBService/ObterDadosConta"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="KGBFault">
+				<soap:fault name="KGBFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+
+	<wsdl:service name="KGBService">
+		<wsdl:port binding="tns:KGBServiceSOAP" name="KGBServiceSOAP">
+			<soap:address location="http://localhost:7001/OSB_Inoix_Cabelo/Services/Business/KGBServiceBusiness"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/GetCustomerByCPF.xsd" namespace="http://kgb.org" ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/GetCustomerByCPF"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/KGBFault.xsd" namespace="http://kgb.org" ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/KGBFault"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ObterDadosConta.xsd" namespace="http://kgb.org" ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/ObterDadosConta"/>
+        <con:schemaRef isInclude="true" schemaLocation="../Schemas/ObterStatusFinanceiroCliente.xsd" namespace="http://kgb.org" ref="OSB_Inoix_Cabelo/Resources/Legacy/KGB/Schemas/ObterStatusFinanceiroCliente"/>
+    </con:dependencies>
+    <con:targetNamespace>http://kgb.org</con:targetNamespace>
+</con:wsdlEntry>

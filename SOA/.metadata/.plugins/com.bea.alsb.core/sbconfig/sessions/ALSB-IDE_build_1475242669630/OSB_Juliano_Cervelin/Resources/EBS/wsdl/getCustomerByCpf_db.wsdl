@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf" name="getCustomerByCpf-concrete" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf" location="../../Resources/Adapters/AdapterDBCobol/getCustomerByCpf.wsdl"/>
+  <binding name="getCustomerByCpf_ptt-binding" type="tns:getCustomerByCpf_ptt">
+    <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+    <operation name="getCustomerByCpf">
+      <soap:operation soapAction="getCustomerByCpf"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="getCustomerByCpf-service">
+    <port name="getCustomerByCpf-port" binding="tns:getCustomerByCpf_ptt-binding">
+      <soap:address location="jca://eis/DB/INOVIX"/>
+    </port>
+  </service>
+</definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:import location="../../Resources/Adapters/AdapterDBCobol/getCustomerByCpf.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf">
+            <con:wsdl ref="OSB_Juliano_Cervelin/Resources/Adapters/AdapterDBCobol/getCustomerByCpf"/>
+        </con:import>
+    </con:dependencies>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/getCustomerByCpf</con:targetNamespace>
+</con:wsdlEntry>

@@ -1,0 +1,26 @@
+package br.com.acme.inovix.geraticket.converter;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.UUID;
+
+import br.com.acme.inovix.geraticket.bean.Portabilidade;
+
+import com.bea.wli.sb.transports.ejb.ITypeConverter;
+
+public class PortabilidadeConverter implements ITypeConverter {
+
+	public static Portabilidade convert(String numeroConta) {
+		Portabilidade p = new Portabilidade();
+		p.setBilhetePortabilidade(UUID.randomUUID().toString());
+
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, 1);
+		Date dt = c.getTime();
+		p.setDataHoraJanela(dt);
+		p.setOperadoraDestino("CLARO");
+		p.setOperadoraOrigem("VIVO");
+		return p;
+	}
+
+}

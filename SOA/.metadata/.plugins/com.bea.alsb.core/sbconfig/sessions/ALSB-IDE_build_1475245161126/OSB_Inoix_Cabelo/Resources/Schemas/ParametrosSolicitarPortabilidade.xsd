@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://inovix.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inovix.org" xmlns:mdc="http://inovix.org/MC">
+
+	<import namespace="http://inovix.org/MC" schemaLocation="../ModeloCanonico/Operadora.xsd"/>
+
+	<complexType name="ParametrosSolicitarPortabilidade">
+		<sequence>
+			<element name="cpf" type="string"/>
+			<element name="dataHoraJanela" type="dateTime"/>
+			<element name="operadoraOrigem" type="mdc:Operadora"/>
+			<element name="operadoraDestino" type="mdc:Operadora"/>	
+		</sequence>
+	</complexType>	
+	
+	<element name="ParametrosSolicitarPortabilidade" type="tns:ParametrosSolicitarPortabilidade"/>
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:import namespace="http://inovix.org/MC" schemaLocation="../ModeloCanonico/Operadora.xsd" ref="OSB_Inoix_Cabelo/Resources/ModeloCanonico/Operadora"/>
+    </con:dependencies>
+    <con:targetNamespace>http://inovix.org</con:targetNamespace>
+</con:schemaEntry>

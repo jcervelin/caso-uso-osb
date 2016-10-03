@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://inovix.org/MC" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inovix.org/MC">
+
+	<include schemaLocation="StatusFinanceiro.xsd"/>
+
+	<complexType name="Cliente">
+		<sequence>
+			<element name="cpf" type="string" minOccurs="0"/>
+			<element name="name" type="string" minOccurs="0"/>			
+			<element name="statusFinanceiro" type="tns:StatusFinanceiro" minOccurs="0"/>
+			<element name="bilhetePortabilidade" type="integer" minOccurs="0"/>					
+		</sequence>
+	</complexType>	
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="StatusFinanceiro.xsd" ref="OSB_Inoix_Cabelo/Resources/ModeloCanonico/StatusFinanceiro"/>
+    </con:dependencies>
+    <con:targetNamespace>http://inovix.org/MC</con:targetNamespace>
+</con:schemaEntry>

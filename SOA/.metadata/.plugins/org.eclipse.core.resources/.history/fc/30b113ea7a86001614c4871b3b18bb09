@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://acme.com.br/MC/JulianoCervelin" xmlns:tns="http://acme.com.br/MC/JulianoCervelin" elementFormDefault="qualified">
+
+	<complexType name="Account">
+		<sequence>
+			<element name="numero_conta" type="integer"/>
+			<element name="id_customer" type="string"/>
+			<element name="plano" type="date"/>
+			<element name="status" type="string"/>
+			<element name="telefone" type="integer"/>
+			<element name="status_portabilidade" type="string"/>
+			<element name="descricao_portabilidade" type="string"/>
+			<element name="possui_debitos" type="boolean"/>
+		</sequence>	
+	</complexType>
+
+</schema>

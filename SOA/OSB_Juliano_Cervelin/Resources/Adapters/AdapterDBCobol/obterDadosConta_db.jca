@@ -1,0 +1,13 @@
+<adapter-config name="obterDadosConta" adapter="Database Adapter" wsdlLocation="obterDadosConta.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/INOVIX/Juliano" UIConnectionName="INOVIX" adapterRef=""/>
+  <endpoint-interaction portType="obterDadosConta_ptt" operation="obterDadosConta">
+    <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
+      <property name="SqlString" value="select * from tb_account_juliano where tb_id_customer = #id_customer"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+    <input/>
+    <output/>
+  </endpoint-interaction>
+
+</adapter-config>

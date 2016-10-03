@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:SolicitarPortabilidade xmlns:tns="http://acme.com.br/SN/INOVIXService/JulianoCervelin" xmlns:tns1="http://acme.com.br/MC/JulianoCervelin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://acme.com.br/SN/INOVIXService/JulianoCervelin ParametrosINOVIX.xsd ">
+  <tns:cpf>tns:cpf</tns:cpf>
+</tns:SolicitarPortabilidade>

@@ -1,0 +1,18 @@
+package br.com.acme.inovix.geraticket;
+
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class GeraTicket
+ */
+@Stateless(mappedName = "geraTicket")
+public class GeraTicket implements GeraTicketRemote, GeraTicketLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public GeraTicket() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

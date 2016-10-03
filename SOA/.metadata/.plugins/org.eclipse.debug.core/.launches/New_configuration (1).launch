@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.bea.alsb.debug.core.launchConfigurationType.standalone">
+<stringAttribute key="com.bea.alsb.debug.core.hostname" value="localhost"/>
+<intAttribute key="com.bea.alsb.debug.core.port" value="7453"/>
+</launchConfiguration>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 1 resources to &apos;OSB_BHK&apos;" description="Move 1 resources to &apos;OSB_BHK&apos;" destination="/OSB_BHK" element1="/OSB_Juliano_Cervelin/Services/Proxies/ObterPortabilidadeNumerica.proxy" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1475450335953" updateReferences="true"/>
+</session>

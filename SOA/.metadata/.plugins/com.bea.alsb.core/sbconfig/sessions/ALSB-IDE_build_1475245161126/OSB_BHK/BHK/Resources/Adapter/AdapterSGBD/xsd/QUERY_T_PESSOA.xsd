@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="QUERY_T_PESSOAInput" type="QUERY_T_PESSOAInput"/>
+   <xs:complexType name="QUERY_T_PESSOAInput">
+      <xs:sequence>
+         <xs:element name="CD_PESSOA" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="QUERY_T_PESSOAOutputCollection" type="QUERY_T_PESSOAOutputCollection"/>
+   <xs:complexType name="QUERY_T_PESSOAOutputCollection">
+      <xs:sequence>
+         <xs:element name="QUERY_T_PESSOAOutput" type="QUERY_T_PESSOAOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="QUERY_T_PESSOAOutput">
+      <xs:sequence>
+         <xs:element name="CD_PESSOA" type="xs:decimal" nillable="true"/>
+         <xs:element name="DS_NOME" type="xs:string" nillable="true"/>
+         <xs:element name="DT_NASCIMENTO" type="xs:dateTime" nillable="true"/>
+         <xs:element name="NM_CNPJ" type="xs:string" nillable="true"/>
+         <xs:element name="NM_TELEFONE" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>]]></con:schema>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA</con:targetNamespace>
+</con:schemaEntry>

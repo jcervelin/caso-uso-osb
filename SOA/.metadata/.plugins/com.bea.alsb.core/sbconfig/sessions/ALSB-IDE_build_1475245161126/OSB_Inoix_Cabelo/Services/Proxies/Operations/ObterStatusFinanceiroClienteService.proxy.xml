@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="OSB_Inoix_Cabelo/Resources/Contracts/ClienteService"/>
+      <con:port>
+        <con:name>ClienteServiceSOAP</con:name>
+        <con:namespace>http://inovix.org</con:namespace>
+      </con:port>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/OSB_Inoix_Cabelo/Services/Proxies/Operations/ObterStatusFinanceiroClienteService</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-4035101667048234349--2077b701.15772d9874a.-7fde">
+    <con:pipeline type="request" name="PipelinePairNodeOperacaoInexistente1_request">
+      <con:stage name="stageOperacaoInexistente" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+        <con:context/>
+        <con:actions>
+          <con1:Error>
+            <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-4035101667048234349--2077b701.15772d9874a.-7fdf</con4:id>
+            <con1:errCode>999</con1:errCode>
+            <con1:message>Operação não implementada</con1:message>
+          </con1:Error>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairNodeOperacaoInexistente1_response"/>
+    <con:pipeline type="error" name="_onErrorHandler-4035101667048234349--2077b701.15772d9874a.-7fde">
+      <con:stage name="stageTratamentoErro1">
+        <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config"/>
+        <con:actions xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+          <con1:replace varName="body" contents-only="true">
+            <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-4035101667048234349--2077b701.15772d9874a.-7fd9</con4:id>
+            <con1:location>
+              <con4:xpathText xmlns:con4="http://www.bea.com/wli/sb/stages/config">.</con4:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config"><![CDATA[<tns:INOVIXFault xmlns:tns="http://inovix.org/MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inovix.org/MC INOVIXFault.xsd ">
+  <tns:code>{$fault/ctx:errorCode/text()}</tns:code>
+  <tns:description>{$fault/ctx:reason/text()}</tns:description>
+</tns:INOVIXFault>]]></con4:xqueryText>
+            </con1:expr>
+          </con1:replace>
+          <con4:reply isError="true" xmlns:con4="http://www.bea.com/wli/sb/stages/config">
+            <con4:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7fd8</con4:id>
+          </con4:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:branch-node type="operation" name="BranchNodeObterStatusFinanceiroCliente">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="ObterStatusFinanceiroCliente">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:route-node name="RouteNodeKGB">
+                <con:context>
+                  <con1:userNsDecl namespace="http://kgb.org" prefix="kgb"/>
+                  <con1:varNsDecl namespace="http://inovix.org" prefix="inov"/>
+                </con:context>
+                <con:actions>
+                  <con2:route>
+                    <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7fa1</con1:id>
+                    <con2:service ref="OSB_Inoix_Cabelo/Services/Business/KGBServiceBusiness" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con2:operation>ObterStatusFinanceiroCliente</con2:operation>
+                    <con2:outboundTransform>
+                      <con3:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7f7e</con1:id>
+                        <con3:location>
+                          <con1:xpathText>.</con1:xpathText>
+                        </con3:location>
+                        <con3:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="OSB_Inoix_Cabelo/Transformations/ParametrosObterStatusFinanceiroCliente_To_ObterStatusFinanceiroCliente_KGB"/>
+                            <con1:param name="parametrosObterStatusFinanceiroCliente1">
+                              <con1:path>$body/inov:ParametrosObterStatusFinanceiroCliente</con1:path>
+                            </con1:param>
+                          </con1:xqueryTransform>
+                        </con3:expr>
+                      </con3:replace>
+                    </con2:outboundTransform>
+                    <con2:responseTransform>
+                      <con3:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7f5b</con1:id>
+                        <con3:location>
+                          <con1:xpathText>.</con1:xpathText>
+                        </con3:location>
+                        <con3:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="OSB_Inoix_Cabelo/Transformations/ResultadoObterStatusFinanceiroCliente_KGB_To_ResultadoObterStatusFinanceiroCliente"/>
+                            <con1:param name="resultadoObterStatusFinanceiroCliente1">
+                              <con1:path>$body/kgb:ResultadoObterStatusFinanceiroCliente</con1:path>
+                            </con1:param>
+                          </con1:xqueryTransform>
+                        </con3:expr>
+                      </con3:replace>
+                      <con3:validate>
+                        <con1:id>_ActionId-4035101667048234349--2077b701.15772d9874a.-7f36</con1:id>
+                        <con3:schema ref="OSB_Inoix_Cabelo/Resources/Schemas/ResultadoObterStatusFinanceiroCliente"/>
+                        <con3:schemaElement xmlns:inov="http://inovix.org">inov:ResultadoObterStatusFinanceiroCliente</con3:schemaElement>
+                        <con3:varName>body</con3:varName>
+                        <con3:location>
+                          <con1:xpathText>./inov:ResultadoObterStatusFinanceiroCliente</con1:xpathText>
+                        </con3:location>
+                      </con3:validate>
+                    </con2:responseTransform>
+                  </con2:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairNodeOperacaoInexistente1">
+                <con:request>PipelinePairNodeOperacaoInexistente1_request</con:request>
+                <con:response>PipelinePairNodeOperacaoInexistente1_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

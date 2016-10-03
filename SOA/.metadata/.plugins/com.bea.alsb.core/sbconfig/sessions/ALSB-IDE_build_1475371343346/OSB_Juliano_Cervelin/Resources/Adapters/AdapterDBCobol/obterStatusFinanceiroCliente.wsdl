@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<?binding.jca obterStatusFinanceiroCliente_db.jca?>
+<wsdl:definitions name="obterStatusFinanceiroCliente" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterStatusFinanceiroCliente" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/obterStatusFinanceiroCliente" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterStatusFinanceiroCliente" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="obterStatusFinanceiroCliente_plt">
+        <plt:role name="obterStatusFinanceiroCliente_role">
+            <plt:portType name="tns:obterStatusFinanceiroCliente_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/obterStatusFinanceiroCliente" schemaLocation="xsd/obterStatusFinanceiroCliente.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="obterStatusFinanceiroClienteInput_msg">
+        <wsdl:part name="obterStatusFinanceiroClienteInput_msg" element="db:obterStatusFinanceiroClienteInput"/>
+    </wsdl:message>
+    <wsdl:message name="obterStatusFinanceiroClienteOutputCollection_msg">
+        <wsdl:part name="obterStatusFinanceiroClienteOutputCollection" element="db:obterStatusFinanceiroClienteOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="obterStatusFinanceiroCliente_ptt">
+        <wsdl:operation name="obterStatusFinanceiroCliente">
+            <wsdl:input message="tns:obterStatusFinanceiroClienteInput_msg"/>
+            <wsdl:output message="tns:obterStatusFinanceiroClienteOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="xsd/obterStatusFinanceiroCliente.xsd" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/obterStatusFinanceiroCliente" ref="OSB_Juliano_Cervelin/Resources/Adapters/AdapterDBCobol/xsd/obterStatusFinanceiroCliente"/>
+    </con:dependencies>
+    <con:targetNamespace>http://xmlns.oracle.com/pcbpel/adapter/db/ApplicationAdapterLegacy/AdapterDBCobol/obterStatusFinanceiroCliente</con:targetNamespace>
+</con:wsdlEntry>

@@ -1,0 +1,39 @@
+package br.com.acme.inovix.geraticket.bean;
+
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Portabilidade {
+
+	private String bilhetePortabilidade;
+	private Date dataHoraJanela;
+	private String operadoraOrigem;
+	private String operadoraDestino;
+	
+	public String getBilhetePortabilidade() {
+		return bilhetePortabilidade;
+	}
+	public void setBilhetePortabilidade(String bilhetePortabilidade) {
+		this.bilhetePortabilidade = bilhetePortabilidade;
+	}
+	public Date getDataHoraJanela() {
+		return dataHoraJanela;
+	}
+	public void setDataHoraJanela(Date dataHoraJanela) {
+		this.dataHoraJanela = dataHoraJanela;
+	}
+	public String getOperadoraOrigem() {
+		return operadoraOrigem;
+	}
+	public void setOperadoraOrigem(String operadoraOrigem) {
+		this.operadoraOrigem = operadoraOrigem;
+	}
+	public String getOperadoraDestino() {
+		return operadoraDestino;
+	}
+	public void setOperadoraDestino(String operadoraDestino) {
+		this.operadoraDestino = operadoraDestino;
+	}
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://inovix.org/MC" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inovix.org/MC">
+
+	<complexType name="Operadora">
+		<sequence>
+			<element name="nome">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="VIVO"/>
+						<enumeration value="TIM"/>
+						<enumeration value="CLARO"/>
+						<enumeration value="OI"/>
+					</restriction>				
+				</simpleType>
+			</element>
+				
+		</sequence>
+	</complexType>	
+
+</schema>

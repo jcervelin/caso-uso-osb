@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;OSB Configuration Juliano Cervelin/JNDIProviderAPT.jndi&apos; to &apos;JNDIProviderAPT_Juliano.jndi&apos;" description="Rename resource &apos;JNDIProviderAPT.jndi&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="JNDIProviderAPT.jndi" name="JNDIProviderAPT_Juliano.jndi" stamp="1475334961562" updateReferences="true"/>
+</session>

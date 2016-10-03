@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sysmap.com.br/MC/CursoSOA/Cabelo" xmlns:tns="http://sysmap.com.br/MC/CursoSOA/Cabelo" elementFormDefault="qualified">
+	
+	<complexType name="MensagemRetorno">
+		<sequence>
+			<element name="codigo" type="integer"/>
+			<element name="descricao" type="string"/>
+			<element name="isAtivo" type="boolean"/>
+		</sequence>	
+	</complexType>
+	
+</schema>]]></con:schema>
+    <con:targetNamespace>http://sysmap.com.br/MC/CursoSOA/Cabelo</con:targetNamespace>
+</con:schemaEntry>

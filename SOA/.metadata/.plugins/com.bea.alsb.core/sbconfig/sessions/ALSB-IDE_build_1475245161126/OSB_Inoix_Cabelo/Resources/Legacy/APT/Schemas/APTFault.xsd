@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://apt.org" xmlns:tns="http://apt.org" elementFormDefault="qualified">
+	
+	<complexType name="APTFault">
+		<sequence>
+			<element name="code" type="integer"/>
+			<element name="description" type="string"/>
+			<element name="detail" type="string"/>
+		</sequence>	
+	</complexType>	
+	
+	<element name="APTFault" type="tns:APTFault" />
+	
+</schema>]]></con:schema>
+    <con:targetNamespace>http://apt.org</con:targetNamespace>
+</con:schemaEntry>

@@ -1,0 +1,43 @@
+package br.com.acme.inovix.geraticket;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.UUID;
+
+import javax.ejb.Stateless;
+
+import weblogic.ejbgen.FileGeneration;
+
+import br.com.acme.inovix.geraticket.bean.Portabilidade;
+
+/**
+ * Session Bean implementation class GeraTicket
+ */
+@Stateless(mappedName = "geraTicket")
+@FileGeneration(remoteClass = true, remoteHome = true, localClass = false, localHome = false)
+public class GeraTicket implements GeraTicketRemote, GeraTicketLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public GeraTicket() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public Portabilidade gerarTicket(String numeroConta) {
+    	
+		Portabilidade p = new Portabilidade();
+		p.setBilhetePortabilidade(UUID.randomUUID().toString());
+
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, 1);
+		Date dt = c.getTime();
+		p.setDataHoraJanela(dt);
+		p.setOperadoraDestino("CLARO");
+		p.setOperadoraOrigem("VIVO");
+		return p;
+    }
+    
+    
+
+}

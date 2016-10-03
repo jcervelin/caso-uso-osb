@@ -1,0 +1,16 @@
+<schema targetNamespace="br.com.acme.geraticket" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="br.com.acme.geraticket" 
+	xmlns:java="java:br.com.acme.inovix.geraticket.bean">
+
+	<import namespace="java:br.com.acme.inovix.geraticket.bean" schemaLocation="../../../ModeloCanonico/PortabilidadeJava.xsd"/>
+	
+	<complexType name="PortabilidadeJava">
+		<sequence>
+			<element name="portabilidade" type="java:PortabilidadeJava"/>
+		</sequence>
+	</complexType>
+	
+	<element name="gerarTicketResponse" type="tns:PortabilidadeJava"/>
+	
+	
+</schema>

@@ -1,0 +1,4 @@
+#Sun Oct 02 20:04:04 BRT 2016
+task-tag-projects-already-scanned=Mock_Legacy,Mock_internal,OSB Configuration Curso SOA,OSB_JulianoCervelin,Internal_Mock,OSB Configuration BHK,OSB Configuration Biharck,OSB Configuration Juliano Cervelin,OSB_BHK,OSB_Biharck,OSB_Juliano_Cervelin,GeraTicketPortabilidade,GeraTicketPortabilidadeClient,GeraTicketPortabilidadeEAR,OSB_Inoix_Cabelo,GeraTicketPortabilidadeConverter
+eclipse.preferences.version=1
+modelmanager.maxWaitDuringConcurrentLoad=30000

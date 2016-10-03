@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:xmlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:xml-content>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;p:QUERY_T_PESSOAInput xmlns:p="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.oracle.com/pcbpel/adapter/db/QUERY_T_PESSOA QUERY_T_PESSOA.xsd ">
+  &lt;p:CD_PESSOA>0.0&lt;/p:CD_PESSOA>
+&lt;/p:QUERY_T_PESSOAInput></con:xml-content>
+</con:xmlEntry>

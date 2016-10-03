@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://inovix.org/MC" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inovix.org/MC">
+
+	<complexType name="Conta">
+		<sequence>
+			<element name="id" type="integer" minOccurs="1" maxOccurs="1"/>
+			<element name="diaCiclo" minOccurs="0">
+				<simpleType>
+					<restriction base="integer">
+						<minInclusive value="1" />
+						<maxInclusive value="31" />
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	
+</schema>]]></con:schema>
+    <con:targetNamespace>http://inovix.org/MC</con:targetNamespace>
+</con:schemaEntry>

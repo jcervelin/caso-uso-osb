@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://sysmap.com.br/SN/Credito" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sysmap.com.br/SN/Credito" xmlns:eas="http://sysmap.com.br/MC/CursoSOA/Juliano">
+
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Pessoa.xsd"/>
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Credito.xsd"/>
+	<import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/MensagemRetorno.xsd"/>
+
+
+	<element name="parametrosVerificaCreditoExterno">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="eas:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoVerificaCreditoExterno">
+		<complexType>
+			<sequence>
+				<element name="credito" type="eas:Credito"/>
+			</sequence>
+		</complexType>
+	</element>
+
+
+	<complexType name="parametrosVerificaCreditoInterno">
+		<sequence>
+			<element name="pessoa" type="eas:Pessoa"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="resultadoVerificaCreditoInterno">
+		<sequence>
+			<element name="credito" type="eas:Credito"/>
+		</sequence>
+	</complexType>
+
+	<element name="parametrosVerificaCreditoInterno" type="tns:parametrosVerificaCreditoInterno"/>
+	<element name="resultadoVerificaCreditoInterno" type="tns:resultadoVerificaCreditoInterno"/>
+
+	<element name="parametrosVerificaWhiteList">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="eas:Pessoa"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoVerificaWhiteList">
+		<complexType>
+			<sequence>
+				<element name="mensagemRetorno" type="eas:MensagemRetorno"/>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Pessoa.xsd" ref="OSB_JulianoCervelin/ModeloCanonico/Pessoa"/>
+        <con:import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/Credito.xsd" ref="OSB_JulianoCervelin/ModeloCanonico/Credito"/>
+        <con:import namespace="http://sysmap.com.br/MC/CursoSOA/Juliano" schemaLocation="../../../ModeloCanonico/MensagemRetorno.xsd" ref="OSB_JulianoCervelin/ModeloCanonico/MensagemRetorno"/>
+    </con:dependencies>
+    <con:targetNamespace>http://sysmap.com.br/SN/Credito</con:targetNamespace>
+</con:schemaEntry>

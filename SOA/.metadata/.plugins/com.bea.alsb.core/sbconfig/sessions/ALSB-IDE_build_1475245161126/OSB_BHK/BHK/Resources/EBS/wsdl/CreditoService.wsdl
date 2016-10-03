@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<wsdl:definitions name="CreditoService" targetNamespace="http://sysmap.com.br/SN/CreditoService/Cabelo" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sysmap.com.br/SN/CreditoService/Cabelo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:cre="http://sysmap.com.br/SN/Credito" xmlns:cab="http://sysmap.com.br/MC/CursoSOA/Cabelo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://sysmap.com.br/SN/CreditoService/Cabelo">
+			<xsd:import namespace="http://sysmap.com.br/SN/Credito" schemaLocation="../xsd/ParametrosCredito.xsd"/>
+			<xsd:import namespace="http://sysmap.com.br/MC/CursoSOA/Cabelo" schemaLocation="../../ModeloCanonico/SysMapFault.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="sysMapFault">
+		<wsdl:part element="cab:sysMapFault" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="verificaCreditoExternoRequest">
+		<wsdl:part element="cre:parametrosVerificaCreditoExterno" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="verificaCreditoExternoResponse">
+		<wsdl:part element="cre:resultadoVerificaCreditoExterno" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="verificaCreditoInternoRequest">
+		<wsdl:part element="cre:parametrosVerificaCreditoInterno" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="verificaCreditoInternoResponse">
+		<wsdl:part element="cre:resultadoVerificaCreditoInterno" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="verificaWhiteListRequest">
+		<wsdl:part element="cre:parametrosVerificaWhiteList" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="verificaWhiteListResponse">
+		<wsdl:part element="cre:resultadoVerificaWhiteList" name="parameters"/>
+	</wsdl:message>
+
+
+	<wsdl:portType name="CreditoService">
+		<wsdl:operation name="verificaCreditoExterno">
+			<wsdl:input message="tns:verificaCreditoExternoRequest"/>
+			<wsdl:output message="tns:verificaCreditoExternoResponse"/>
+			<wsdl:fault name="sysMapFault" message="tns:sysMapFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="verificaCreditoInterno">
+			<wsdl:input message="tns:verificaCreditoInternoRequest"/>
+			<wsdl:output message="tns:verificaCreditoInternoResponse"/>
+			<wsdl:fault name="sysMapFault" message="tns:sysMapFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="verificaWhiteList">
+			<wsdl:input message="tns:verificaWhiteListRequest"/>
+			<wsdl:output message="tns:verificaWhiteListResponse"/>
+			<wsdl:fault name="sysMapFault" message="tns:sysMapFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="CreditoServiceSOAP" type="tns:CreditoService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<wsdl:operation name="verificaCreditoExterno">
+			<soap:operation soapAction="http://sysmap.com.br/SN/CreditoService/VerificaCreditoExterno"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="sysMapFault">
+				<soap:fault name="sysMapFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="verificaCreditoInterno">
+			<soap:operation soapAction="http://sysmap.com.br/SN/CreditoService/VerificaCreditoInterno"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="sysMapFault">
+				<soap:fault name="sysMapFault" use="literal"/>
+			</wsdl:fault>
+
+		</wsdl:operation>
+
+		<wsdl:operation name="verificaWhiteList">
+			<soap:operation soapAction="http://sysmap.com.br/SN/CreditoService/VerificaWhiteList"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="sysMapFault">
+				<soap:fault name="sysMapFault" use="literal"/>
+			</wsdl:fault>
+
+		</wsdl:operation>
+
+
+	</wsdl:binding>
+
+	<wsdl:service name="CreditoService">
+		<wsdl:port binding="tns:CreditoServiceSOAP" name="CreditoServiceSOAP">
+			<soap:address location="?????"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="../xsd/ParametrosCredito.xsd" namespace="http://sysmap.com.br/SN/Credito" ref="OSB_BHK/BHK/Resources/EBS/xsd/ParametrosCredito"/>
+        <con:schemaRef isInclude="false" schemaLocation="../../ModeloCanonico/SysMapFault.xsd" namespace="http://sysmap.com.br/MC/CursoSOA/Cabelo" ref="OSB_BHK/BHK/Resources/ModeloCanonico/SysMapFault"/>
+    </con:dependencies>
+    <con:targetNamespace>http://sysmap.com.br/SN/CreditoService/Cabelo</con:targetNamespace>
+</con:wsdlEntry>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:schema><![CDATA[<schema targetNamespace="http://yum.org" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://yum.org">
+
+	<include schemaLocation="CustomerYUM.xsd"/>
+
+	<complexType name="ParametrosUpdateCustomer">
+		<sequence>
+			<element name="customer" type="tns:CustomerYUM"/>
+		</sequence>	
+	</complexType>
+	
+	<element name="ParametrosUpdateCustomer" type="tns:ParametrosUpdateCustomer"/>
+	
+	<complexType name="ResultadoUpdateCustomer">
+		<sequence>
+			<element name="atualizado" type="boolean"/>
+		</sequence>
+	</complexType>
+	
+	<element name="ResultadoUpdateCustomer" type="tns:ResultadoUpdateCustomer"/>	
+
+</schema>]]></con:schema>
+    <con:dependencies>
+        <con:include schemaLocation="CustomerYUM.xsd" ref="OSB_Inoix_Cabelo/Resources/Legacy/YUM/Schemas/CustomerYUM"/>
+    </con:dependencies>
+    <con:targetNamespace>http://yum.org</con:targetNamespace>
+</con:schemaEntry>

@@ -1,0 +1,22 @@
+xquery version "1.0" encoding "Cp1252";
+(:: pragma bea:global-element-parameter parameter="$getCustomerByCPFResponse1" element="ns2:GetCustomerByCPFResponse" location="../Legacy/Schemas/ParametrosYUM.xsd" ::)
+(:: pragma bea:global-element-parameter parameter="$obterDadosContaResponse1" element="ns3:ObterDadosContaResponse" location="../Legacy/Schemas/ParametrosKGB.xsd" ::)
+(:: pragma bea:global-element-return element="ns0:SolicitarBilhetePortabilidade" location="../Legacy/Schemas/ParametrosAPT.xsd" ::)
+
+declare namespace xf = "http://tempuri.org/OSB_Juliano_Cervelin/Resources/Transformations/InovixService_To_SolicitarPortabilidade/";
+declare namespace ns2 = "http://acme.com.br/SN/YUMService/JulianoCervelin";
+declare namespace ns1 = "http://acme.com.br/MC/JulianoCervelin";
+declare namespace ns3 = "http://acme.com.br/SN/KGBService/JulianoCervelin";
+declare namespace ns0 = "http://acme.com.br/SN/APTService/JulianoCervelin";
+
+declare function xf:InovixService_To_SolicitarPortabilidade($getCustomerByCPFResponse1 as element(ns2:GetCustomerByCPFResponse),
+    $obterDadosContaResponse1 as element(ns3:ObterDadosContaResponse))
+    as element(ns0:SolicitarBilhetePortabilidade) {
+        <ns0:SolicitarBilhetePortabilidade/>
+};
+
+declare variable $getCustomerByCPFResponse1 as element(ns2:GetCustomerByCPFResponse) external;
+declare variable $obterDadosContaResponse1 as element(ns3:ObterDadosContaResponse) external;
+
+xf:InovixService_To_SolicitarPortabilidade($getCustomerByCPFResponse1,
+    $obterDadosContaResponse1)
