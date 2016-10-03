@@ -1,0 +1,2 @@
+Factory de Conexão	ConnectionFactory-Curso-SOA-Juliano
+Fila	Queue-Curso-SOA-Juliano
