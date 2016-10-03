@@ -2443,3 +2443,113 @@ org.eclipse.ui.PartInitException: Warning: Detected recursive attempt by part co
 
 !ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 22:48:54.360
 !MESSAGE Stopped WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+!SESSION 2016-10-02 23:16:56.941 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2016-10-02 23:17:15.046
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-10-02 23:17:15.046
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(oracle.eclipse.tools.common.services.ui.refactor.rename.command,Rename,
+		Rename the selected text.,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		oracle.eclipse.tools.common.services.ui.refactor.internal.ArtifactRefactoringCommandHandler,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-10-02 23:17:15.046
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 23:17:16.218
+!MESSAGE Started WebLogic Server Monitor [Remote WebLogic @localhost:7001, Version:10.3.6]
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 23:17:16.233
+!MESSAGE Server watcher[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]:running Weblogic detected, validating...
+
+!ENTRY org.python.pydev.core 4 4 2016-10-02 23:17:17.524
+!MESSAGE sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.SSLSocketImpl.fatal(SSLSocketImpl.java:1904)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:279)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:273)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1446)
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:209)
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:913)
+	at sun.security.ssl.Handshaker.process_record(Handshaker.java:849)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1023)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1359)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1343)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1092)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:250)
+	at org.python.pydev.logging.ping.LogPingSender.sendPing(LogPingSender.java:62)
+	at org.python.pydev.logging.ping.SynchedLogPing.send(SynchedLogPing.java:164)
+	at org.python.pydev.logging.ping.AsyncLogPing.consumeAllCommands(AsyncLogPing.java:131)
+	at org.python.pydev.logging.ping.AsyncLogPing.access$0(AsyncLogPing.java:100)
+	at org.python.pydev.logging.ping.AsyncLogPing$1.run(AsyncLogPing.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:350)
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:249)
+	at sun.security.validator.Validator.validate(Validator.java:260)
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:326)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:126)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1428)
+	... 17 more
+Caused by: java.security.cert.CertPathValidatorException: timestamp check failed
+	at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(PKIXMasterCertPathValidator.java:159)
+	at sun.security.provider.certpath.PKIXCertPathValidator.doValidate(PKIXCertPathValidator.java:347)
+	at sun.security.provider.certpath.PKIXCertPathValidator.engineValidate(PKIXCertPathValidator.java:191)
+	at java.security.cert.CertPathValidator.validate(CertPathValidator.java:279)
+	at sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:345)
+	... 23 more
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Wed Sep 25 18:29:33 BRT 2013
+	at sun.security.x509.CertificateValidity.valid(CertificateValidity.java:273)
+	at sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:575)
+	at sun.security.provider.certpath.BasicChecker.verifyTimestamp(BasicChecker.java:184)
+	at sun.security.provider.certpath.BasicChecker.check(BasicChecker.java:136)
+	at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(PKIXMasterCertPathValidator.java:133)
+	... 27 more
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 23:18:01.133
+!MESSAGE Creating Deployment manager...
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 23:18:01.133
+!MESSAGE Elapsed time 43936ms
+
+!ENTRY oracle.eclipse.tools.weblogic 1 2000 2016-10-02 23:18:01.133
+!MESSAGE Deployment manager created :[Oracle WebLogic Server 11gR1 (10.3.6) at [localhost]]@425750476
