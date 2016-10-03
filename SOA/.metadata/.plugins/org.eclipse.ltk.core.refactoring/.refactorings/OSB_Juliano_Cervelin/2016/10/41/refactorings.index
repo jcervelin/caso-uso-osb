@@ -8,3 +8,8 @@
 1475436432401	Rename resource 'ObterDadosConta.proxy'
 1475443628050	Rename resource 'APTService.wsdl'
 1475443664536	Rename resource 'ParametrosAPT.xsd'
+1475501402992	Rename resource 'operations'
+1475501450076	Rename resource 'INOVIXService.proxy'
+1475501462820	Rename resource 'solicitarPortabilidade.proxy'
+1475501471566	Move 1 resources to 'Operations'
+1475501678437	Rename resource 'APTService.proxy'

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:schemaEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
-    <con:schema><![CDATA[<schema targetNamespace="br.com.acme.geraticket" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:tns="br.com.acme.geraticket" 
-	xmlns:java="java:br.com.acme.inovix.geraticket.bean">
+    <con:schema><![CDATA[<schema targetNamespace="br.com.acme.geraticket" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="br.com.acme.geraticket" xmlns:java="java:br.com.acme.inovix.geraticket.bean">
 
 	<import namespace="java:br.com.acme.inovix.geraticket.bean" schemaLocation="../../../ModeloCanonico/PortabilidadeJava.xsd"/>
 	

@@ -2,7 +2,7 @@
 <con:xqueryEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
     <con:xquery><![CDATA[(:: pragma bea:global-element-parameter parameter="$solicitarBilhetePortabilidade1" element="ns0:SolicitarBilhetePortabilidade" location="../Legacy/Schemas/ParametrosAPT.xsd" ::)
 (:: pragma bea:global-element-parameter parameter="$solicitarBilhetePortabilidadeResponse1" element="ns0:SolicitarBilhetePortabilidadeResponse" location="../Legacy/Schemas/ParametrosAPT.xsd" ::)
-(:: pragma bea:global-element-return element="ns0:portabilidadeNumerica" location="../Legacy/Schemas/ParametrosSolicitacaoPortabilidade.xsd" ::)
+(:: pragma bea:global-element-return element="ns0:portabilidadeNumerica" location="../EBS/xsd/ParametrosSolicitacaoPortabilidade.xsd" ::)
 
 declare namespace ns1 = "http://acme.com.br/MC/JulianoCervelin";
 declare namespace ns0 = "http://acme.com.br/SN/APTService/JulianoCervelin";
@@ -26,7 +26,7 @@ xf:SolicitarBilhetePortabilidade_To_SolicitarPortabilidadeNumerica($solicitarBil
     <con:dependency location="../Legacy/Schemas/ParametrosAPT.xsd">
         <con:schema ref="OSB_Juliano_Cervelin/Resources/Legacy/Schemas/ParametrosAPT"/>
     </con:dependency>
-    <con:dependency location="../Legacy/Schemas/ParametrosSolicitacaoPortabilidade.xsd">
+    <con:dependency location="../EBS/xsd/ParametrosSolicitacaoPortabilidade.xsd">
         <con:schema ref="OSB_Juliano_Cervelin/Resources/EBS/xsd/ParametrosSolicitacaoPortabilidade"/>
     </con:dependency>
 </con:xqueryEntry>

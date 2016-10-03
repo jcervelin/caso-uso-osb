@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config">
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
   <ser:coreEntry isProxy="true" isEnabled="true">
     <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
       <con:wsdl ref="OSB_Juliano_Cervelin/Resources/Legacy/Contracts/YUMService"/>
@@ -39,7 +39,7 @@
       <http:inbound-properties/>
     </tran:provider-specific>
   </ser:endpointConfig>
-  <ser:router>
+  <ser:router errorHandler="_onErrorHandler-687404900076772368-7560a990.1578abc6945.-7f85">
     <con:pipeline type="request" name="PipelineDefault_request">
       <con2:stage name="StageErroOperacaoDefault" xmlns:con2="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
         <con2:context/>
@@ -53,6 +53,62 @@
       </con2:stage>
     </con:pipeline>
     <con:pipeline type="response" name="PipelineDefault_response"/>
+    <con:pipeline type="error" name="_onErrorHandler-687404900076772368-7560a990.1578abc6945.-7f85">
+      <con:stage name="ErrorHandler">
+        <con:context/>
+        <con:actions>
+          <con1:ifThenElse xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/pipeline/config" xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+            <con5:id xmlns:con5="http://www.bea.com/wli/sb/stages/config">_ActionId-687404900076772368-7560a990.1578abc6945.-7718</con5:id>
+            <con1:case>
+              <con1:condition>
+                <con:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">$body/*:acmeFault != ''</con:xqueryText>
+              </con1:condition>
+              <con1:actions/>
+            </con1:case>
+            <con1:default>
+              <con1:ifThenElse>
+                <con5:id xmlns:con5="http://www.bea.com/wli/sb/stages/config">_ActionId-687404900076772368-7560a990.1578abc6945.-7717</con5:id>
+                <con1:case>
+                  <con1:condition>
+                    <con5:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">not(empty($fault/*:details/*:ErrorResponseDetail))</con5:xqueryText>
+                  </con1:condition>
+                  <con1:actions>
+                    <con1:replace varName="body" contents-only="true">
+                      <con5:id xmlns:con5="http://www.bea.com/wli/sb/stages/config">_ActionId-687404900076772368-7560a990.1578abc6945.-7716</con5:id>
+                      <con1:location>
+                        <con5:xpathText xmlns:con5="http://www.bea.com/wli/sb/stages/config">.</con5:xpathText>
+                      </con1:location>
+                      <con1:expr>
+                        <con5:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">fn-bea:inlinedXML($fault/*:details/*:ErrorResponseDetail)</con5:xqueryText>
+                      </con1:expr>
+                    </con1:replace>
+                  </con1:actions>
+                </con1:case>
+                <con1:default>
+                  <con3:replace varName="body" contents-only="true" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                    <con1:id>_ActionId-687404900076772368-7560a990.1578abc6945.-7715</con1:id>
+                    <con3:location>
+                      <con1:xpathText>.</con1:xpathText>
+                    </con3:location>
+                    <con3:expr>
+                      <con1:xqueryTransform>
+                        <con1:resource ref="OSB_Juliano_Cervelin/Resources/Transformations/ErrorHandler"/>
+                        <con1:param name="fault">
+                          <con1:path>$fault</con1:path>
+                        </con1:param>
+                      </con1:xqueryTransform>
+                    </con3:expr>
+                  </con3:replace>
+                </con1:default>
+              </con1:ifThenElse>
+            </con1:default>
+          </con1:ifThenElse>
+          <con1:reply isError="true">
+            <con1:id>_ActionId-687404900076772368-7560a990.1578abc6945.-7c1e</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
     <con:flow>
       <con:branch-node type="operation" name="BranchYUMService">
         <con:context/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/pipeline/config">
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/pipeline/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config">
   <ser:coreEntry isProxy="true" isEnabled="true">
     <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
       <con:wsdl ref="OSB_Juliano_Cervelin/Resources/Legacy/Contracts/YUMService"/>
@@ -34,7 +34,7 @@
     <tran:inbound-properties/>
     <tran:all-headers>true</tran:all-headers>
   </ser:endpointConfig>
-  <ser:router errorHandler="_onErrorHandler-3704364582466418459--62a39959.1577b516fd5.-7f7e">
+  <ser:router errorHandler="_onErrorHandler-687404900076772368-7560a990.1578abc6945.-7f8a">
     <con:pipeline type="request" name="PipelineDefault_request" xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
       <con:stage name="StageErroOperacaoDefault">
         <con:context/>
@@ -100,26 +100,45 @@
         </con:actions>
       </con:stage>
     </con:pipeline>
-    <con2:pipeline type="error" name="_onErrorHandler-3704364582466418459--62a39959.1577b516fd5.-7f7e">
-      <con2:stage name="StageErrorHandler">
+    <con2:pipeline type="error" name="_onErrorHandler-687404900076772368-7560a990.1578abc6945.-7f8a">
+      <con2:stage name="stageErrorHandler">
         <con2:context/>
         <con2:actions>
-          <con1:replace varName="body" contents-only="true">
-            <con:id>_ActionId-3704364582466418459--62a39959.1577b516fd5.-7d56</con:id>
-            <con1:location>
-              <con:xpathText>.</con:xpathText>
-            </con1:location>
-            <con1:expr>
-              <con:xqueryTransform>
-                <con:resource ref="OSB_Juliano_Cervelin/Resources/Transformations/ErrorHandler"/>
-                <con:param name="fault">
-                  <con:path>$fault</con:path>
-                </con:param>
-              </con:xqueryTransform>
-            </con1:expr>
-          </con1:replace>
+          <con1:ifThenElse>
+            <con:id>_ActionId-687404900076772368-7560a990.1578abc6945.-7ba8</con:id>
+            <con1:case>
+              <con1:condition>
+                <con:xqueryText>$body/*:acmeFault != ''</con:xqueryText>
+              </con1:condition>
+              <con1:actions/>
+            </con1:case>
+            <con1:default>
+              <con3:replace varName="body" contents-only="true" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                <con1:id>_ActionId-687404900076772368-7560a990.1578abc6945.-7ba7</con1:id>
+                <con3:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con3:location>
+                <con3:expr>
+                  <con1:xqueryTransform>
+                    <con1:resource ref="OSB_Juliano_Cervelin/Resources/Transformations/ErrorHandler"/>
+                    <con1:param name="fault">
+                      <con1:path>$fault</con1:path>
+                    </con1:param>
+                  </con1:xqueryTransform>
+                </con3:expr>
+              </con3:replace>
+              <con3:log>
+                <con:id>_ActionId-687404900076772368-7560a990.1578abc6945.-778a</con:id>
+                <con3:logLevel>error</con3:logLevel>
+                <con3:expr>
+                  <con:xqueryText>$body</con:xqueryText>
+                </con3:expr>
+                <con3:message>&lt;&lt;&lt;ERRO>>></con3:message>
+              </con3:log>
+            </con1:default>
+          </con1:ifThenElse>
           <con:reply isError="true">
-            <con:id>_ActionId-3704364582466418459--62a39959.1577b516fd5.-7eeb</con:id>
+            <con:id>_ActionId-687404900076772368-7560a990.1578abc6945.-7ba6</con:id>
           </con:reply>
         </con2:actions>
       </con2:stage>

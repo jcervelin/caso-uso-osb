@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="78" version="2.0">
+<workbench progressCount="77" version="2.0">
 <workbenchAdvisor/>
 <window height="1038" maximized="true" width="1024" x="399" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -18,7 +18,7 @@
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.new.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="206" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -70,7 +70,8 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>&#x0A;<category IMemento.internal.id="Warnings (12 items)"/>
+<expanded>
+<category IMemento.internal.id="Warnings (7 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="120" org.eclipse.ui.ide.markerType="120" org.eclipse.ui.ide.pathField="160" org.eclipse.ui.ide.resourceField="120" org.eclipse.ui.ide.severityAndDescriptionField="1936"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -172,6 +173,9 @@
 <filter element="*.class" isEnabled="true"/>
 <filter element="*.pyo" isEnabled="true"/>
 </filters>
+<expanded>
+<element path="/OSB_Juliano_Cervelin"/>
+</expanded>
 </viewState>
 </view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
@@ -352,9 +356,9 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.29387113" ratioLeft="561" ratioRight="1348" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.7262693" ratioLeft="658" ratioRight="248" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.PropertySheet" appearance="2" expanded="2">
+<info part="org.eclipse.ui.editorss" ratio="0.26086956" ratioLeft="498" ratioRight="1411" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.7737307" ratioLeft="701" ratioRight="205" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">
 <page content="com.bea.alsb.ui.views.ReferenceView" label="References"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
@@ -572,7 +576,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.19979079" ratioLeft="382" ratioRight="1530" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomFrame" ratio="0.6004415" ratioLeft="544" ratioRight="362" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.bea.alsb.common.mapper.views.TargetExpression" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.views.PropertySheet" appearance="2" expanded="2">
 <page content="com.bea.alsb.common.mapper.views.TargetExpression" label="Target Expression"/>
 <page content="com.bea.alsb.common.mapper.views.ConstraintsView" label="Constraints"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -699,8 +703,8 @@
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.3739003" ratioLeft="255" ratioRight="427" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.47947213" ratioLeft="327" ratioRight="355" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.838659" ratioLeft="1601" ratioRight="308" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -746,41 +750,44 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="obterDadosConta_db.jca" tooltip="OSB_Juliano_Cervelin/Resources/Adapters/AdapterDBCobol/obterDadosConta_db.jca">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Adapters/AdapterDBCobol/obterDadosConta_db.jca"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.common.mapper.editors.MapperEditor" name="SolicitarPortabilidadeResponse_To_InovixServiceResponse.xq" tooltip="OSB_Juliano_Cervelin/Resources/Transformations/SolicitarPortabilidadeResponse_To_InovixServiceResponse.xq">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Transformations/SolicitarPortabilidadeResponse_To_InovixServiceResponse.xq"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="SolicitarBilhetePortabilidade.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/SolicitarBilhetePortabilidade.proxy">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/SolicitarBilhetePortabilidade.proxy"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="APTService.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/APTService.proxy">
 <persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/APTService.proxy"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.common.mapper.editors.MapperEditor" name="AdapterObterDadosContaResponse_To_ObterDadosContaResponse.xq" tooltip="OSB_Juliano_Cervelin/Resources/Transformations/AdapterObterDadosContaResponse_To_ObterDadosContaResponse.xq">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Transformations/AdapterObterDadosContaResponse_To_ObterDadosContaResponse.xq"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor" name="Account.xsd" tooltip="OSB_Juliano_Cervelin/ModeloCanonico/Account.xsd">
-<persistable path="/OSB_Juliano_Cervelin/ModeloCanonico/Account.xsd"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.common.mapper.editors.MapperEditor" name="ObterDadosConta_To_Adapter_ObterDadosConta.xq" tooltip="OSB_Juliano_Cervelin/Resources/Transformations/ObterDadosConta_To_Adapter_ObterDadosConta.xq">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Transformations/ObterDadosConta_To_Adapter_ObterDadosConta.xq"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.common.mapper.editors.MapperEditor" name="ObterStatusFinanceiro_To_AdapterObterStatusFinanceiro.xq" tooltip="OSB_Juliano_Cervelin/Resources/Transformations/ObterStatusFinanceiro_To_AdapterObterStatusFinanceiro.xq">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Transformations/ObterStatusFinanceiro_To_AdapterObterStatusFinanceiro.xq"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="INOVIXService.proxy" tooltip="OSB_Juliano_Cervelin/Services/Proxies/INOVIXService.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Services/Proxies/INOVIXService.proxy"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="YUMService.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/YUMService.proxy">
 <persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/YUMService.proxy"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="ObterDadosConta.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ObterDadosConta.proxy">
-<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ObterDadosConta.proxy"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="ConsultaDadosClienteSC.proxy" tooltip="OSB_Juliano_Cervelin/ConsultaDadosClienteSC.proxy">
+<persistable path="/OSB_Juliano_Cervelin/ConsultaDadosClienteSC.proxy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="SolicitarPortabilidade.proxy" tooltip="OSB_Juliano_Cervelin/Services/Proxies/Operations/SolicitarPortabilidade.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Services/Proxies/Operations/SolicitarPortabilidade.proxy"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="GetCustomerByCPF.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/GetCustomerByCPF.proxy">
 <persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/GetCustomerByCPF.proxy"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="ObterDadosConta.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ObterDadosConta.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ObterDadosConta.proxy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="SolicitarBilhetePortabilidade.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/SolicitarBilhetePortabilidade.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/SolicitarBilhetePortabilidade.proxy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="ConsultaDadosClienteSN.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ConsultaDadosClienteSN.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ConsultaDadosClienteSN.proxy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="ConsultaDadosClienteSC.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ConsultaDadosClienteSC.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ConsultaDadosClienteSC.proxy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.common.mapper.editors.MapperEditor" name="ErrorHandler.xq" tooltip="OSB_Juliano_Cervelin/Resources/Transformations/ErrorHandler.xq">
+<persistable path="/OSB_Juliano_Cervelin/Resources/Transformations/ErrorHandler.xq"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="ObterStatusFinanceiroCliente.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ObterStatusFinanceiroCliente.proxy">
 <persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/Operations/ObterStatusFinanceiroCliente.proxy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.bea.alsb.ui.editors.proxy" name="KGBService.proxy" tooltip="OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/KGBService.proxy">
+<persistable path="/OSB_Juliano_Cervelin/Resources/Legacy/Services/Proxies/KGBService.proxy"/>
 </file>
 </mruList>
 </workbench>

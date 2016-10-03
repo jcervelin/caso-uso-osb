@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con1:SoapBindingType" xmlns:con1="http://www.bea.com/wli/sb/services/bindings/config">
+      <con1:wsdl ref="MDS-OSB/Nextel/V1/Negocio/Interfaces/Cliente/ConsultaDadosCliente/ConsultaDadosClienteSN"/>
+      <con1:port>
+        <con1:name>ConsultaDadosClienteSNSoap</con1:name>
+        <con1:namespace>http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente</con1:namespace>
+      </con1:port>
+      <con1:selector type="SOAP body"/>
+      <con1:WSI-compliant>false</con1:WSI-compliant>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/ConsultaDadosCliente/ConsultaDadosClienteSN</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7fe1">
+    <con:pipeline type="request" name="PipelinePairNode_ConsultaDadosClienteSN_request">
+      <con:stage name="Init_Variaveis" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context>
+          <con1:userNsDecl namespace="http://xmlns.nextel.com/Integracao/Modelo/MetaDados" prefix="header"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="beginBody">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fe7</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="codigoErro">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fe6</con1:id>
+            <con2:expr>
+              <con1:xqueryText>"1001"</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:insert varName="header">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fe5</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:where>first-child</con2:where>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<header:Cabecalho>
+         <header:DataHoraCriacao>{fn:current-dateTime()}</header:DataHoraCriacao>
+         <header:IdentificadorMensagem>{fn-bea:uuid()}</header:IdentificadorMensagem>
+         <header:Operacao>{$operation}</header:Operacao>
+</header:Cabecalho>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:insert>
+          <con2:assign varName="beginHeader">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fe4</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$header</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="requestBody">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fe3</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairNode_ConsultaDadosClienteSN_response">
+      <con:stage name="CabecalhoRetorno_Stage" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context>
+          <con1:userNsDecl namespace="http://xmlns.nextel.com/Integracao/Modelo/MetaDados" prefix="header"/>
+        </con:context>
+        <con:actions>
+          <con2:replace varName="header">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fe2</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$beginHeader</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7fe1">
+      <con:stage name="ConsultaDadosClienteSN_ErrorStage">
+        <con:context xmlns:con5="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con4="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+          <con6:userNsDecl namespace="http://xmlns.oracle.com/EnterpriseObjects/Core/Common/V2" prefix="ns4" xmlns:con6="http://www.bea.com/wli/sb/stages/config"/>
+          <con6:userNsDecl namespace="http://xmlns.nextel.com/Negocio/Erro" prefix="fault" xmlns:con6="http://www.bea.com/wli/sb/stages/config"/>
+          <con6:userNsDecl namespace="http://xmlns.nextel.com/Integracao/Modelo/Erro" prefix="erro" xmlns:con6="http://www.bea.com/wli/sb/stages/config"/>
+        </con:context>
+        <con:actions xmlns:con5="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con4="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+          <con2:ifThenElse>
+            <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fcc</con6:id>
+            <con2:case>
+              <con2:condition>
+                <con6:xqueryText xmlns:con6="http://www.bea.com/wli/sb/stages/config">fn:exists($body//soap-env:Fault)</con6:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="soapFault">
+                  <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fcb</con6:id>
+                  <con2:expr>
+                    <con6:xqueryText xmlns:con6="http://www.bea.com/wli/sb/stages/config">$body//soap-env:Fault</con6:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:default>
+              <con2:assign varName="soapFault">
+                <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fca</con6:id>
+                <con2:expr>
+                  <con6:xqueryTransform xmlns:con6="http://www.bea.com/wli/sb/stages/config">
+                    <con6:resource ref="ServicosUtilitarios/XQueries/OsbFault_to_SoapFault"/>
+                    <con6:param name="osbFault">
+                      <con6:path>$fault</con6:path>
+                    </con6:param>
+                  </con6:xqueryTransform>
+                </con2:expr>
+              </con2:assign>
+            </con2:default>
+          </con2:ifThenElse>
+          <con2:assign varName="erroIntegracao">
+            <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc9</con6:id>
+            <con2:expr>
+              <con6:xqueryTransform xmlns:con6="http://www.bea.com/wli/sb/stages/config">
+                <con6:resource ref="ServicosUtilitarios/XQueries/SoapFault_Parametros_to_ErroTecnicoIntegracao"/>
+                <con6:param name="codigo">
+                  <con6:path>$codigoErro</con6:path>
+                </con6:param>
+                <con6:param name="criador">
+                  <con6:path>"SOA"</con6:path>
+                </con6:param>
+                <con6:param name="processo">
+                  <con6:path>concat("ConsultaDadosClienteSN.",$operation)</con6:path>
+                </con6:param>
+                <con6:param name="soapFault">
+                  <con6:path>$soapFault</con6:path>
+                </con6:param>
+                <con6:param name="identificadorMensagem">
+                  <con6:path>data($trackingID)</con6:path>
+                </con6:param>
+              </con6:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:replace varName="body" contents-only="false">
+            <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc8</con6:id>
+            <con2:location>
+              <con6:xpathText xmlns:con6="http://www.bea.com/wli/sb/stages/config">.</con6:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con6:xqueryTransform xmlns:con6="http://www.bea.com/wli/sb/stages/config">
+                <con6:resource ref="ServicosUtilitarios/XQueries/ErroTecnicoIntegracao_to_BodyFault"/>
+                <con6:param name="erroIntegracao">
+                  <con6:path>$erroIntegracao</con6:path>
+                </con6:param>
+              </con6:xqueryTransform>
+            </con2:expr>
+          </con2:replace>
+          <con2:ifThenElse>
+            <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc7</con6:id>
+            <con2:case>
+              <con2:condition>
+                <con6:xqueryText xmlns:con6="http://www.bea.com/wli/sb/stages/config">fn:exists($body/soap-env:Fault/detail/fault:ErroNegocio)</con6:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con4:route>
+                  <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc6</con6:id>
+                  <con4:service ref="ServicosUtilitarios/BusinessServices/ErroSU" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                  <con4:operation>registrarErroNegocioProcesso</con4:operation>
+                  <con4:outboundTransform>
+                    <con2:replace varName="body" contents-only="true">
+                      <con6:id xmlns:con6="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc5</con6:id>
+                      <con2:location>
+                        <con6:xpathText xmlns:con6="http://www.bea.com/wli/sb/stages/config">.</con6:xpathText>
+                      </con2:location>
+                      <con2:expr>
+                        <con6:xqueryTransform xmlns:con6="http://www.bea.com/wli/sb/stages/config">
+                          <con6:resource ref="ServicosUtilitarios/XQueries/Parametros_to_RegistrarErroNegocioMensagem"/>
+                          <con6:param name="Processo">
+                            <con6:path>data($erroIntegracao/erro:Processo)</con6:path>
+                          </con6:param>
+                          <con6:param name="Fonte">
+                            <con6:path>data($erroIntegracao/erro:Fonte)</con6:path>
+                          </con6:param>
+                          <con6:param name="Criador">
+                            <con6:path>data($erroIntegracao/erro:Criador)</con6:path>
+                          </con6:param>
+                          <con6:param name="IdentificadorRastreamento">
+                            <con6:path>data($erroIntegracao/erro:IdentificadorRastreamento)</con6:path>
+                          </con6:param>
+                          <con6:param name="IdentificadorComposite">
+                            <con6:path>""
+(:data($erroIntegracao/erro:IdentificadorComposite):)</con6:path>
+                          </con6:param>
+                          <con6:param name="Codigo">
+                            <con6:path>data($erroIntegracao/erro:Codigo)</con6:path>
+                          </con6:param>
+                          <con6:param name="Mensagem">
+                            <con6:path>data($erroIntegracao/erro:Mensagem)</con6:path>
+                          </con6:param>
+                        </con6:xqueryTransform>
+                      </con2:expr>
+                    </con2:replace>
+                  </con4:outboundTransform>
+                </con4:route>
+              </con2:actions>
+            </con2:case>
+            <con2:default/>
+          </con2:ifThenElse>
+          <con6:report xmlns:con6="http://www.bea.com/wli/sb/stages/logging/config">
+            <con7:id xmlns:con7="http://www.bea.com/wli/sb/stages/config">_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc4</con7:id>
+            <con6:expr>
+              <con7:xqueryText xmlns:con7="http://www.bea.com/wli/sb/stages/config">$body</con7:xqueryText>
+            </con6:expr>
+            <con6:labels>
+              <con6:key>logErro</con6:key>
+              <con6:varName>trackingID</con6:varName>
+              <con6:value>
+                <con7:xpathText xmlns:con7="http://www.bea.com/wli/sb/stages/config">.</con7:xpathText>
+              </con6:value>
+            </con6:labels>
+          </con6:report>
+          <con6:reply isError="true" xmlns:con6="http://www.bea.com/wli/sb/stages/config">
+            <con6:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fc3</con6:id>
+          </con6:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="request" name="PipelinePairConsultarDadosCliente_request">
+      <con:stage name="Report_Request" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente" prefix="con"/>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/ModeloCanonico/Cliente" prefix="cli"/>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/ModeloCanonico/Telefone" prefix="tel"/>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/ModeloCanonico/Radio" prefix="rad"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="trackingID">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fb0</con1:id>
+            <con2:expr>
+              <con1:xqueryText>&lt;trakingId>
+{
+concat(
+$body/con:ConsultarDadosClienteMensagem/con:NumeroTelefone,
+$body/con:ConsultarDadosClienteMensagem/con:NumeroFleetId
+)
+}
+&lt;/trakingId></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con3:report>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7faf</con1:id>
+            <con3:expr>
+              <con1:xqueryText>$body</con1:xqueryText>
+            </con3:expr>
+            <con3:labels>
+              <con3:key>input_message</con3:key>
+              <con3:varName>trackingID</con3:varName>
+              <con3:value>
+                <con1:xpathText>.</con1:xpathText>
+              </con3:value>
+            </con3:labels>
+          </con3:report>
+        </con:actions>
+      </con:stage>
+      <con:stage name="ValidateRequest" errorHandler="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7fad" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Integracao/Modelo/MetaDados" prefix="met"/>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente" prefix="con"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fae</con1:id>
+            <con2:schema ref="MDS-OSB/Nextel/V1/Negocio/Interfaces/Cliente/ConsultaDadosCliente/ConsultarDadosClienteMensagem"/>
+            <con2:schemaElement xmlns:con5="http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente">con5:ConsultarDadosClienteMensagem</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./con:ConsultarDadosClienteMensagem</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairConsultarDadosCliente_response">
+      <con:stage name="Report_Response" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context/>
+        <con:actions>
+          <con3:report>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7faa</con1:id>
+            <con3:expr>
+              <con1:xqueryText>$body</con1:xqueryText>
+            </con3:expr>
+            <con3:labels>
+              <con3:key>output_message</con3:key>
+              <con3:varName>trackingID</con3:varName>
+              <con3:value>
+                <con1:xpathText>.</con1:xpathText>
+              </con3:value>
+            </con3:labels>
+          </con3:report>
+        </con:actions>
+      </con:stage>
+      <con:stage name="ValidateResponse" errorHandler="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7fa8" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente" prefix="con"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fa9</con1:id>
+            <con2:schema ref="MDS-OSB/Nextel/V1/Negocio/Interfaces/Cliente/ConsultaDadosCliente/ConsultarDadosClienteMensagem"/>
+            <con2:schemaElement xmlns:con5="http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente">con5:ConsultarDadosClienteMensagemResposta</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./con:ConsultarDadosClienteMensagemResposta</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7fad">
+      <con:stage name="Erro_Validacao_Request" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="codigoErro">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fac</con1:id>
+            <con2:expr>
+              <con1:xqueryText>"1002"</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:Error>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fab</con1:id>
+            <con2:errCode>1002</con2:errCode>
+          </con2:Error>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7fa8">
+      <con:stage name="Erro_Validacao_Response" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="codigoErro">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fa7</con1:id>
+            <con2:expr>
+              <con1:xqueryText>"1002"</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:Error>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7fa6</con1:id>
+            <con2:errCode>1002</con2:errCode>
+          </con2:Error>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7f98">
+      <con:stage name="Erro_SC" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="codigoErro">
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7f97</con1:id>
+            <con2:expr>
+              <con1:xqueryText>"1005"</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:Error>
+            <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7f96</con1:id>
+            <con2:errCode>1005</con2:errCode>
+          </con2:Error>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="PipelinePairNode_ConsultaDadosClienteSN">
+        <con:request>PipelinePairNode_ConsultaDadosClienteSN_request</con:request>
+        <con:response>PipelinePairNode_ConsultaDadosClienteSN_response</con:response>
+      </con:pipeline-node>
+      <con:branch-node type="operation" name="BranchNode_ConsultaDadosCliente">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="consultarDadosCliente">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="PipelinePairConsultarDadosCliente">
+                <con:request>PipelinePairConsultarDadosCliente_request</con:request>
+                <con:response>PipelinePairConsultarDadosCliente_response</con:response>
+              </con:pipeline-node>
+              <con:route-node name="RouteNode_To_ConsultaDadosClienteSC" error-handler="_onErrorHandler-3225689003107167941-52701f4c.14b403375ae.-7f98">
+                <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                  <con1:userNsDecl namespace="http://xmlns.nextel.com/Integracao/Interfaces/Cliente/ConsultaDadosCliente" prefix="gsp"/>
+                  <con1:varNsDecl namespace="http://xmlns.nextel.com/Negocio/Interfaces/Cliente/ConsultaDadosCliente" prefix="con"/>
+                </con:context>
+                <con:actions xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                  <con4:route>
+                    <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7f9b</con1:id>
+                    <con4:service ref="ConsultaDadosCliente/ProxyServices/ConsultaDadosClienteSC" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con4:operation>consultarDadosCliente</con4:operation>
+                    <con4:outboundTransform>
+                      <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7f9a</con1:id>
+                        <con2:location>
+                          <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="ConsultaDadosCliente/XQueries/ConsultarDadosClienteSNReqMsg_to_ConsultarDadosClienteSCReqMsg"/>
+                            <con1:param name="consultarDadosClienteMensagem1">
+                              <con1:path>$body/con:ConsultarDadosClienteMensagem</con1:path>
+                            </con1:param>
+                          </con1:xqueryTransform>
+                        </con2:expr>
+                      </con2:replace>
+                    </con4:outboundTransform>
+                    <con4:responseTransform>
+                      <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-3225689003107167941-52701f4c.14b403375ae.-7f99</con1:id>
+                        <con2:location>
+                          <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="ConsultaDadosCliente/XQueries/ConsultarDadosClienteSCRespMsg_To_ConsultarDadosClienteSNRespMsg"/>
+                            <con1:param name="consultarDadosClienteMensagemResposta1">
+                              <con1:path>$body/gsp:ConsultarDadosClienteMensagemResposta</con1:path>
+                            </con1:param>
+                          </con1:xqueryTransform>
+                        </con2:expr>
+                      </con2:replace>
+                    </con4:responseTransform>
+                  </con4:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

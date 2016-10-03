@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:xqueryEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
-    <con:xquery><![CDATA[(:: pragma bea:global-element-parameter parameter="$gerarTicketResponse1" element="ns0:gerarTicketResponse" location="../Legacy/Schemas/ParametrosGerarTicketEJB.xsd" ::)
+    <con:xquery><![CDATA[(:: pragma bea:global-element-parameter parameter="$gerarTicketResponse1" element="ns0:gerarTicketResponse" location="../EBS/xsd/ParametrosGerarTicketEJB.xsd" ::)
 (:: pragma bea:global-element-return element="ns1:SolicitarBilhetePortabilidadeResponse" location="../Legacy/Schemas/ParametrosAPT.xsd" ::)
 
 declare namespace ns2 = "java:br.com.acme.inovix.geraticket.bean";
@@ -28,7 +28,7 @@ declare function xf:GerarTicketEJB_To_SolicitarBilhetePortabilidadeResponse($ger
 declare variable $gerarTicketResponse1 as element(ns0:gerarTicketResponse) external;
 
 xf:GerarTicketEJB_To_SolicitarBilhetePortabilidadeResponse($gerarTicketResponse1)]]></con:xquery>
-    <con:dependency location="../Legacy/Schemas/ParametrosGerarTicketEJB.xsd">
+    <con:dependency location="../EBS/xsd/ParametrosGerarTicketEJB.xsd">
         <con:schema ref="OSB_Juliano_Cervelin/Resources/EBS/xsd/ParametrosGerarTicketEJB"/>
     </con:dependency>
     <con:dependency location="../Legacy/Schemas/ParametrosAPT.xsd">
